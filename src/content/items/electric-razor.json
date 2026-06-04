@@ -1,0 +1,30 @@
+{
+  "name": "Electric Razor",
+  "slug": "electric-razor",
+  "category": "electronics",
+  "description": "Electric razors and shavers are permitted in both carry-on and checked baggage. They pose no security concern as their blades are enclosed and non-removable.",
+  "carryOnAllowed": true,
+  "checkedAllowed": true,
+  "tsaGuideline": "Electric razors are allowed in both carry-on and checked bags. There are no restrictions on electric shavers, trimmers, or grooming devices with enclosed blades.",
+  "iataGuideline": "Electric razors are permitted in cabin and hold baggage. Battery-powered razors with lithium batteries should follow standard lithium battery guidelines (under 100Wh).",
+  "restrictions": [
+    "Battery-powered razors with lithium batteries should follow lithium battery guidelines",
+    "Spare lithium batteries for the razor should be carried in carry-on, not checked",
+    "Razors with removable straight blades follow different rules (blades prohibited in carry-on)"
+  ],
+  "faqs": [
+    {
+      "question": "Can I pack an electric razor in my carry-on bag?",
+      "answer": "Yes. Electric razors, shavers, and trimmers are fully permitted in carry-on baggage. Their blades are enclosed and do not pose a security concern."
+    },
+    {
+      "question": "What about straight razors or safety razor blades?",
+      "answer": "Electric razors are different from straight razors or safety razor blades. Disposable razors and their cartridges are allowed in carry-on, but loose safety razor blades and straight razors must go in checked baggage."
+    },
+    {
+      "question": "Do I need to remove my electric razor at the security checkpoint?",
+      "answer": "No. Electric razors do not need to be removed from your bag during screening, unlike laptops or large electronics. However, a TSA officer may ask to inspect it if the X-ray image is unclear."
+    }
+  ],
+  "lastUpdated": "2025-01-15"
+}

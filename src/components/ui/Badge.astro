@@ -1,0 +1,44 @@
+---
+interface Props {
+  status: boolean | 'conditional' | 'allowed' | 'not-allowed';
+  size?: 'sm' | 'md';
+  label?: string;
+}
+
+const { status, size = 'sm', label } = Astro.props;
+
+let text = label;
+let colorStyle: string;
+let dotColor: string;
+
+const s = status === true ? 'allowed' : status === false ? 'not-allowed' : status;
+
+if (s === 'allowed') {
+  if (!text) text = 'Allowed';
+  colorStyle = 'color:#16a34a;background:rgba(22,163,74,0.08);border-color:rgba(22,163,74,0.2)';
+  dotColor = '#16a34a';
+} else if (s === 'not-allowed') {
+  if (!text) text = 'Not Allowed';
+  colorStyle = 'color:#dc2626;background:rgba(220,38,38,0.08);border-color:rgba(220,38,38,0.2)';
+  dotColor = '#dc2626';
+} else {
+  if (!text) text = 'Conditional';
+  colorStyle = 'color:#d97706;background:rgba(217,119,6,0.08);border-color:rgba(217,119,6,0.2)';
+  dotColor = '#d97706';
+}
+
+const sizeClass = size === 'md'
+  ? 'px-2.5 py-1 text-sm rounded-md'
+  : 'px-2 py-0.5 text-xs rounded';
+---
+<span
+  class={`inline-flex items-center gap-1.5 border font-medium ${sizeClass}`}
+  style={colorStyle}
+>
+  <span
+    class="w-1.5 h-1.5 rounded-full flex-shrink-0"
+    style={`background:${dotColor}`}
+    aria-hidden="true"
+  ></span>
+  {text}
+</span>

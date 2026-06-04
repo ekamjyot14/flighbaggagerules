@@ -1,0 +1,186 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Badge from '../../components/ui/Badge.astro';
+import FAQAccordion from '../../components/ui/FAQAccordion.astro';
+import Breadcrumbs from '../../components/common/Breadcrumbs.astro';
+import { getCollection } from 'astro:content';
+import { getLocaleFromUrl, createTranslator, loadTranslations, getSegmentPath, getHreflangs } from '../../i18n/utils';
+import { buildTitle, buildBreadcrumbSchema, buildFAQSchema } from '../../utils/seo';
+import type { Locale } from '../../i18n/config';
+
+export async function getStaticPaths() {
+  const items = await getCollection('items');
+  return items.map((item) => ({
+    params: { slug: item.data.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const items = await getCollection('items');
+const item = items.find((i) => i.data.slug === slug);
+
+if (!item) {
+  return Astro.redirect('/404');
+}
+
+const data = item.data;
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const translations = await loadTranslations(locale);
+const t = createTranslator(translations);
+const site = 'https://flightbaggagerules.com';
+
+const breadcrumbItems = [
+  { label: t('nav.items'), href: getSegmentPath(locale, 'items') },
+  { label: data.name },
+];
+
+const schema = [
+  buildBreadcrumbSchema([
+    { name: t('nav.items'), url: `${site}/items` },
+    { name: data.name, url: `${site}/items/${data.slug}` },
+  ]),
+  ...(data.faqs?.length ? [buildFAQSchema(data.faqs)] : []),
+];
+
+const hreflangAlternates = getHreflangs(site, `/items/${data.slug}`, locale);
+---
+
+<Layout
+  title={buildTitle(`Can You Bring ${data.name} on a Plane?`)}
+  description={`TSA rules and airline policies for ${data.name}. Find out if you can bring it carry-on or checked, and any restrictions that apply.`}
+  locale={locale}
+  hreflangAlternates={hreflangAlternates}
+  schema={schema}
+>
+  <div class="container-page py-12">
+    <!-- Breadcrumbs -->
+    <div class="mb-6">
+      <Breadcrumbs items={breadcrumbItems} />
+    </div>
+
+    <!-- Header -->
+    <div class="mb-10">
+      <h1 class="text-display-lg mb-4" style="color:var(--color-ink)">Can You Bring {data.name} on a Plane?</h1>
+      <div class="flex items-center gap-3 flex-wrap">
+        <span class="text-sm" style="color:var(--color-mute)">Carry-On:</span>
+        <Badge status={data.carryOnAllowed} size="md" />
+        <span class="text-sm ms-2" style="color:var(--color-mute)">Checked:</span>
+        <Badge status={data.checkedAllowed} size="md" />
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="md:col-span-2 space-y-8">
+
+        <!-- Description -->
+        {data.description && (
+          <p class="text-body-sm leading-relaxed" style="color:var(--color-body)">{data.description}</p>
+        )}
+
+        <!-- TSA Guidelines -->
+        {data.tsaGuideline && (
+          <section aria-labelledby="tsa-heading">
+            <h2 id="tsa-heading" class="text-display-sm mb-4" style="color:var(--color-ink)">TSA Guidelines</h2>
+            <div class="p-5 rounded-xl border" style="background:var(--color-canvas);border-color:var(--color-hairline);box-shadow:var(--shadow-card)">
+              <p class="text-sm leading-relaxed" style="color:var(--color-body)">{data.tsaGuideline}</p>
+            </div>
+          </section>
+        )}
+
+        <!-- Capacity/Restrictions -->
+        {(data.capacityLimit || (data.restrictions?.length > 0)) && (
+          <section aria-labelledby="restrictions-heading">
+            <h2 id="restrictions-heading" class="text-display-sm mb-4" style="color:var(--color-ink)">{t('item.restrictions')}</h2>
+            <div class="p-5 rounded-xl border" style="background:var(--color-canvas);border-color:var(--color-hairline);box-shadow:var(--shadow-card)">
+              {data.capacityLimit && (
+                <p class="text-sm font-medium mb-4" style="color:var(--color-ink)">Limit: {data.capacityLimit}</p>
+              )}
+              {data.restrictions?.length > 0 && (
+                <ul class="space-y-2">
+                  {data.restrictions.map((r) => (
+                    <li class="flex items-start gap-2 text-sm" style="color:var(--color-body)">
+                      <span class="mt-0.5" aria-hidden="true">•</span>
+                      {r}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </section>
+        )}
+
+        <!-- Airline-specific rules -->
+        {data.airlineRules?.length > 0 && (
+          <section aria-labelledby="airline-rules-heading">
+            <h2 id="airline-rules-heading" class="text-display-sm mb-4" style="color:var(--color-ink)">{t('item.airlineRules')}</h2>
+            <div class="rounded-xl border overflow-hidden" style="border-color:var(--color-hairline)">
+              <table class="w-full text-sm" aria-label="Airline-specific rules">
+                <thead>
+                  <tr style="background:var(--color-canvas-soft)">
+                    <th class="text-start px-4 py-3 text-xs font-medium uppercase tracking-wider" style="color:var(--color-mute);font-family:var(--font-mono)" scope="col">Airline</th>
+                    <th class="text-start px-4 py-3 text-xs font-medium uppercase tracking-wider" style="color:var(--color-mute);font-family:var(--font-mono)" scope="col">Carry-On</th>
+                    <th class="text-start px-4 py-3 text-xs font-medium uppercase tracking-wider" style="color:var(--color-mute);font-family:var(--font-mono)" scope="col">Checked</th>
+                    <th class="text-start px-4 py-3 text-xs font-medium uppercase tracking-wider" style="color:var(--color-mute);font-family:var(--font-mono)" scope="col">Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.airlineRules.map((rule, i) => (
+                    <tr style="border-top:1px solid var(--color-hairline)">
+                      <td class="px-4 py-3">
+                        <a href={getSegmentPath(locale, 'airlines', rule.airlineSlug)} class="text-sm font-medium no-underline hover:opacity-80" style="color:var(--color-ink)">
+                          {rule.airlineName}
+                        </a>
+                      </td>
+                      <td class="px-4 py-3"><Badge status={rule.carryOn} /></td>
+                      <td class="px-4 py-3"><Badge status={rule.checked} /></td>
+                      <td class="px-4 py-3 text-xs" style="color:var(--color-mute)">{rule.notes}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
+
+        <!-- FAQs -->
+        {data.faqs?.length > 0 && (
+          <section aria-labelledby="faq-heading">
+            <h2 id="faq-heading" class="text-display-sm mb-4" style="color:var(--color-ink)">{t('airline.faqs')}</h2>
+            <FAQAccordion faqs={data.faqs} />
+          </section>
+        )}
+      </div>
+
+      <!-- Sidebar -->
+      <aside aria-label="Quick reference">
+        <div
+          class="sticky top-20 p-5 rounded-xl border"
+          style="background:var(--color-canvas-soft);border-color:var(--color-hairline)"
+        >
+          <h3 class="text-xs font-medium uppercase tracking-wider mb-4" style="color:var(--color-mute);font-family:var(--font-mono)">Quick Reference</h3>
+          <dl class="space-y-4">
+            <div>
+              <dt class="text-xs mb-1" style="color:var(--color-mute)">Carry-On</dt>
+              <dd><Badge status={data.carryOnAllowed} size="md" /></dd>
+            </div>
+            <div class="pt-3 border-t" style="border-color:var(--color-hairline)">
+              <dt class="text-xs mb-1" style="color:var(--color-mute)">Checked Bag</dt>
+              <dd><Badge status={data.checkedAllowed} size="md" /></dd>
+            </div>
+            {data.capacityLimit && (
+              <div class="pt-3 border-t" style="border-color:var(--color-hairline)">
+                <dt class="text-xs mb-1" style="color:var(--color-mute)">Limit</dt>
+                <dd class="text-xs font-medium" style="color:var(--color-ink)">{data.capacityLimit}</dd>
+              </div>
+            )}
+            <div class="pt-3 border-t" style="border-color:var(--color-hairline)">
+              <dt class="text-xs mb-1" style="color:var(--color-mute)">Category</dt>
+              <dd class="text-sm capitalize" style="color:var(--color-ink)">{data.category.replace('-', ' ')}</dd>
+            </div>
+          </dl>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Layout>

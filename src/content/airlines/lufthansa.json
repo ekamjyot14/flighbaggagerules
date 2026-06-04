@@ -1,0 +1,54 @@
+{
+  "name": "Lufthansa",
+  "slug": "lufthansa",
+  "iata": "LH",
+  "country": "Germany",
+  "region": "Europe",
+  "alliance": "Star Alliance",
+  "website": "https://www.lufthansa.com",
+  "logo": "https://images.kiwi.com/airlines/64/LH.png",
+  "carryOn": {
+    "size": "55 x 40 x 23 cm (22 x 16 x 9 in)",
+    "weight": "8 kg (18 lbs)",
+    "personalItem": "40 x 30 x 10 cm laptop bag",
+    "notes": "Economy: 1 carry-on (8 kg) + 1 laptop bag. Business/First: 2 carry-on bags up to 16 kg total."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "23 kg (50 lbs)", "size": "158 cm (62 in) linear", "notes": "Included in Economy Classic and Flex. Economy Light does not include checked baggage." },
+    "premiumEconomy": { "pieces": 2, "weight": "23 kg each", "size": "158 cm linear", "notes": "2 bags included." },
+    "business": { "pieces": 2, "weight": "32 kg (70 lbs) each", "size": "158 cm linear", "notes": "2 bags included." },
+    "firstClass": { "pieces": 3, "weight": "32 kg each", "size": "158 cm linear", "notes": "3 bags included." }
+  },
+  "fees": {
+    "firstBag": "Included in Classic/Flex; Economy Light requires purchase",
+    "secondBag": "Varies by route; typically €30–€50",
+    "overweight": "€70–€100 for bags over 23 kg"
+  },
+  "batteryRules": {
+    "lithiumIon": "Spare lithium-ion batteries must be carried in hand baggage only",
+    "spareBatteries": "Hand baggage only. Up to 100Wh no restrictions. 101–160Wh requires Lufthansa approval. Over 160Wh prohibited.",
+    "powerBankLimit": "100Wh unrestricted; 101–160Wh with airline approval",
+    "laptops": "Permitted in carry-on. Comply with security screening."
+  },
+  "restrictedItems": [
+    "Hoverboards and electric unicycles",
+    "Smart bags with integrated non-removable lithium batteries",
+    "E-cigarettes in checked baggage"
+  ],
+  "faqs": [
+    {
+      "question": "Does Lufthansa Economy Light include a checked bag?",
+      "answer": "No. Lufthansa Economy Light (the cheapest fare) does not include a checked bag. Economy Classic and Flex fares include one 23 kg checked bag. Business class includes two 32 kg bags."
+    },
+    {
+      "question": "What is Lufthansa's carry-on weight limit?",
+      "answer": "Lufthansa allows one carry-on bag up to 8 kg (18 lbs) and one laptop bag in Economy. Business class passengers may bring two carry-on items totaling up to 16 kg."
+    },
+    {
+      "question": "Are power banks allowed on Lufthansa flights?",
+      "answer": "Yes, in hand baggage only. Power banks up to 100Wh are unrestricted. Banks between 101–160Wh require Lufthansa approval. Power banks over 160Wh are not allowed on board."
+    }
+  ],
+  "sourceUrl": "https://www.lufthansa.com/de/en/baggage",
+  "lastUpdated": "2025-01-01"
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Avelo Airlines",
+  "slug": "avelo-airlines",
+  "iata": "XP",
+  "country": "United States",
+  "region": "North America",
+  "alliance": "Independent",
+  "logo": "https://images.kiwi.com/airlines/64/XP.png",
+  "carryOn": {
+    "size": "22 x 18 x 10 in (56 x 46 x 25 cm)",
+    "weight": "No weight limit",
+    "personalItem": "18 x 14 x 8 in (45 x 35 x 20 cm)",
+    "notes": "One carry-on included with every fare. Personal item also included."
+  },
+  "checked": {
+    "economy": { "pieces": 0, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "$35 per checked bag when booked online. $40 at the airport." },
+    "premiumEconomy": { "pieces": 0, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "Fees apply." },
+    "business": { "pieces": 0, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "N/A." },
+    "firstClass": { "pieces": 0, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "N/A." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Carry-on only for spare lithium batteries",
+    "spareBatteries": "Max 100Wh per battery.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on."
+  },
+  "restrictedItems": [
+    "Hoverboards",
+    "Smart bags with non-removable lithium batteries"
+  ],
+  "faqs": [
+    {
+      "question": "Does Avelo charge for carry-on bags?",
+      "answer": "No, Avelo includes one carry-on bag and one personal item for all passengers at no extra charge."
+    },
+    {
+      "question": "How much does Avelo charge for checked bags?",
+      "answer": "Checked bags cost $35 when booked online or $40 at the airport. Weight limit is 50 lbs per bag."
+    }
+  ],
+  "sourceUrl": "https://www.aveloair.com/baggage",
+  "lastUpdated": "2025-01-01"
+}

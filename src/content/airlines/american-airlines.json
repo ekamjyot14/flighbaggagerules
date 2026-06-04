@@ -1,0 +1,54 @@
+{
+  "name": "American Airlines",
+  "slug": "american-airlines",
+  "iata": "AA",
+  "country": "United States",
+  "region": "North America",
+  "alliance": "Oneworld",
+  "website": "https://www.aa.com",
+  "logo": "https://images.kiwi.com/airlines/64/AA.png",
+  "carryOn": {
+    "size": "22 x 14 x 9 in (56 x 36 x 23 cm)",
+    "weight": "No weight limit",
+    "personalItem": "18 x 14 x 8 in (45 x 35 x 20 cm)",
+    "notes": "One carry-on and one personal item allowed. Basic Economy allows one personal item only on most domestic routes."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "$30 for first bag on most domestic routes." },
+    "premiumEconomy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "Included for transatlantic routes." },
+    "business": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (157 cm) linear", "notes": "Included." },
+    "firstClass": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (157 cm) linear", "notes": "Included." }
+  },
+  "fees": {
+    "firstBag": "$30 domestic, varies internationally",
+    "secondBag": "$40 domestic",
+    "overweight": "$100 for 51–70 lbs, $200 for 71–100 lbs"
+  },
+  "batteryRules": {
+    "lithiumIon": "Spare lithium batteries and power banks must be in carry-on only",
+    "spareBatteries": "Carry-on only. Up to 100Wh no approval needed. 101–160Wh requires airline approval. No batteries over 160Wh.",
+    "powerBankLimit": "100Wh unrestricted, up to 160Wh with airline approval",
+    "laptops": "Allowed in carry-on. May need to be removed at security checkpoint."
+  },
+  "restrictedItems": [
+    "Hoverboards (self-balancing scooters)",
+    "Smart bags with non-removable lithium batteries",
+    "Firearms must be declared and packed unloaded in locked hard-sided containers"
+  ],
+  "faqs": [
+    {
+      "question": "Can I bring a carry-on bag on American Airlines Basic Economy?",
+      "answer": "Basic Economy passengers on most domestic routes are limited to one personal item that fits under the seat. A carry-on bag fee applies if you want to use the overhead bin."
+    },
+    {
+      "question": "How much does American Airlines charge for checked bags?",
+      "answer": "On most domestic routes the first checked bag is $30, the second is $40. International fees vary by route. AAdvantage elite members and co-branded credit card holders may receive free checked bags."
+    },
+    {
+      "question": "Can I bring a power bank on American Airlines?",
+      "answer": "Yes, power banks must be in your carry-on bag. Power banks up to 100Wh are allowed without approval. Banks between 101–160Wh require airline approval. Banks over 160Wh are not permitted."
+    }
+  ],
+  "sourceUrl": "https://www.aa.com/i18n/travel-info/baggage/carry-on-baggage.jsp",
+  "lastUpdated": "2025-01-01"
+}

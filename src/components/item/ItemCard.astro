@@ -1,0 +1,81 @@
+---
+import Badge from '../ui/Badge.astro';
+
+interface Props {
+  name: string;
+  slug: string;
+  category: string;
+  description?: string;
+  carryOnAllowed: boolean | 'conditional';
+  checkedAllowed: boolean | 'conditional';
+  href: string;
+}
+
+const { name, slug, category, description, carryOnAllowed, checkedAllowed, href } = Astro.props;
+
+const itemIcons: Record<string, string> = {
+  'aerosol-spray': '🧴',
+  'alcohol': '🍷',
+  'camera': '📷',
+  'drone': '🚁',
+  'electric-razor': '🪒',
+  'food-snacks': '🍎',
+  'golf-clubs': '⛳',
+  'hair-straightener': '💇',
+  'knitting-needles': '🧶',
+  'laptop': '💻',
+  'lighter': '🔥',
+  'lithium-battery': '🔋',
+  'medications': '💊',
+  'musical-instrument': '🎸',
+  'nail-clippers': '💅',
+  'perfume': '🧴',
+  'portable-charger': '🔌',
+  'power-bank': '🔋',
+  'protein-powder': '🥛',
+  'scissors': '✂️',
+  'self-defense-spray': '🌶️',
+  'skateboard': '🛹',
+  'umbrella': '☂️',
+  'vape': '💨',
+};
+
+const icon = itemIcons[slug] || '📦';
+---
+
+<a
+  href={href}
+  class="group flex flex-col gap-3 p-5 rounded-xl border transition-all duration-200 no-underline hover:-translate-y-0.5 h-full"
+  style="background:var(--color-canvas);border-color:var(--color-hairline);box-shadow:var(--shadow-card)"
+  aria-label={`${name} baggage rules`}
+>
+  <!-- Icon + category -->
+  <div class="flex items-start justify-between gap-3">
+    <div
+      class="w-10 h-10 rounded-lg flex items-center justify-center text-xl flex-shrink-0 border"
+      style="background:var(--color-canvas-soft);border-color:var(--color-hairline)"
+      aria-hidden="true"
+    >
+      {icon}
+    </div>
+    <span class="text-xs px-2 py-0.5 rounded border capitalize" style="color:var(--color-mute);border-color:var(--color-hairline);background:var(--color-canvas-soft)">
+      {category.replace('-', ' ')}
+    </span>
+  </div>
+
+  <!-- Name + description -->
+  <div class="flex-1">
+    <h3 class="text-sm font-semibold mb-1" style="color:var(--color-ink)">{name}</h3>
+    {description && (
+      <p class="text-xs line-clamp-2 leading-relaxed" style="color:var(--color-mute)">{description}</p>
+    )}
+  </div>
+
+  <!-- Status badges -->
+  <div class="flex items-center gap-2 flex-wrap pt-2 border-t mt-auto" style="border-color:var(--color-hairline)">
+    <span class="text-xs" style="color:var(--color-mute)">Carry-on:</span>
+    <Badge status={carryOnAllowed} />
+    <span class="text-xs ms-2" style="color:var(--color-mute)">Checked:</span>
+    <Badge status={checkedAllowed} />
+  </div>
+</a>

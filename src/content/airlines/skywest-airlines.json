@@ -1,0 +1,39 @@
+{
+  "name": "SkyWest Airlines",
+  "slug": "skywest-airlines",
+  "iata": "OO",
+  "country": "United States",
+  "region": "North America",
+  "alliance": "Independent",
+  "logo": "https://images.kiwi.com/airlines/64/OO.png",
+  "carryOn": {
+    "size": "22 x 14 x 9 in (56 x 35 x 23 cm)",
+    "weight": "No weight limit",
+    "personalItem": "Follows partner airline policy",
+    "notes": "SkyWest operates for United Express, Delta Connection, American Eagle, and Alaska Airlines. Baggage rules follow the marketing carrier."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "Follows partner airline's pricing." },
+    "premiumEconomy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "Follows partner airline's pricing." },
+    "business": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (157 cm) linear", "notes": "Follows partner airline." },
+    "firstClass": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (157 cm) linear", "notes": "Follows partner airline." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Carry-on only for spare lithium batteries",
+    "spareBatteries": "Max 100Wh per battery.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on."
+  },
+  "restrictedItems": [
+    "Hoverboards",
+    "Smart bags with non-removable lithium batteries"
+  ],
+  "faqs": [
+    {
+      "question": "What baggage rules does SkyWest follow?",
+      "answer": "SkyWest operates regional flights for United, Delta, American, and Alaska. The baggage rules of the marketing carrier (the airline on your ticket) apply."
+    }
+  ],
+  "sourceUrl": "https://www.skywest.com/fly-skywest-airlines/",
+  "lastUpdated": "2025-01-01"
+}

@@ -1,0 +1,37 @@
+{
+  "name": "Laptop",
+  "slug": "laptop",
+  "category": "electronics",
+  "description": "Personal computers including MacBooks, Windows laptops, Chromebooks, and tablets. Laptops are among the most commonly carried electronic devices on flights.",
+  "carryOnAllowed": true,
+  "checkedAllowed": "conditional",
+  "tsaGuideline": "Laptops must be removed from bags and placed in a separate bin during TSA security screening. Laptops are allowed in both carry-on and checked baggage, but carry-on is strongly recommended due to theft risk and TSA lithium battery guidelines.",
+  "iataGuideline": "Portable electronic devices including laptops are permitted in cabin baggage. IATA recommends keeping devices with lithium batteries in the cabin.",
+  "restrictions": [
+    "Must be removed from carry-on bag at TSA checkpoint and placed in separate bin",
+    "Lithium battery inside laptop: allowed in cabin; carry-on recommended over checked",
+    "Smart laptops or laptops with large non-standard batteries may need airline approval"
+  ],
+  "airlineRules": [
+    { "airlineSlug": "delta-air-lines", "airlineName": "Delta Air Lines", "carryOn": true, "checked": "conditional", "notes": "Laptop allowed in carry-on. Remove from bag at TSA." },
+    { "airlineSlug": "united-airlines", "airlineName": "United Airlines", "carryOn": true, "checked": "conditional", "notes": "Permitted in carry-on. Recommended to keep in cabin for lithium battery safety." },
+    { "airlineSlug": "american-airlines", "airlineName": "American Airlines", "carryOn": true, "checked": "conditional", "notes": "Allowed in carry-on and checked. Remove at TSA." },
+    { "airlineSlug": "emirates", "airlineName": "Emirates", "carryOn": true, "checked": "conditional", "notes": "Permitted in cabin baggage. Comply with local security authority rules." }
+  ],
+  "relatedItems": ["power-bank", "camera", "drone"],
+  "faqs": [
+    {
+      "question": "Do I have to take my laptop out at airport security?",
+      "answer": "Yes, in the United States the TSA requires you to remove laptops from your bag and place them in a separate bin for X-ray screening. TSA PreCheck members do not need to remove laptops. Rules vary by country."
+    },
+    {
+      "question": "Can I put my laptop in checked luggage?",
+      "answer": "Technically yes, but it is strongly discouraged. Laptops can be damaged, stolen, or have batteries damaged in the cargo hold. TSA and airlines recommend keeping laptops in your carry-on bag."
+    },
+    {
+      "question": "Is there a size limit for laptops on flights?",
+      "answer": "There is no specific size restriction for laptops from TSA or IATA, but the laptop must fit within your carry-on bag allowance. Very large 17-inch gaming laptops may be difficult to fit depending on your bag."
+    }
+  ],
+  "lastUpdated": "2025-01-01"
+}

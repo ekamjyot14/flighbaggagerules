@@ -1,0 +1,39 @@
+{
+  "name": "Cape Air",
+  "slug": "cape-air",
+  "iata": "9K",
+  "country": "United States",
+  "region": "North America",
+  "alliance": "Independent",
+  "logo": "https://images.kiwi.com/airlines/64/9K.png",
+  "carryOn": {
+    "size": "Varies by aircraft",
+    "weight": "15 lbs (7 kg)",
+    "personalItem": "Small personal item only",
+    "notes": "Due to small aircraft (Cessna 402/Tecnam), carry-on size is very limited. Soft bags only."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "40 lbs (18 kg)", "size": "Varies by aircraft", "notes": "Weight restrictions are strict due to small aircraft." },
+    "premiumEconomy": { "pieces": 1, "weight": "40 lbs (18 kg)", "size": "Varies", "notes": "Same rules." },
+    "business": { "pieces": 1, "weight": "40 lbs (18 kg)", "size": "Varies", "notes": "N/A." },
+    "firstClass": { "pieces": 1, "weight": "40 lbs (18 kg)", "size": "Varies", "notes": "N/A." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Carry-on only for spare lithium batteries",
+    "spareBatteries": "Max 100Wh per battery.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on."
+  },
+  "restrictedItems": [
+    "Oversized items",
+    "Hoverboards"
+  ],
+  "faqs": [
+    {
+      "question": "Why is Cape Air's baggage allowance so limited?",
+      "answer": "Cape Air operates small propeller aircraft with strict weight and space limitations. Soft-sided bags are recommended."
+    }
+  ],
+  "sourceUrl": "https://www.capeair.com/flying-with-us/baggage/",
+  "lastUpdated": "2025-01-01"
+}

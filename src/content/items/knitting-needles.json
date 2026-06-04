@@ -1,0 +1,32 @@
+{
+  "name": "Knitting Needles",
+  "slug": "knitting-needles",
+  "category": "tools",
+  "description": "Knitting needles and crochet hooks are allowed in both carry-on and checked baggage. TSA permits these items without restriction, though the final decision rests with the screening officer.",
+  "carryOnAllowed": true,
+  "checkedAllowed": true,
+  "tsaGuideline": "Knitting needles are permitted in carry-on and checked baggage. This includes all types: metal, bamboo, wooden, plastic, and circular needles. Crochet hooks, embroidery scissors (under 4 inches), and needlepoint tools are also allowed.",
+  "iataGuideline": "IATA does not specifically restrict knitting needles. Individual country regulations may vary, with some non-U.S. jurisdictions having stricter rules on pointed objects in cabin baggage. Check destination country requirements.",
+  "restrictions": [
+    "Final decision rests with the TSA officer at the checkpoint",
+    "Circular needles and wooden/plastic needles are less likely to raise concerns",
+    "Some international destinations may have stricter rules than the U.S.",
+    "Scissors used for yarn cutting must have blades under 4 inches",
+    "Consider bringing a self-addressed stamped envelope in case of confiscation"
+  ],
+  "faqs": [
+    {
+      "question": "Are metal knitting needles allowed in carry-on?",
+      "answer": "Yes. TSA allows all types of knitting needles in carry-on, including metal. However, if you're concerned, bamboo or wooden needles and circular needles tend to attract less scrutiny and are recommended by frequent flyer knitters."
+    },
+    {
+      "question": "Can I knit during the flight?",
+      "answer": "Yes. Since knitting needles are allowed in carry-on, you can use them during the flight. Many knitters bring projects specifically for long flights. Circular needles are popular for flight knitting as they're compact and less obtrusive."
+    },
+    {
+      "question": "Are knitting needles allowed on international flights?",
+      "answer": "Rules vary by country. The U.S., Canada, and most of Europe allow them. However, some countries may prohibit pointed objects in cabin baggage. Research your destination's specific rules before traveling, and consider packing needles in checked luggage for international trips."
+    }
+  ],
+  "lastUpdated": "2025-01-15"
+}

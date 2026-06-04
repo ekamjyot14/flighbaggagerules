@@ -1,0 +1,39 @@
+{
+  "name": "Envoy Air",
+  "slug": "envoy-air",
+  "iata": "MQ",
+  "country": "United States",
+  "region": "North America",
+  "alliance": "Oneworld",
+  "logo": "https://images.kiwi.com/airlines/64/MQ.png",
+  "carryOn": {
+    "size": "22 x 14 x 9 in (56 x 35 x 23 cm)",
+    "weight": "No weight limit",
+    "personalItem": "18 x 14 x 8 in (45 x 35 x 20 cm)",
+    "notes": "Operates as American Eagle. Follows American Airlines baggage policy."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "$30 first bag, same as American Airlines." },
+    "premiumEconomy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "Included." },
+    "business": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (157 cm) linear", "notes": "Included." },
+    "firstClass": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (157 cm) linear", "notes": "Included." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Carry-on only for spare lithium batteries",
+    "spareBatteries": "Max 100Wh per battery. 101–160Wh with airline approval.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on."
+  },
+  "restrictedItems": [
+    "Hoverboards",
+    "Smart bags with non-removable lithium batteries"
+  ],
+  "faqs": [
+    {
+      "question": "Does Envoy Air have its own baggage rules?",
+      "answer": "Envoy Air operates as American Eagle and follows American Airlines' baggage policies for all flights."
+    }
+  ],
+  "sourceUrl": "https://www.aa.com/i18n/travel-info/baggage/carry-on-baggage.jsp",
+  "lastUpdated": "2025-01-01"
+}

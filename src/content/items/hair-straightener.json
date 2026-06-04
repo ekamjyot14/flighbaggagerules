@@ -1,0 +1,31 @@
+{
+  "name": "Hair Straightener",
+  "slug": "hair-straightener",
+  "category": "electronics",
+  "description": "Corded hair straighteners and curling irons are allowed in both carry-on and checked baggage. Cordless butane-powered straighteners with gas cartridges are carry-on only, limited to one per passenger with the safety cover on.",
+  "carryOnAllowed": true,
+  "checkedAllowed": "conditional",
+  "tsaGuideline": "Corded curling irons and hair straighteners are allowed in carry-on and checked bags. Cordless gas-powered curling irons/straighteners are permitted in carry-on only, limited to one per passenger. The heating element must have a safety cover. Spare gas cartridges are not allowed in carry-on or checked bags.",
+  "iataGuideline": "IATA permits hair curlers containing hydrocarbon gas in cabin baggage only, maximum one per person, provided the safety cover is securely fitted over the heating element. Spare gas refills are not permitted.",
+  "restrictions": [
+    "Cordless gas-powered models: carry-on only, maximum one per passenger",
+    "Safety cover must be securely fitted on gas-powered models",
+    "Spare butane/gas cartridges are prohibited in both carry-on and checked bags",
+    "Corded models have no restrictions and are allowed in both carry-on and checked bags"
+  ],
+  "faqs": [
+    {
+      "question": "Can I bring a regular plug-in hair straightener on a plane?",
+      "answer": "Yes. Standard corded hair straighteners, curling irons, and flat irons are allowed in both carry-on and checked baggage without any restrictions."
+    },
+    {
+      "question": "Are cordless butane-powered hair tools allowed?",
+      "answer": "Cordless gas-powered curling irons and straighteners are allowed in carry-on only (not checked bags), limited to one per passenger. The safety cover must be securely fitted over the heating element, and no spare gas cartridges are permitted."
+    },
+    {
+      "question": "Can I use my hair straightener during the flight?",
+      "answer": "No. You cannot use heat-styling tools during a flight regardless of power source. They must remain packed in your bag for the duration of the flight."
+    }
+  ],
+  "lastUpdated": "2025-01-15"
+}

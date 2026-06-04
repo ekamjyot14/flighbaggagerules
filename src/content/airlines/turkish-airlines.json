@@ -1,0 +1,44 @@
+{
+  "name": "Turkish Airlines",
+  "slug": "turkish-airlines",
+  "iata": "TK",
+  "country": "Turkey",
+  "region": "Europe",
+  "alliance": "Star Alliance",
+  "logo": "https://images.kiwi.com/airlines/64/TK.png",
+  "carryOn": {
+    "size": "23 x 15 x 9 in (55 x 40 x 23 cm)",
+    "weight": "17 lbs (8 kg)",
+    "personalItem": "15 x 12 x 8 in (40 x 30 x 20 cm)",
+    "notes": "Business class: 2 carry-on bags (8 kg each). Economy: 1 bag up to 8 kg."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (158 cm) linear", "notes": "Included for most routes." },
+    "premiumEconomy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (158 cm) linear", "notes": "Included." },
+    "business": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (158 cm) linear", "notes": "Included." },
+    "firstClass": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (158 cm) linear", "notes": "Included." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Carry-on only for spare lithium batteries",
+    "spareBatteries": "Max 100Wh per battery. 101–160Wh requires airline approval.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on."
+  },
+  "restrictedItems": [
+    "Hoverboards",
+    "Smart bags with non-removable lithium batteries",
+    "Samsung Galaxy Note 7"
+  ],
+  "faqs": [
+    {
+      "question": "Does Turkish Airlines include free checked bags?",
+      "answer": "Yes, Turkish Airlines includes at least one checked bag on all international flights. Domestic flights within Turkey may have different allowances by fare class."
+    },
+    {
+      "question": "What is the carry-on weight limit on Turkish Airlines?",
+      "answer": "Economy class: 8 kg total carry-on weight. Business class: 2 bags, 8 kg each."
+    }
+  ],
+  "sourceUrl": "https://www.turkishairlines.com/en-int/any-questions/baggage/",
+  "lastUpdated": "2025-01-01"
+}

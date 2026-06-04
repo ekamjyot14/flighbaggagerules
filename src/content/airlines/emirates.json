@@ -1,0 +1,44 @@
+{
+  "name": "Emirates",
+  "slug": "emirates",
+  "iata": "EK",
+  "country": "United Arab Emirates",
+  "region": "Middle East",
+  "alliance": "Independent",
+  "logo": "https://images.kiwi.com/airlines/64/EK.png",
+  "carryOn": {
+    "size": "55 x 38 x 20 cm (22 x 15 x 8 in)",
+    "weight": "7 kg (15 lbs)",
+    "personalItem": "Laptop bag or small handbag",
+    "notes": "Economy: 7 kg. Business and First: 2 pieces up to 7 kg each."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "23 kg (51 lbs)", "size": "Dimensions not exceed 150cm (L+W+H)", "notes": "Included." },
+    "premiumEconomy": { "pieces": 1, "weight": "25 kg (55 lbs)", "size": "Dimensions not exceed 150cm (L+W+H)", "notes": "Included." },
+    "business": { "pieces": 2, "weight": "32 kg (70 lbs) each", "size": "Dimensions not exceed 150cm (L+W+H)", "notes": "Included." },
+    "firstClass": { "pieces": 2, "weight": "32 kg (70 lbs) each", "size": "Dimensions not exceed 150cm (L+W+H)", "notes": "Included." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Spare batteries in carry-on only",
+    "spareBatteries": "Each battery ≤160Wh. Max 2 batteries between 101–160Wh.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on."
+  },
+  "restrictedItems": [
+    "Hoverboards",
+    "Electronic cigarettes in checked baggage",
+    "Firearms without prior approval"
+  ],
+  "faqs": [
+    {
+      "question": "What is Emirates carry-on allowance?",
+      "answer": "Economy passengers can bring one carry-on bag up to 7 kg and 55 x 38 x 20 cm. Business and First Class passengers can bring two carry-on pieces, 7 kg each."
+    },
+    {
+      "question": "Does Emirates include checked bags?",
+      "answer": "Yes. Economy includes 1 x 23 kg, Business includes 2 x 32 kg, and First Class includes 2 x 32 kg."
+    }
+  ],
+  "sourceUrl": "https://www.emirates.com/english/before-you-fly/baggage/",
+  "lastUpdated": "2025-01-01"
+}

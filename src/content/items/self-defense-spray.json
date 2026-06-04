@@ -1,0 +1,33 @@
+{
+  "name": "Self-Defense Spray",
+  "slug": "self-defense-spray",
+  "category": "misc",
+  "description": "Pepper spray, mace, and other self-defense sprays are strictly prohibited in carry-on baggage. One container of 4oz (118ml) or less with a safety mechanism is allowed in checked luggage only.",
+  "carryOnAllowed": false,
+  "checkedAllowed": "conditional",
+  "tsaGuideline": "Self-defense sprays (pepper spray, mace, tear gas) are prohibited in carry-on baggage. One 4 fl oz (118ml) container may be packed in checked baggage, provided it is equipped with a safety mechanism to prevent accidental discharge. Sprays containing more than 2% tear gas (CS or CN) are prohibited entirely.",
+  "iataGuideline": "IATA classifies defense sprays as dangerous goods. One small device of personal self-defense spray not exceeding 100ml net content, containing no more than 2% active substance, may be carried in checked baggage with protection against inadvertent discharge.",
+  "capacityLimit": "Maximum one 4oz (118ml) container in checked baggage only",
+  "restrictions": [
+    "Completely prohibited in carry-on baggage and on your person",
+    "One container maximum of 4oz (118ml) allowed in checked baggage",
+    "Must have a safety mechanism to prevent accidental discharge",
+    "Must not contain more than 2% tear gas (CS or CN) by mass",
+    "Bear spray is prohibited in both carry-on and checked bags due to size (typically over 4oz)"
+  ],
+  "faqs": [
+    {
+      "question": "Can I bring pepper spray in my checked luggage?",
+      "answer": "Yes, one container of 4oz (118ml) or less is allowed in checked baggage. It must have a safety mechanism to prevent accidental discharge, and it cannot contain more than 2% tear gas (CS or CN). Pack it securely to prevent damage."
+    },
+    {
+      "question": "Is bear spray allowed on flights?",
+      "answer": "No. Bear spray is prohibited in both carry-on and checked baggage because it typically exceeds the 4oz size limit and contains a higher concentration of active ingredients. You'll need to purchase bear spray at your destination."
+    },
+    {
+      "question": "What happens if pepper spray is found in my carry-on?",
+      "answer": "It will be confiscated by TSA. You may face additional screening and potential delays. Intentionally bringing prohibited items can result in civil penalties. If discovered, you can sometimes return it to your car or mail it to yourself if time permits."
+    }
+  ],
+  "lastUpdated": "2025-01-15"
+}

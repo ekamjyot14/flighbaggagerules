@@ -1,0 +1,33 @@
+{
+  "name": "Protein Powder",
+  "slug": "protein-powder",
+  "category": "food",
+  "description": "Protein powder, pre-workout supplements, creatine, and similar powdered fitness supplements. Powders over a certain volume may require additional screening at TSA checkpoints.",
+  "carryOnAllowed": "conditional",
+  "checkedAllowed": true,
+  "tsaGuideline": "Protein powder is allowed in carry-on bags, but containers over 12 oz (350 ml) by volume may require additional screening or may be asked to be placed in a separate bin. TSA recommends packing powder supplements in checked luggage if possible to avoid delays. All powder in carry-on will be X-rayed and potentially tested.",
+  "iataGuideline": "Food supplements and protein powders are generally not classified as dangerous goods and are permitted in both cabin and hold baggage. Quantities should be reasonable for personal use.",
+  "capacityLimit": "Carry-on: containers over 12 oz / 350 ml may be subject to additional screening",
+  "restrictions": [
+    "Containers over 12 oz (350 ml) volume may require additional screening at TSA",
+    "May be subject to explosive trace detection testing",
+    "TSA recommends placing powder supplements in checked luggage to avoid delays",
+    "Some international customs authorities may require documentation for large quantities",
+    "Keep in original sealed packaging when possible to avoid questions at customs"
+  ],
+  "faqs": [
+    {
+      "question": "Can I bring protein powder in my carry-on bag?",
+      "answer": "Yes, protein powder is allowed in carry-on bags. However, powder containers over 12 oz (350 ml) may trigger additional screening at TSA checkpoints. To avoid delays, consider packing large quantities of protein powder in your checked luggage."
+    },
+    {
+      "question": "Will protein powder set off airport security?",
+      "answer": "It can trigger additional checks. TSA agents may ask you to remove powder containers from your bag or may test the powder with explosive trace detection equipment. This is routine and does not mean you've done anything wrong."
+    },
+    {
+      "question": "Can I bring protein powder internationally?",
+      "answer": "Generally yes, but large quantities may attract customs attention. Some countries have strict rules about food imports. Keep protein powder in its original sealed packaging and be prepared to declare it if customs officers ask."
+    }
+  ],
+  "lastUpdated": "2025-01-01"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Musical Instrument",
+  "slug": "musical-instrument",
+  "category": "misc",
+  "description": "Musical instruments can be brought as carry-on if they fit in the overhead bin or under the seat. Passengers may also purchase an additional seat for larger instruments. The FAA Modernization and Reform Act of 2012 protects passengers' rights to travel with instruments.",
+  "carryOnAllowed": "conditional",
+  "checkedAllowed": true,
+  "tsaGuideline": "Musical instruments are allowed in carry-on and checked bags. As carry-on, the instrument must fit in the overhead bin or under the seat in front of you. TSA officers will screen instruments through X-ray or by hand inspection if needed.",
+  "iataGuideline": "IATA recommends airlines accommodate musical instruments as cabin baggage where feasible. The FAA Modernization and Reform Act of 2012 (U.S.) requires airlines to allow instruments as carry-on if they fit safely in the cabin, allow purchase of an additional seat for larger instruments, and accept instruments as checked baggage.",
+  "restrictions": [
+    "Must fit in overhead bin or under seat for carry-on (no gate-checking oversized items)",
+    "An additional seat can be purchased for larger instruments like cellos or guitars",
+    "Checked instruments should be in a TSA-approved hard case",
+    "Airlines cannot refuse to carry an instrument as checked baggage solely due to its size",
+    "Early boarding recommended to secure overhead space",
+    "FAA Modernization Act protects passengers' right to carry instruments in cabin"
+  ],
+  "faqs": [
+    {
+      "question": "Can I bring a guitar as carry-on?",
+      "answer": "Yes, if it fits in the overhead compartment. The FAA Modernization and Reform Act requires U.S. airlines to allow instruments in the cabin if there is space. Board early to ensure overhead availability. Alternatively, you can purchase an extra seat for the instrument."
+    },
+    {
+      "question": "What protections exist for musicians traveling with instruments?",
+      "answer": "The FAA Modernization and Reform Act of 2012 states airlines must: allow instruments as carry-on if they fit in cabin storage, allow passengers to purchase a seat for the instrument, and transport instruments as checked baggage without refusing based on size alone."
+    },
+    {
+      "question": "How should I pack an instrument in checked baggage?",
+      "answer": "Use a hard-shell, flight-rated case with ample padding. Loosen strings to reduce tension from pressure changes. Label the case as fragile. Consider purchasing insurance as airlines have limited liability for checked items. A TSA-approved lock allows inspection without damage."
+    }
+  ],
+  "lastUpdated": "2025-01-15"
+}

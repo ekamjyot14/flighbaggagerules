@@ -1,0 +1,52 @@
+{
+  "name": "JetBlue Airways",
+  "slug": "jetblue-airways",
+  "iata": "B6",
+  "country": "United States",
+  "region": "North America",
+  "alliance": "Independent",
+  "website": "https://www.jetblue.com",
+  "logo": "https://images.kiwi.com/airlines/64/B6.png",
+  "carryOn": {
+    "size": "22 x 14 x 9 in (56 x 36 x 23 cm)",
+    "weight": "No weight limit",
+    "personalItem": "17 x 13 x 8 in (43 x 33 x 20 cm)",
+    "notes": "Blue Basic fare allows only one personal item. Blue and higher fares include one carry-on and one personal item."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "$35 for first bag on Blue Basic and Blue. Free on Blue Plus, Blue Extra, and Mint." },
+    "premiumEconomy": { "pieces": 2, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "Included." },
+    "business": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (157 cm) linear", "notes": "Mint cabin — included." }
+  },
+  "fees": {
+    "firstBag": "$35 (Blue Basic/Blue), free on Blue Plus+",
+    "secondBag": "$45 (Blue Basic/Blue)",
+    "overweight": "$150 for bags over 50 lbs"
+  },
+  "batteryRules": {
+    "lithiumIon": "Spare lithium batteries must be in carry-on baggage only",
+    "spareBatteries": "Carry-on only. Max 100Wh without approval. 101–160Wh requires approval. Over 160Wh prohibited.",
+    "powerBankLimit": "100Wh unrestricted; up to 160Wh with approval",
+    "laptops": "Permitted in carry-on. Comply with TSA screening requirements."
+  },
+  "restrictedItems": [
+    "Hoverboards and self-balancing personal transporters",
+    "Smart bags with lithium batteries that cannot be removed"
+  ],
+  "faqs": [
+    {
+      "question": "Does JetBlue Blue Basic include a carry-on bag?",
+      "answer": "No. JetBlue Blue Basic fare only includes one personal item that fits under the seat. A carry-on bag in the overhead bin requires an additional fee unless you have TrueBlue Mosaic status."
+    },
+    {
+      "question": "How much does JetBlue charge for checked bags?",
+      "answer": "Blue Basic and Blue fares charge $35 for the first bag and $45 for the second. Blue Plus and higher include the first checked bag free. Mint passengers get two free checked bags."
+    },
+    {
+      "question": "Are power banks allowed on JetBlue?",
+      "answer": "Power banks must travel in carry-on baggage only. Power banks 100Wh and under are permitted without restriction. Between 101–160Wh requires JetBlue approval before travel."
+    }
+  ],
+  "sourceUrl": "https://www.jetblue.com/flying-on-jetblue/baggage",
+  "lastUpdated": "2025-01-01"
+}

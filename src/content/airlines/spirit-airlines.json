@@ -1,0 +1,43 @@
+{
+  "name": "Spirit Airlines",
+  "slug": "spirit-airlines",
+  "iata": "NK",
+  "country": "United States",
+  "region": "North America",
+  "alliance": "Independent",
+  "logo": "https://images.kiwi.com/airlines/64/NK.png",
+  "carryOn": {
+    "size": "22 x 18 x 10 in (56 x 46 x 25 cm)",
+    "weight": "No weight limit",
+    "personalItem": "18 x 14 x 8 in (45 x 35 x 20 cm)",
+    "notes": "Carry-on bag requires a fee unless purchased with a bundle. Personal item included free."
+  },
+  "checked": {
+    "economy": { "pieces": 0, "weight": "40 lbs (18 kg)", "size": "62 in (157 cm) linear", "notes": "$31–$55+ per bag depending on when purchased." },
+    "premiumEconomy": { "pieces": 0, "weight": "40 lbs (18 kg)", "size": "62 in (157 cm) linear", "notes": "Fees apply." },
+    "business": { "pieces": 0, "weight": "40 lbs (18 kg)", "size": "62 in (157 cm) linear", "notes": "N/A - Spirit does not offer business class." },
+    "firstClass": { "pieces": 0, "weight": "40 lbs (18 kg)", "size": "62 in (157 cm) linear", "notes": "N/A." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Carry-on only for spare lithium batteries",
+    "spareBatteries": "Max 100Wh per battery without approval.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on."
+  },
+  "restrictedItems": [
+    "Hoverboards",
+    "Smart bags with non-removable lithium batteries"
+  ],
+  "faqs": [
+    {
+      "question": "Does Spirit charge for carry-on bags?",
+      "answer": "Yes, Spirit charges for carry-on bags (overhead bin). Personal items that fit under the seat are included free. Fees range from $31–$55+ depending on when you purchase."
+    },
+    {
+      "question": "How much does Spirit charge for checked bags?",
+      "answer": "Checked bag fees start at $31 if purchased during booking and can increase to $55+ at the gate. Weight limit is 40 lbs."
+    }
+  ],
+  "sourceUrl": "https://www.spirit.com/optional-services",
+  "lastUpdated": "2025-01-01"
+}

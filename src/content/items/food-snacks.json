@@ -1,0 +1,32 @@
+{
+  "name": "Food & Snacks",
+  "slug": "food-snacks",
+  "category": "food",
+  "description": "Solid food items and snacks are generally allowed in both carry-on and checked baggage. Liquid, gel, or spreadable foods in carry-on must follow the 3-1-1 liquids rule (3.4oz/100ml containers in a quart bag).",
+  "carryOnAllowed": "conditional",
+  "checkedAllowed": true,
+  "tsaGuideline": "Solid food items are allowed in both carry-on and checked bags. Foods that are liquid, gel, paste, or spreadable (soup, sauces, hummus, peanut butter, yogurt) must comply with the 3-1-1 rule in carry-on: containers of 3.4oz or less in a quart-sized bag. TSA may ask you to separate food from your bag for X-ray screening.",
+  "iataGuideline": "IATA defers food restrictions to national aviation authorities. International travelers should be aware that many countries have strict customs regulations on importing food products, particularly meat, dairy, fruits, and vegetables.",
+  "restrictions": [
+    "Liquid, gel, or spreadable foods must follow 3-1-1 rule in carry-on",
+    "TSA may request food items be placed in a separate bin for screening",
+    "International travel may have customs restrictions on importing food",
+    "Meat, fruits, and vegetables may be prohibited on international/agricultural flights",
+    "Frozen items allowed if fully frozen solid at checkpoint; partially thawed items follow liquid rules"
+  ],
+  "faqs": [
+    {
+      "question": "Can I bring sandwiches and snacks through airport security?",
+      "answer": "Yes. Solid foods like sandwiches, chips, granola bars, fruits, nuts, and candy are allowed in carry-on without restriction. You may be asked to remove them from your bag for separate X-ray screening."
+    },
+    {
+      "question": "What foods count as liquids under TSA rules?",
+      "answer": "Foods that are pourable, spreadable, or gel-like count as liquids. This includes soup, yogurt, hummus, peanut butter, jelly, salsa, ice cream, creamy cheese, and sauces. In carry-on, these must be in containers of 3.4oz or less."
+    },
+    {
+      "question": "Can I bring a frozen meal through security?",
+      "answer": "Yes, if it is completely frozen solid at the time of screening. If it has started to melt or is partially thawed, it will be treated as a liquid and must follow the 3-1-1 rule. Ice packs must also be completely frozen."
+    }
+  ],
+  "lastUpdated": "2025-01-15"
+}

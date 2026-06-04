@@ -1,0 +1,31 @@
+{
+  "name": "Medications",
+  "slug": "medications",
+  "category": "medical",
+  "description": "Prescription and over-the-counter medications are allowed in carry-on baggage in reasonable quantities for personal use. TSA does not require medications to be in original containers but recommends it for identification purposes.",
+  "carryOnAllowed": true,
+  "checkedAllowed": true,
+  "tsaGuideline": "Medications in pill or solid form are allowed in unlimited amounts. Liquid medications exceeding 3.4oz/100ml are permitted in carry-on but must be declared to TSA officers at the checkpoint for separate screening.",
+  "iataGuideline": "Passengers may carry essential medicines and medical devices needed during the flight. Documentation such as a doctor's letter or prescription label is recommended for controlled substances.",
+  "restrictions": [
+    "Liquid medications over 3.4oz must be declared at security checkpoint",
+    "Medically necessary liquids are exempt from 3-1-1 rule but require separate screening",
+    "Controlled substances should have matching prescription or doctor's note",
+    "Syringes allowed with injectable medication when accompanied by the medication"
+  ],
+  "faqs": [
+    {
+      "question": "Do medications need to be in their original prescription bottles?",
+      "answer": "TSA does not require medications to be in original containers, but it is strongly recommended, especially for controlled substances. Having the prescription label helps with identification and avoids potential issues during screening."
+    },
+    {
+      "question": "Can I bring liquid medications larger than 3.4oz in carry-on?",
+      "answer": "Yes. Medically necessary liquids are exempt from the 3-1-1 rule. Declare them to the TSA officer before screening begins. They will undergo additional screening but are permitted in reasonable quantities."
+    },
+    {
+      "question": "Do I need a doctor's note to fly with prescription medications?",
+      "answer": "A doctor's note is not required by TSA for domestic flights, but it is recommended for controlled substances and international travel. Some countries require documentation for certain medications at customs."
+    }
+  ],
+  "lastUpdated": "2025-01-15"
+}

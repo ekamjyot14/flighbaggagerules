@@ -1,0 +1,43 @@
+{
+  "name": "Breeze Airways",
+  "slug": "breeze-airways",
+  "iata": "MX",
+  "country": "United States",
+  "region": "North America",
+  "alliance": "Independent",
+  "logo": "https://images.kiwi.com/airlines/64/MX.png",
+  "carryOn": {
+    "size": "22 x 14 x 9 in (56 x 35 x 23 cm)",
+    "weight": "35 lbs (16 kg)",
+    "personalItem": "18 x 14 x 8 in (45 x 35 x 20 cm)",
+    "notes": "Carry-on included with Nice and Nicer fare bundles. Personal item always included."
+  },
+  "checked": {
+    "economy": { "pieces": 0, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "From $29 for first bag." },
+    "premiumEconomy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "First bag included with Nice fare." },
+    "business": { "pieces": 2, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "Included with Nicer fare." },
+    "firstClass": { "pieces": 2, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "Included." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Carry-on only for spare lithium batteries",
+    "spareBatteries": "Max 100Wh per battery.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on."
+  },
+  "restrictedItems": [
+    "Hoverboards",
+    "Smart bags with non-removable lithium batteries"
+  ],
+  "faqs": [
+    {
+      "question": "Does Breeze include free bags?",
+      "answer": "Nice fares include one carry-on and one checked bag. Nicer fares include two checked bags. 'Niceest' includes the most allowance."
+    },
+    {
+      "question": "What is Breeze Airways' carry-on size?",
+      "answer": "Carry-on bags must be 22 x 14 x 9 inches and weigh no more than 35 lbs."
+    }
+  ],
+  "sourceUrl": "https://www.flybreeze.com/support?a=All-About-Bags---id--bMTB587FQRGxDLMnPkkEjQ",
+  "lastUpdated": "2025-01-01"
+}

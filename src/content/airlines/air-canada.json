@@ -1,0 +1,54 @@
+{
+  "name": "Air Canada",
+  "slug": "air-canada",
+  "iata": "AC",
+  "country": "Canada",
+  "region": "North America",
+  "alliance": "Star Alliance",
+  "website": "https://www.aircanada.com",
+  "logo": "https://images.kiwi.com/airlines/64/AC.png",
+  "carryOn": {
+    "size": "55 x 40 x 23 cm (21.5 x 15.5 x 9 in)",
+    "weight": "10 kg (22 lbs)",
+    "personalItem": "33 x 43 x 16 cm",
+    "notes": "Standard and higher fares: 1 carry-on + 1 personal item. Basic fare: personal item only."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "23 kg (50 lbs)", "size": "158 cm (62 in) linear", "notes": "Included in Standard and higher fares. Basic does not include checked baggage." },
+    "premiumEconomy": { "pieces": 2, "weight": "23 kg each", "size": "158 cm linear", "notes": "2 bags included." },
+    "business": { "pieces": 2, "weight": "32 kg (70 lbs) each", "size": "158 cm linear", "notes": "Included in Business Class." },
+    "firstClass": { "pieces": 3, "weight": "32 kg each", "size": "158 cm linear", "notes": "Included in Super Elite 100K." }
+  },
+  "fees": {
+    "firstBag": "Included in Standard+; Basic fare: CAD $30–50",
+    "secondBag": "CAD $50–65 depending on route",
+    "overweight": "CAD $100 for bags 24–32 kg"
+  },
+  "batteryRules": {
+    "lithiumIon": "Spare lithium-ion batteries permitted in carry-on only",
+    "spareBatteries": "Carry-on only. Up to 100Wh unrestricted. 101–160Wh with airline approval. Over 160Wh prohibited.",
+    "powerBankLimit": "100Wh unrestricted; up to 160Wh with Air Canada approval",
+    "laptops": "Allowed in carry-on. Remove at security screening."
+  },
+  "restrictedItems": [
+    "Hoverboards and self-balancing personal transporters",
+    "Smart bags with non-removable batteries exceeding 160Wh",
+    "Drone batteries over 160Wh"
+  ],
+  "faqs": [
+    {
+      "question": "Does Air Canada Basic fare include a carry-on bag?",
+      "answer": "No. Air Canada Basic fare only includes one personal item under the seat. A carry-on bag in the overhead bin is not included and will incur extra fees."
+    },
+    {
+      "question": "What are Air Canada's checked bag fees?",
+      "answer": "Standard and higher fares include one 23 kg checked bag. Basic fare passengers pay approximately CAD $30–50 for the first bag. Premium Economy includes two bags; Business Class also includes two bags at 32 kg each."
+    },
+    {
+      "question": "Can I bring a power bank on Air Canada?",
+      "answer": "Power banks must be in carry-on luggage only — not checked bags. Power banks up to 100Wh are permitted without approval. Banks between 101–160Wh require Air Canada approval before flying."
+    }
+  ],
+  "sourceUrl": "https://www.aircanada.com/in/en/aco/home/plan/baggage.html#/",
+  "lastUpdated": "2025-01-01"
+}

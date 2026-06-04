@@ -1,0 +1,32 @@
+---
+import { getLocaleFromUrl, getSegmentPath, createTranslator, loadTranslations } from '../../i18n/utils';
+import type { Locale } from '../../i18n/config';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const translations = await loadTranslations(locale);
+const t = createTranslator(translations);
+
+const year = new Date().getFullYear();
+---
+
+<footer
+  class="border-t mt-16"
+  style="background:var(--color-canvas);border-color:var(--color-hairline)"
+  role="contentinfo"
+>
+  <div class="container-page py-6">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+      <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2">
+          <img src="/favicon-96x96.png" alt="" class="w-5 h-5 rounded" aria-hidden="true" />
+          <span class="text-xs font-medium" style="color:var(--color-mute)">{t('footer.copyright', { year: String(year) })}</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="/privacy" class="text-xs no-underline transition-colors duration-150 hover:opacity-80" style="color:var(--color-mute)">{t('footer.privacy')}</a>
+        <a href="/terms" class="text-xs no-underline transition-colors duration-150 hover:opacity-80" style="color:var(--color-mute)">{t('footer.terms')}</a>
+      </div>
+    </div>
+    <p class="mt-3 text-xs leading-relaxed" style="color:var(--color-mute)">{t('footer.disclaimer')}</p>
+  </div>
+</footer>

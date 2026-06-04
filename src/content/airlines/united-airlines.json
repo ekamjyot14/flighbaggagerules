@@ -1,0 +1,43 @@
+{
+  "name": "United Airlines",
+  "slug": "united-airlines",
+  "iata": "UA",
+  "country": "United States",
+  "region": "North America",
+  "alliance": "Star Alliance",
+  "logo": "https://images.kiwi.com/airlines/64/UA.png",
+  "carryOn": {
+    "size": "22 x 14 x 9 in (56 x 35 x 22 cm)",
+    "weight": "No weight limit",
+    "personalItem": "17 x 10 x 9 in (43 x 25 x 22 cm)",
+    "notes": "Must fit in overhead bin or under seat."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "$35 for first bag." },
+    "premiumEconomy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "Included." },
+    "business": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (157 cm) linear", "notes": "Included." },
+    "firstClass": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (157 cm) linear", "notes": "Included." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Spare lithium batteries must be in carry-on",
+    "spareBatteries": "Max 100Wh per battery. 101–160Wh with airline approval.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on. Screen at security checkpoint."
+  },
+  "restrictedItems": [
+    "Hoverboards with lithium batteries",
+    "Smart luggage with non-removable batteries over 160Wh"
+  ],
+  "faqs": [
+    {
+      "question": "How much does United charge for checked bags?",
+      "answer": "For most domestic flights, the first checked bag costs $35 and the second costs $45. United MileagePlus Premier members and cardholders may receive complimentary checked bags."
+    },
+    {
+      "question": "What size carry-on does United allow?",
+      "answer": "United allows carry-on bags up to 22 x 14 x 9 inches including handles and wheels, plus one personal item up to 17 x 10 x 9 inches."
+    }
+  ],
+  "sourceUrl": "https://www.united.com/en/us/fly/travel/baggage.html",
+  "lastUpdated": "2025-01-01"
+}

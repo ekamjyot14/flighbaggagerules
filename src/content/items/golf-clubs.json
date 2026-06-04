@@ -1,0 +1,33 @@
+{
+  "name": "Golf Clubs",
+  "slug": "golf-clubs",
+  "category": "sports",
+  "description": "Golf clubs are not permitted in carry-on baggage due to their potential use as a bludgeon. They must be transported in checked luggage, either as your standard checked bag or as oversized/sports equipment (fees vary by airline).",
+  "carryOnAllowed": false,
+  "checkedAllowed": true,
+  "tsaGuideline": "Golf clubs are prohibited in carry-on baggage. They are allowed in checked baggage. TSA recommends using a travel bag or hard case to protect your equipment. Golf clubs may count as one checked bag or incur a sports equipment surcharge depending on the airline.",
+  "iataGuideline": "IATA considers golf equipment as sporting goods to be transported in the aircraft hold. Airlines set their own policies regarding fees, weight limits, and whether golf bags count toward or replace a standard checked bag allowance.",
+  "restrictions": [
+    "Not allowed in carry-on baggage under any circumstances",
+    "Must be checked as luggage or sports equipment",
+    "May count as a checked bag or incur additional sports equipment fees",
+    "Recommended to use a padded travel bag or hard-shell golf travel case",
+    "Weight limits vary by airline (typically 50 lbs standard checked bag limit)",
+    "Airlines have limited liability for damage to checked sporting equipment"
+  ],
+  "faqs": [
+    {
+      "question": "Can I bring a single golf club in carry-on?",
+      "answer": "No. Golf clubs of any kind or quantity are prohibited in carry-on baggage. Even a single putter must be transported in checked luggage."
+    },
+    {
+      "question": "Do airlines charge extra for golf clubs?",
+      "answer": "It varies by airline. Some airlines count golf bags as your standard checked luggage within normal size/weight limits. Others charge a sports equipment fee ($25-$75+). Check your specific airline's policy before traveling."
+    },
+    {
+      "question": "How should I protect my golf clubs for air travel?",
+      "answer": "Use a padded golf travel bag or hard-shell case. Add a stiff arm/club protector to shield club heads. Remove headcovers and pack them inside the bag. Wrap clubs in towels for extra padding. Consider travel insurance for expensive sets."
+    }
+  ],
+  "lastUpdated": "2025-01-15"
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Republic Airways",
+  "slug": "republic-airways",
+  "iata": "YX",
+  "country": "United States",
+  "region": "North America",
+  "alliance": "Independent",
+  "logo": "https://images.kiwi.com/airlines/64/YX.png",
+  "carryOn": {
+    "size": "22 x 14 x 9 in (56 x 35 x 23 cm)",
+    "weight": "No weight limit",
+    "personalItem": "Follows partner airline policy",
+    "notes": "Republic operates for American Eagle, Delta Connection, and United Express. Baggage rules follow the marketing carrier."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "Follows partner airline's pricing." },
+    "premiumEconomy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "Follows partner." },
+    "business": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (157 cm) linear", "notes": "Follows partner." },
+    "firstClass": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (157 cm) linear", "notes": "Follows partner." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Carry-on only for spare lithium batteries",
+    "spareBatteries": "Max 100Wh per battery.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on."
+  },
+  "restrictedItems": [
+    "Hoverboards",
+    "Smart bags with non-removable lithium batteries"
+  ],
+  "faqs": [
+    {
+      "question": "What baggage rules does Republic Airways follow?",
+      "answer": "Republic operates regional flights branded as American Eagle, Delta Connection, or United Express. The marketing carrier's baggage policy applies."
+    }
+  ],
+  "sourceUrl": "https://www.united.com/en/us/fly/travel/baggage.html",
+  "lastUpdated": "2025-01-01"
+}

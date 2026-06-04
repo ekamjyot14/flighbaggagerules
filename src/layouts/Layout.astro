@@ -1,0 +1,132 @@
+---
+import type { SEOProps } from '../utils/seo';
+import '../styles/fonts.css';
+import '../styles/global.css';
+import Navbar from '../components/common/Navbar.astro';
+import Footer from '../components/common/Footer.astro';
+import CommandPalette from '../components/search/CommandPalette.astro';
+
+interface Props extends SEOProps {
+  lang?: string;
+  dir?: 'ltr' | 'rtl';
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = '/og-default.png',
+  ogType = 'website',
+  noindex = false,
+  schema,
+  hreflangAlternates = [],
+  locale = 'en',
+  lang = 'en',
+  dir = 'ltr',
+} = Astro.props;
+
+const site = 'https://flightbaggagerules.com';
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, site).toString();
+const schemaArray = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+---
+
+<!doctype html>
+<html lang={lang} dir={dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={new URL(ogImage, site).toString()} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="FlightBaggageRules.com — Flight Baggage Rules & Allowances" />
+    <meta property="og:site_name" content="FlightBaggageRules.com" />
+    <meta property="og:locale" content={locale} />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, site).toString()} />
+    <meta name="twitter:image:alt" content="FlightBaggageRules.com — Flight Baggage Rules & Allowances" />
+
+    <!-- hreflang alternates -->
+    {hreflangAlternates.map((alt) => (
+      <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+    ))}
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Flight Rules" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#171717" />
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="/fonts/GeistVariableVF.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/GeistMonoVariableVF.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Structured data -->
+    {schemaArray.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
+
+    <!-- Dark mode script — runs before paint to prevent flash -->
+    <script is:inline>
+      (function () {
+        function applyTheme() {
+          var stored = localStorage.getItem('fbr-theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var isDark = stored === 'dark' || (!stored && prefersDark);
+          document.documentElement.classList.toggle('dark', isDark);
+        }
+        applyTheme();
+        // Handle bfcache restoration (back/forward nav)
+        window.addEventListener('pageshow', function(e) {
+          if (e.persisted) applyTheme();
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- Skip to content for accessibility -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-md focus:text-sm focus:font-medium"
+      style="background:var(--color-ink);color:var(--color-canvas)"
+    >
+      Skip to content
+    </a>
+
+    <Navbar />
+
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+    <CommandPalette />
+  </body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>

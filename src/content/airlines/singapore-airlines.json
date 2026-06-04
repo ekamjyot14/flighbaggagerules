@@ -1,0 +1,54 @@
+{
+  "name": "Singapore Airlines",
+  "slug": "singapore-airlines",
+  "iata": "SQ",
+  "country": "Singapore",
+  "region": "Asia",
+  "alliance": "Star Alliance",
+  "website": "https://www.singaporeair.com",
+  "logo": "https://images.kiwi.com/airlines/64/SQ.png",
+  "carryOn": {
+    "size": "55 x 38 x 20 cm (22 x 15 x 8 in)",
+    "weight": "7 kg (15 lbs)",
+    "personalItem": "Small laptop bag or handbag",
+    "notes": "Economy: 1 carry-on up to 7 kg. Premium Economy: 1 carry-on up to 7 kg. Business/First: 2 carry-on items up to 16 kg combined."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "25 kg (55 lbs)", "size": "158 cm (62 in) linear", "notes": "Included: 25 kg in Economy." },
+    "premiumEconomy": { "pieces": 1, "weight": "35 kg (77 lbs)", "size": "158 cm linear", "notes": "Included: 35 kg in Premium Economy." },
+    "business": { "pieces": 2, "weight": "40 kg (88 lbs) combined", "size": "158 cm linear", "notes": "Included: 40 kg in Business Class." },
+    "firstClass": { "pieces": 2, "weight": "50 kg (110 lbs) combined", "size": "158 cm linear", "notes": "Included: 50 kg in First Class / Suites." }
+  },
+  "fees": {
+    "firstBag": "Included in all fare types",
+    "secondBag": "Purchase additional allowance online",
+    "overweight": "Excess weight fees apply beyond allowance"
+  },
+  "batteryRules": {
+    "lithiumIon": "Spare lithium-ion batteries must be in carry-on baggage only",
+    "spareBatteries": "Hand baggage only. Up to 100Wh unrestricted. 101–160Wh requires airline approval. Over 160Wh not permitted.",
+    "powerBankLimit": "100Wh unrestricted; 101–160Wh with Singapore Airlines approval",
+    "laptops": "Permitted in cabin baggage. Remove at security screening per CAAS regulations."
+  },
+  "restrictedItems": [
+    "Hoverboards and personal mobility devices with lithium batteries",
+    "Samsung Galaxy Note 7",
+    "Smart bags with non-removable batteries"
+  ],
+  "faqs": [
+    {
+      "question": "How much checked baggage does Singapore Airlines Economy include?",
+      "answer": "Singapore Airlines Economy class passengers receive 25 kg of checked baggage, which is more generous than many competitors. Premium Economy includes 35 kg, Business Class 40 kg, and First Class / Suites 50 kg."
+    },
+    {
+      "question": "What is Singapore Airlines carry-on weight limit?",
+      "answer": "Economy and Premium Economy passengers may carry one bag up to 7 kg. Business and First Class passengers may bring two carry-on items with a combined weight of up to 16 kg."
+    },
+    {
+      "question": "Can I bring a power bank on Singapore Airlines?",
+      "answer": "Power banks must be packed in your carry-on / hand luggage — they are not allowed in checked baggage. Banks up to 100Wh are permitted. Banks between 101–160Wh require approval from Singapore Airlines before flying."
+    }
+  ],
+  "sourceUrl": "https://www.singaporeair.com/en_UK/us/travel-info/baggage/allowances/",
+  "lastUpdated": "2025-01-01"
+}

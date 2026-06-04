@@ -1,0 +1,31 @@
+{
+  "name": "Umbrella",
+  "slug": "umbrella",
+  "category": "misc",
+  "description": "Umbrellas are allowed in both carry-on and checked baggage. Small collapsible umbrellas fit easily in carry-on bags, while full-size umbrellas may need to fit in the overhead bin or be checked.",
+  "carryOnAllowed": true,
+  "checkedAllowed": true,
+  "tsaGuideline": "Umbrellas are allowed in carry-on and checked bags. They must go through the X-ray machine at the security checkpoint. TSA may need to inspect an umbrella separately if it appears unusual on the X-ray.",
+  "iataGuideline": "IATA does not restrict umbrellas. Most airlines allow a small collapsible umbrella as part of your personal item or carry-on. Full-size umbrellas may count toward your carry-on item allowance depending on the airline.",
+  "restrictions": [
+    "Must pass through X-ray screening at checkpoint",
+    "Full-size umbrellas may count as a carry-on item on some airlines",
+    "Umbrella swords or concealed weapon umbrellas are prohibited",
+    "No sharp pointed tips that could be used as a weapon"
+  ],
+  "faqs": [
+    {
+      "question": "Does an umbrella count as a carry-on item?",
+      "answer": "Small collapsible umbrellas that fit in your bag do not count separately. A full-size umbrella may count as your personal item or carry-on depending on the airline. Most airlines allow a compact umbrella in addition to your standard carry-on allowance."
+    },
+    {
+      "question": "Do I need to remove my umbrella at security?",
+      "answer": "You don't need to remove it from your bag unless asked. Place your bag with the umbrella on the X-ray belt as normal. A TSA officer may request a separate inspection if the umbrella's shape looks unusual on the scanner."
+    },
+    {
+      "question": "Are there any umbrellas that are not allowed?",
+      "answer": "Novelty umbrellas designed to look like swords, guns, or other weapons may be flagged or confiscated. Umbrellas with concealed blades (sword umbrellas) are completely prohibited. Standard rain umbrellas of any size are fine."
+    }
+  ],
+  "lastUpdated": "2025-01-15"
+}

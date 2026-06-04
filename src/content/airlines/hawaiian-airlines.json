@@ -1,0 +1,43 @@
+{
+  "name": "Hawaiian Airlines",
+  "slug": "hawaiian-airlines",
+  "iata": "HA",
+  "country": "United States",
+  "region": "North America",
+  "alliance": "Oneworld",
+  "logo": "https://images.kiwi.com/airlines/64/HA.png",
+  "carryOn": {
+    "size": "22 x 14 x 9 in (56 x 35 x 23 cm)",
+    "weight": "25 lbs (11 kg)",
+    "personalItem": "Personal item included",
+    "notes": "One carry-on bag and one personal item included for all passengers."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "$30 first bag for mainland-Hawaii routes. Free for inter-island." },
+    "premiumEconomy": { "pieces": 2, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "Included." },
+    "business": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (157 cm) linear", "notes": "Included." },
+    "firstClass": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (157 cm) linear", "notes": "Included." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Carry-on only for spare lithium batteries",
+    "spareBatteries": "Max 100Wh per battery. 101–160Wh with airline approval.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on."
+  },
+  "restrictedItems": [
+    "Hoverboards",
+    "Smart bags with non-removable lithium batteries"
+  ],
+  "faqs": [
+    {
+      "question": "Does Hawaiian Airlines include free checked bags?",
+      "answer": "For inter-island flights, checked bags may be included. For mainland-Hawaii routes, first checked bag costs $30 for economy. Premium cabin passengers receive complimentary checked bags."
+    },
+    {
+      "question": "What is Hawaiian Airlines' carry-on size limit?",
+      "answer": "Carry-on bags must be 22 x 14 x 9 inches and weigh 25 lbs or less."
+    }
+  ],
+  "sourceUrl": "https://www.hawaiianairlines.com/content/travel-info/baggage/checked-bags",
+  "lastUpdated": "2025-01-01"
+}

@@ -1,0 +1,131 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { getLocaleFromUrl, createTranslator, loadTranslations, getSegmentPath, getHreflangs } from '../../i18n/utils';
+import { buildTitle } from '../../utils/seo';
+import type { Locale } from '../../i18n/config';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const translations = await loadTranslations(locale);
+const t = createTranslator(translations);
+
+const posts = await getCollection('blog');
+const sorted = posts.sort((a, b) =>
+  new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
+);
+
+const featured = sorted.filter((p) => p.data.featured);
+const rest = sorted.filter((p) => !p.data.featured);
+
+const site = 'https://flightbaggagerules.com';
+const hreflangAlternates = getHreflangs(site, '/blog', locale);
+---
+
+<Layout
+  title={buildTitle(t('seo.blog.title'))}
+  description={t('seo.blog.description')}
+  locale={locale}
+  hreflangAlternates={hreflangAlternates}
+>
+  <div class="container-page py-12">
+    <!-- Page header -->
+    <div class="mb-10">
+      <h1 class="text-display-lg mb-3" style="color:var(--color-ink)">{t('blog.title')}</h1>
+      <p class="text-body-sm" style="color:var(--color-mute)">{t('blog.subtitle')}</p>
+    </div>
+
+    <!-- Featured posts -->
+    {featured.length > 0 && (
+      <section class="mb-12" aria-label="Featured articles">
+        <h2 class="text-body-sm font-semibold uppercase tracking-wider mb-6" style="color:var(--color-mute)">
+          {t('blog.featured')}
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {featured.map((post) => (
+            <a
+              href={getSegmentPath(locale, 'blog', post.id)}
+              class="group block rounded-xl border p-6 transition-all hover:-translate-y-0.5"
+              style="border-color:var(--color-hairline);background:var(--color-canvas-soft)"
+            >
+              <div class="flex items-center gap-2 mb-3">
+                <span
+                  class="text-xs font-medium px-2 py-0.5 rounded-full"
+                  style="background:var(--color-canvas);border:1px solid var(--color-hairline);color:var(--color-mute)"
+                >
+                  {post.data.tags[0]}
+                </span>
+                {post.data.minuteRead && (
+                  <span class="text-xs" style="color:var(--color-mute)">{post.data.minuteRead} min read</span>
+                )}
+              </div>
+              <h3
+                class="text-body-lg font-semibold mb-2 group-hover:underline"
+                style="color:var(--color-ink)"
+              >
+                {post.data.title}
+              </h3>
+              <p class="text-body-sm line-clamp-2" style="color:var(--color-body)">
+                {post.data.description}
+              </p>
+              <p class="text-xs mt-4" style="color:var(--color-mute)">
+                {new Date(post.data.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+              </p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- All posts -->
+    {rest.length > 0 && (
+      <section aria-label="All articles">
+        <h2 class="text-body-sm font-semibold uppercase tracking-wider mb-6" style="color:var(--color-mute)">
+          {t('blog.allPosts')}
+        </h2>
+        <div class="divide-y" style="border-color:var(--color-hairline)">
+          {rest.map((post) => (
+            <a
+              href={getSegmentPath(locale, 'blog', post.id)}
+              class="group flex items-start gap-6 py-6 hover:bg-[var(--color-canvas-soft)] -mx-4 px-4 rounded-lg transition-colors"
+            >
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-xs" style="color:var(--color-mute)">
+                    {new Date(post.data.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                  </span>
+                  {post.data.minuteRead && (
+                    <span class="text-xs" style="color:var(--color-mute)">· {post.data.minuteRead} min read</span>
+                  )}
+                </div>
+                <h3
+                  class="text-body-lg font-medium mb-1 group-hover:underline"
+                  style="color:var(--color-ink)"
+                >
+                  {post.data.title}
+                </h3>
+                <p class="text-body-sm line-clamp-2" style="color:var(--color-body)">
+                  {post.data.description}
+                </p>
+              </div>
+              <svg
+                class="w-4 h-4 flex-shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                style="color:var(--color-mute)"
+                aria-hidden="true"
+              >
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {sorted.length === 0 && (
+      <p class="py-20 text-center text-body-sm" style="color:var(--color-mute)">{t('blog.empty')}</p>
+    )}
+  </div>
+</Layout>

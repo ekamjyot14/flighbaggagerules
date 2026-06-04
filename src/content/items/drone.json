@@ -1,0 +1,34 @@
+{
+  "name": "Drone",
+  "slug": "drone",
+  "category": "electronics",
+  "description": "Consumer and professional unmanned aerial vehicles (UAVs). Rules vary by airline and depend on battery size.",
+  "carryOnAllowed": "conditional",
+  "checkedAllowed": "conditional",
+  "tsaGuideline": "Drones are allowed through TSA security checkpoints. The lithium batteries powering them must comply with airline lithium battery rules.",
+  "iataGuideline": "Drone batteries follow lithium battery regulations. Spare batteries must be in carry-on. Drone itself may go in checked or carry-on.",
+  "capacityLimit": "Battery must be ≤100Wh (carry-on without approval); spare batteries must be in carry-on",
+  "restrictions": [
+    "Drone batteries (spare) must be in carry-on",
+    "Drone body may be checked or carried on, subject to airline policy",
+    "Some airlines restrict drones entirely — check before flying",
+    "Batteries over 100Wh require prior airline approval"
+  ],
+  "airlineRules": [
+    { "airlineSlug": "delta-air-lines", "airlineName": "Delta Air Lines", "carryOn": true, "checked": "conditional", "notes": "Follow lithium battery rules for batteries." },
+    { "airlineSlug": "united-airlines", "airlineName": "United Airlines", "carryOn": true, "checked": "conditional", "notes": "Drone body allowed; batteries must follow lithium battery policy." },
+    { "airlineSlug": "emirates", "airlineName": "Emirates", "carryOn": "conditional", "checked": "conditional", "notes": "Contact Emirates before travel. Batteries ≤100Wh in carry-on." }
+  ],
+  "relatedItems": ["power-bank", "lithium-battery", "camera-batteries"],
+  "faqs": [
+    {
+      "question": "Can I bring a drone on a plane?",
+      "answer": "Generally yes, but it depends on the airline and the drone's battery. The drone body can usually be checked or carried on. The batteries — especially spare ones — must go in your carry-on bag and comply with lithium battery watt-hour limits."
+    },
+    {
+      "question": "Do I need to declare my drone at the airport?",
+      "answer": "Not typically for TSA screening in the US, but some countries require declaration at customs. Always check destination country rules."
+    }
+  ],
+  "lastUpdated": "2025-01-01"
+}

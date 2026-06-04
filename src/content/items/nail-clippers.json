@@ -1,0 +1,32 @@
+{
+  "name": "Nail Clippers",
+  "slug": "nail-clippers",
+  "category": "sharp-objects",
+  "description": "Nail clippers, nail files, tweezers, and similar small personal grooming tools. One of the most commonly asked about items at airport security.",
+  "carryOnAllowed": true,
+  "checkedAllowed": true,
+  "tsaGuideline": "Nail clippers are allowed in carry-on and checked baggage. Nail files (including metal files) are permitted. Tweezers are also allowed. Small nail scissors with blades shorter than 4 inches (10 cm) are permitted in carry-on.",
+  "iataGuideline": "Nail clippers and similar small personal grooming tools are generally permitted in both cabin and hold baggage. Scissors with blades shorter than 6 cm are typically permitted in the cabin.",
+  "restrictions": [
+    "Nail scissors: allowed in carry-on if blades are shorter than 4 inches (10 cm) from pivot",
+    "Nail clippers: fully permitted with no restrictions",
+    "Tweezers: fully permitted",
+    "Nail files (metal or emery board): permitted",
+    "Larger scissors (blade over 4 in): checked luggage only"
+  ],
+  "faqs": [
+    {
+      "question": "Are nail clippers allowed through airport security?",
+      "answer": "Yes, nail clippers are explicitly permitted by the TSA in both carry-on and checked baggage. Despite popular belief, you will not have them confiscated at the security checkpoint."
+    },
+    {
+      "question": "Can I bring nail scissors on a plane?",
+      "answer": "Small nail scissors with blades shorter than 4 inches (10 cm) from the pivot point are allowed in carry-on baggage per TSA rules. Larger scissors must be placed in checked luggage."
+    },
+    {
+      "question": "Are tweezers allowed in carry-on luggage?",
+      "answer": "Yes, tweezers are fully permitted in carry-on luggage according to TSA guidelines. There are no restrictions on tweezers in either carry-on or checked baggage."
+    }
+  ],
+  "lastUpdated": "2025-01-01"
+}

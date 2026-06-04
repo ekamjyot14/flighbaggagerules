@@ -1,0 +1,54 @@
+{
+  "name": "British Airways",
+  "slug": "british-airways",
+  "iata": "BA",
+  "country": "United Kingdom",
+  "region": "Europe",
+  "alliance": "Oneworld",
+  "website": "https://www.britishairways.com",
+  "logo": "https://images.kiwi.com/airlines/64/BA.png",
+  "carryOn": {
+    "size": "56 x 45 x 25 cm (22 x 18 x 10 in)",
+    "weight": "23 kg (51 lbs)",
+    "personalItem": "40 x 30 x 15 cm",
+    "notes": "1 carry-on bag up to 23 kg. Euro Traveller and Club Europe: 1 bag + 1 laptop. Hand baggage must fit in overhead locker."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "23 kg (50 lbs)", "size": "158 cm (62 in) linear", "notes": "Included in most fares. Basic fare does not include checked baggage." },
+    "premiumEconomy": { "pieces": 2, "weight": "23 kg each", "size": "158 cm linear", "notes": "2 bags included in World Traveller Plus." },
+    "business": { "pieces": 3, "weight": "32 kg (70 lbs) each", "size": "158 cm linear", "notes": "3 bags included in Club World." },
+    "firstClass": { "pieces": 3, "weight": "32 kg each", "size": "158 cm linear", "notes": "3 bags included in First." }
+  },
+  "fees": {
+    "firstBag": "Included in most fares; Basic fare extra",
+    "secondBag": "From £65 depending on route",
+    "overweight": "£65+ for bags over 23 kg"
+  },
+  "batteryRules": {
+    "lithiumIon": "Spare lithium batteries and power banks must be in hand baggage only",
+    "spareBatteries": "Hand baggage only. Up to 100Wh no approval needed. 101–160Wh with airline approval. Over 160Wh not permitted.",
+    "powerBankLimit": "100Wh unrestricted; 101–160Wh requires British Airways approval",
+    "laptops": "Allowed in hand baggage. Must be taken out at security."
+  },
+  "restrictedItems": [
+    "Hoverboards and self-balancing scooters",
+    "Smart bags with non-removable lithium batteries",
+    "E-cigarettes in checked baggage — must be in hand luggage"
+  ],
+  "faqs": [
+    {
+      "question": "What is British Airways carry-on bag allowance?",
+      "answer": "British Airways allows one piece of hand baggage up to 56 x 45 x 25 cm (22 x 18 x 10 in) and one small personal item. The hand baggage can weigh up to 23 kg, though you must be able to lift it into the overhead locker yourself."
+    },
+    {
+      "question": "How many checked bags does British Airways include?",
+      "answer": "Most economy fares include one 23 kg checked bag. World Traveller Plus (Premium Economy) includes two bags. Club World (Business) and First include three bags at 32 kg each. The cheapest Basic fare does not include a checked bag."
+    },
+    {
+      "question": "Can I take a power bank on British Airways?",
+      "answer": "Power banks must be in your hand baggage — not in checked baggage. Power banks up to 100Wh are permitted. Banks between 101–160Wh require British Airways approval. Banks over 160Wh are prohibited."
+    }
+  ],
+  "sourceUrl": "https://www.britishairways.com/en-gb/information/baggage-essentials",
+  "lastUpdated": "2025-01-01"
+}

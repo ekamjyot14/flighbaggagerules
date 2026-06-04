@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ComparisonTable from '../components/compare/ComparisonTable.astro';
+import { getCollection } from 'astro:content';
+import { getLocaleFromUrl, createTranslator, loadTranslations, getHreflangs } from '../i18n/utils';
+import { buildTitle } from '../utils/seo';
+import type { Locale } from '../i18n/config';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const translations = await loadTranslations(locale);
+const t = createTranslator(translations);
+
+const airlines = await getCollection('airlines');
+const sorted = airlines.sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+const site = 'https://flightbaggagerules.com';
+const hreflangAlternates = getHreflangs(site, '/compare', locale);
+---
+
+<Layout
+  title={buildTitle(t('seo.compare.title'))}
+  description={t('seo.compare.description')}
+  locale={locale}
+  hreflangAlternates={hreflangAlternates}
+>
+  <div class="container-page py-12">
+    <!-- Page header -->
+    <div class="mb-10">
+      <h1 class="text-display-lg mb-3" style="color:var(--color-ink)">{t('compare.title')}</h1>
+      <p class="text-body-sm mb-6" style="color:var(--color-mute)">{t('compare.subtitle')}</p>
+
+      <!-- Airline selector chips -->
+      <div class="flex flex-wrap gap-2" id="airline-chips" role="group" aria-label="Select airlines to compare">
+        {sorted.map((airline) => (
+          <button
+            type="button"
+            class="airline-chip inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-medium transition-all"
+            style="border-color:var(--color-hairline);background:var(--color-canvas-soft);color:var(--color-body)"
+            data-slug={airline.data.slug}
+            data-name={airline.data.name}
+            aria-pressed="false"
+          >
+            <span>{airline.data.iata || airline.data.name.slice(0, 2)}</span>
+            <span>{airline.data.name}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Comparison result -->
+    <div id="compare-result" class="hidden">
+      <div id="comparison-content"></div>
+    </div>
+
+    <!-- Empty state -->
+    <div id="compare-empty" class="py-20 text-center">
+      <div class="text-5xl mb-4" aria-hidden="true">✈️</div>
+      <p class="text-body-sm" style="color:var(--color-mute)">{t('compare.prompt')}</p>
+    </div>
+  </div>
+</Layout>
+
+<script define:vars={{ airlinesData: sorted.map(a => a.data) }}>
+  const chips = document.querySelectorAll('.airline-chip');
+  const compareResult = document.getElementById('compare-result');
+  const compareEmpty = document.getElementById('compare-empty');
+  const comparisonContent = document.getElementById('comparison-content');
+
+  let selected = [];
+
+  function buildTable() {
+    if (selected.length < 2) {
+      compareResult.classList.add('hidden');
+      compareEmpty.classList.remove('hidden');
+      return;
+    }
+
+    const selectedData = selected.map(slug => airlinesData.find(a => a.slug === slug)).filter(Boolean);
+    compareEmpty.classList.add('hidden');
+    compareResult.classList.remove('hidden');
+
+    const headers = ['', ...selectedData.map(a => `${a.name}${a.iata ? ` (${a.iata})` : ''}`)];
+
+    const rows = [
+      { label: 'Alliance', values: selectedData.map(a => a.alliance || '—') },
+      { label: 'Carry-On Size', values: selectedData.map(a => a.carryOn.size) },
+      { label: 'Carry-On Weight', values: selectedData.map(a => a.carryOn.weight) },
+      { label: 'Personal Item', values: selectedData.map(a => a.carryOn.personalItem || '—') },
+      { label: 'Economy Checked (pieces)', values: selectedData.map(a => a.checked.economy?.pieces != null ? String(a.checked.economy.pieces) : '—') },
+      { label: 'Economy Checked Weight', values: selectedData.map(a => a.checked.economy?.weight || '—') },
+      { label: 'Economy Bag Fee', values: selectedData.map(a => a.fees?.firstBag || a.checked.economy?.notes || '—') },
+      { label: 'Power Bank Limit', values: selectedData.map(a => a.batteryRules.powerBankLimit) },
+      { label: 'Last Updated', values: selectedData.map(a => a.lastUpdated) },
+    ];
+
+    comparisonContent.innerHTML = '';
+
+    const headerRow = headers.map((h, i) => `<th scope="col" class="px-4 py-3 text-left font-medium" style="color:var(--color-ink);background:var(--color-canvas-soft);${i > 0 ? 'text-align:center;min-width:160px' : ''}">${h}</th>`).join('');
+
+    const bodyRows = rows.map((row, ri) => {
+      const cells = [
+        `<td class="px-4 py-3 font-medium" style="color:var(--color-ink);white-space:nowrap">${row.label}</td>`,
+        ...row.values.map(v => `<td class="px-4 py-3 text-center text-xs" style="color:var(--color-body)">${v}</td>`),
+      ].join('');
+      return `<tr style="border-bottom:1px solid var(--color-hairline);background:${ri % 2 === 0 ? 'var(--color-canvas)' : 'var(--color-canvas-soft)'}">${cells}</tr>`;
+    }).join('');
+
+    const table = document.createElement('div');
+    table.className = 'overflow-x-auto rounded-xl border';
+    table.style.borderColor = 'var(--color-hairline)';
+    table.innerHTML = `
+      <table class="w-full text-sm" style="border-collapse:collapse">
+        <thead>
+          <tr style="border-bottom:1px solid var(--color-hairline)">${headerRow}</tr>
+        </thead>
+        <tbody>${bodyRows}</tbody>
+      </table>
+    `;
+    comparisonContent.appendChild(table);
+  }
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const slug = chip.dataset.slug;
+      const isSelected = selected.includes(slug);
+
+      if (isSelected) {
+        selected = selected.filter(s => s !== slug);
+        chip.setAttribute('aria-pressed', 'false');
+        chip.style.background = 'var(--color-canvas-soft)';
+        chip.style.color = 'var(--color-body)';
+        chip.style.borderColor = 'var(--color-hairline)';
+      } else {
+        if (selected.length >= 4) {
+          // Max 4 comparison
+          const oldest = selected.shift();
+          const oldChip = document.querySelector(`[data-slug="${oldest}"]`);
+          if (oldChip) {
+            oldChip.setAttribute('aria-pressed', 'false');
+            oldChip.style.background = 'var(--color-canvas-soft)';
+            oldChip.style.color = 'var(--color-body)';
+            oldChip.style.borderColor = 'var(--color-hairline)';
+          }
+        }
+        selected.push(slug);
+        chip.setAttribute('aria-pressed', 'true');
+        chip.style.background = 'var(--color-ink)';
+        chip.style.color = 'var(--color-canvas)';
+        chip.style.borderColor = 'var(--color-ink)';
+      }
+
+      buildTable();
+    });
+  });
+</script>

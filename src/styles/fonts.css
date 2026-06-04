@@ -1,0 +1,19 @@
+/* Geist Sans — self-hosted from Vercel's open-source release */
+/* Download from: https://github.com/vercel/geist-font/releases */
+/* Place files in public/fonts/ — filenames below */
+
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/GeistVariableVF.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/GeistMonoVariableVF.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}

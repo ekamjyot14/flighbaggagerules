@@ -1,0 +1,43 @@
+{
+  "name": "Frontier Airlines",
+  "slug": "frontier-airlines",
+  "iata": "F9",
+  "country": "United States",
+  "region": "North America",
+  "alliance": "Independent",
+  "logo": "https://images.kiwi.com/airlines/64/F9.png",
+  "carryOn": {
+    "size": "24 x 16 x 10 in (61 x 41 x 25 cm)",
+    "weight": "35 lbs (16 kg)",
+    "personalItem": "18 x 14 x 8 in (45 x 35 x 20 cm)",
+    "notes": "Carry-on bag requires a fee. Personal item included free."
+  },
+  "checked": {
+    "economy": { "pieces": 0, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "$35–$60+ per bag depending on when purchased." },
+    "premiumEconomy": { "pieces": 0, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "Fees apply." },
+    "business": { "pieces": 0, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "N/A." },
+    "firstClass": { "pieces": 0, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "N/A." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Carry-on only for spare lithium batteries",
+    "spareBatteries": "Max 100Wh per battery.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on."
+  },
+  "restrictedItems": [
+    "Hoverboards",
+    "Smart bags with non-removable lithium batteries"
+  ],
+  "faqs": [
+    {
+      "question": "Does Frontier charge for carry-on bags?",
+      "answer": "Yes, Frontier charges for carry-on bags. Only one personal item fitting under the seat is included free. Carry-on fees range from $35–$60+."
+    },
+    {
+      "question": "What is Frontier's personal item size?",
+      "answer": "Personal items must be 18 x 14 x 8 inches or smaller and fit under the seat in front of you."
+    }
+  ],
+  "sourceUrl": "https://www.flyfrontier.com/travel/travel-info/bag-options/",
+  "lastUpdated": "2025-01-01"
+}

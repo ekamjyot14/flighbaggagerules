@@ -1,0 +1,47 @@
+{
+  "name": "Delta Air Lines",
+  "slug": "delta-air-lines",
+  "iata": "DL",
+  "country": "United States",
+  "region": "North America",
+  "alliance": "SkyTeam",
+  "logo": "https://images.kiwi.com/airlines/64/DL.png",
+  "carryOn": {
+    "size": "22 x 14 x 9 in (56 x 35 x 23 cm)",
+    "weight": "No weight limit",
+    "personalItem": "18 x 14 x 8 in (45 x 35 x 20 cm)",
+    "notes": "Must fit in overhead bin or under seat. No weight limit for carry-on."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "$30 for first bag, $40 for second bag." },
+    "premiumEconomy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "Included." },
+    "business": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (157 cm) linear", "notes": "Included." },
+    "firstClass": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (157 cm) linear", "notes": "Included." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Carry-on only for spare lithium batteries",
+    "spareBatteries": "Must be in carry-on. Max 100Wh per battery without approval. 101–160Wh requires airline approval.",
+    "powerBankLimit": "100Wh without approval, up to 160Wh with approval",
+    "laptops": "Allowed in carry-on. Remove from bag at security screening."
+  },
+  "restrictedItems": [
+    "Hoverboards and self-balancing scooters",
+    "Smart bags with non-removable lithium batteries exceeding 160Wh"
+  ],
+  "faqs": [
+    {
+      "question": "Does Delta charge for carry-on bags?",
+      "answer": "Basic Economy passengers on domestic flights may be charged for carry-on bag overhead space. Most other fare classes allow one carry-on bag and one personal item at no charge."
+    },
+    {
+      "question": "What is Delta's baggage fee for checked bags?",
+      "answer": "For domestic flights: 1st bag is $30, 2nd bag is $40. International fees vary by route. SkyMiles Medallion members and certain credit card holders may receive complimentary bags."
+    },
+    {
+      "question": "Can I bring a power bank on Delta?",
+      "answer": "Yes, power banks are allowed in carry-on bags only (not checked bags). Power banks must be 100Wh or less. Between 101–160Wh requires airline approval."
+    }
+  ],
+  "sourceUrl": "https://www.delta.com/us/en/baggage/overview",
+  "lastUpdated": "2025-01-01"
+}

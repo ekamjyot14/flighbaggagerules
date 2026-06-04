@@ -1,0 +1,39 @@
+{
+  "name": "Cathay Pacific",
+  "slug": "cathay-pacific",
+  "iata": "CX",
+  "country": "Hong Kong",
+  "region": "Asia",
+  "alliance": "Oneworld",
+  "logo": "https://images.kiwi.com/airlines/64/CX.png",
+  "carryOn": {
+    "size": "22 x 14 x 9 in (56 x 36 x 23 cm)",
+    "weight": "15 lbs (7 kg)",
+    "personalItem": "Included in total",
+    "notes": "Economy/Premium Economy: 1 bag (7 kg). Business/First: 2 bags (total 15 kg)."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (158 cm) linear", "notes": "Included." },
+    "premiumEconomy": { "pieces": 2, "weight": "55 lbs (25 kg)", "size": "62 in (158 cm) linear", "notes": "Included." },
+    "business": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (158 cm) linear", "notes": "Included." },
+    "firstClass": { "pieces": 3, "weight": "70 lbs (32 kg)", "size": "62 in (158 cm) linear", "notes": "Included." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Carry-on only for spare lithium batteries",
+    "spareBatteries": "Max 100Wh per battery. 101–160Wh with airline approval.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on."
+  },
+  "restrictedItems": [
+    "Hoverboards",
+    "Smart bags with non-removable lithium batteries"
+  ],
+  "faqs": [
+    {
+      "question": "What is Cathay Pacific's carry-on weight limit?",
+      "answer": "Economy: 7 kg for one bag. Business/First: 2 bags totaling 15 kg."
+    }
+  ],
+  "sourceUrl": "https://www.cathaypacific.com/cx/en_US/travel-information/baggage.html",
+  "lastUpdated": "2025-01-01"
+}

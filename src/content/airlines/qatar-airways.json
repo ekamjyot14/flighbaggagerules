@@ -1,0 +1,54 @@
+{
+  "name": "Qatar Airways",
+  "slug": "qatar-airways",
+  "iata": "QR",
+  "country": "Qatar",
+  "region": "Middle East",
+  "alliance": "Oneworld",
+  "website": "https://www.qatarairways.com",
+  "logo": "https://images.kiwi.com/airlines/64/QR.png",
+  "carryOn": {
+    "size": "50 x 37 x 25 cm (20 x 15 x 10 in)",
+    "weight": "7 kg (15 lbs)",
+    "personalItem": "Laptop bag or small backpack",
+    "notes": "Economy class: 1 carry-on up to 7 kg. Business class: 2 carry-on bags up to 15 kg total. Strictly enforced."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "23 kg (50 lbs)", "size": "158 cm (62 in) linear", "notes": "1 bag included in most Economy fares." },
+    "premiumEconomy": { "pieces": 2, "weight": "23 kg (50 lbs) each", "size": "158 cm linear", "notes": "2 bags included." },
+    "business": { "pieces": 2, "weight": "32 kg (70 lbs) each", "size": "158 cm linear", "notes": "2 bags included." },
+    "firstClass": { "pieces": 3, "weight": "32 kg (70 lbs) each", "size": "158 cm linear", "notes": "3 bags included." }
+  },
+  "fees": {
+    "firstBag": "Included in most fares; Economy Light does not include checked baggage",
+    "secondBag": "Varies by route",
+    "overweight": "Fees apply for bags over 23 kg in Economy"
+  },
+  "batteryRules": {
+    "lithiumIon": "Spare lithium-ion batteries permitted in carry-on only",
+    "spareBatteries": "Carry-on only. Max 100Wh unrestricted. 101–160Wh with airline approval. Prohibited in checked baggage.",
+    "powerBankLimit": "100Wh unrestricted; up to 160Wh with Qatar Airways approval",
+    "laptops": "Permitted in carry-on baggage. Must comply with security screening requirements."
+  },
+  "restrictedItems": [
+    "Hoverboards and self-balancing scooters",
+    "Samsung Galaxy Note 7 (banned)",
+    "Smart bags with non-removable lithium batteries"
+  ],
+  "faqs": [
+    {
+      "question": "What is Qatar Airways carry-on weight limit?",
+      "answer": "Economy class passengers may bring one carry-on bag weighing up to 7 kg (15 lbs). Business class passengers are allowed up to 15 kg total across two bags. Qatar Airways enforces weight limits at the gate."
+    },
+    {
+      "question": "Does Qatar Airways Economy include a checked bag?",
+      "answer": "Most Qatar Airways Economy fares include one 23 kg checked bag. The Economy Light fare does not include checked baggage. Business class includes two 32 kg bags."
+    },
+    {
+      "question": "Can I bring a power bank on Qatar Airways?",
+      "answer": "Power banks must be in your carry-on baggage only. Power banks up to 100Wh are permitted. Banks between 101–160Wh require Qatar Airways approval prior to travel. Power banks over 160Wh are prohibited."
+    }
+  ],
+  "sourceUrl": "https://www.qatarairways.com/en/baggage.html",
+  "lastUpdated": "2025-01-01"
+}

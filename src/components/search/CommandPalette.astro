@@ -1,0 +1,265 @@
+---
+// CommandPalette — opened by CMD+K or clicking the search button
+---
+<div
+  id="command-palette-overlay"
+  class="fixed inset-0 z-50 hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Command palette"
+>
+  <!-- Backdrop -->
+  <div
+    id="command-palette-backdrop"
+    class="absolute inset-0"
+    style="background:rgba(0,0,0,0.5);backdrop-filter:blur(4px)"
+  ></div>
+
+  <!-- Panel -->
+  <div
+    class="relative flex flex-col mx-auto mt-[10vh] w-full max-w-2xl rounded-xl overflow-hidden"
+    style="background:var(--color-canvas);box-shadow:var(--shadow-modal);max-height:80vh"
+    id="command-palette-panel"
+  >
+    <!-- Search input -->
+    <div class="flex items-center gap-3 px-4 border-b" style="border-color:var(--color-hairline);height:56px">
+      <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--color-mute)" aria-hidden="true">
+        <circle cx="6.5" cy="6.5" r="4.5"/><path d="M10.5 10.5L14 14"/>
+      </svg>
+      <input
+        id="command-palette-input"
+        type="text"
+        placeholder="Search airlines, items, pages..."
+        aria-label="Search"
+        autocomplete="off"
+        spellcheck="false"
+        class="flex-1 text-sm outline-none bg-transparent"
+        style="color:var(--color-ink)"
+      />
+      <kbd
+        class="hidden sm:flex items-center justify-center px-1.5 h-5 rounded text-xs border"
+        style="border-color:var(--color-hairline);color:var(--color-mute);font-family:var(--font-mono)"
+        aria-label="Press Escape to close"
+      >
+        esc
+      </kbd>
+    </div>
+
+    <!-- Results -->
+    <div
+      id="command-palette-results"
+      class="overflow-y-auto flex-1"
+      style="max-height:60vh"
+      role="listbox"
+      aria-label="Search results"
+    >
+      <!-- Default state -->
+      <div id="command-palette-default" class="p-4">
+        <p class="text-xs font-medium mb-3 uppercase tracking-wider" style="color:var(--color-mute);font-family:var(--font-mono);letter-spacing:0.08em">Quick Links</p>
+        <div class="space-y-1" role="group">
+          {[
+            { label: 'Airlines Directory', href: '/airlines', icon: '✈️' },
+            { label: 'Item Rules', href: '/items', icon: '🎒' },
+            { label: 'Check Rules', href: '/check', icon: '✓' },
+            { label: 'Compare Airlines', href: '/compare', icon: '⇄' },
+            { label: 'Travel Blog', href: '/blog', icon: '📖' },
+          ].map((item) => (
+            <a
+              href={item.href}
+              class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm no-underline transition-colors duration-100"
+              style="color:var(--color-body)"
+              role="option"
+              data-quick-link
+            >
+              <span class="text-base" aria-hidden="true">{item.icon}</span>
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Search results container (populated by JS) -->
+      <div id="command-palette-search-results" class="hidden p-2"></div>
+
+      <!-- No results -->
+      <div id="command-palette-no-results" class="hidden px-4 py-8 text-center">
+        <p class="text-sm" style="color:var(--color-mute)">No results found.</p>
+      </div>
+    </div>
+
+    <!-- Footer hint -->
+    <div class="flex items-center gap-4 px-4 py-2 border-t text-xs" style="border-color:var(--color-hairline);color:var(--color-mute)">
+      <span class="flex items-center gap-1">
+        <kbd class="px-1 rounded border" style="border-color:var(--color-hairline);font-family:var(--font-mono)">↑↓</kbd>
+        Navigate
+      </span>
+      <span class="flex items-center gap-1">
+        <kbd class="px-1 rounded border" style="border-color:var(--color-hairline);font-family:var(--font-mono)">↵</kbd>
+        Select
+      </span>
+      <span class="flex items-center gap-1">
+        <kbd class="px-1 rounded border" style="border-color:var(--color-hairline);font-family:var(--font-mono)">esc</kbd>
+        Close
+      </span>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Static search data — in production, this could use Pagefind API
+  const searchData = [
+    // Airlines
+    { type: 'airline', label: 'Delta Air Lines', href: '/airlines/delta-air-lines', meta: 'United States · SkyTeam' },
+    { type: 'airline', label: 'United Airlines', href: '/airlines/united-airlines', meta: 'United States · Star Alliance' },
+    { type: 'airline', label: 'American Airlines', href: '/airlines/american-airlines', meta: 'United States · Oneworld' },
+    { type: 'airline', label: 'Southwest Airlines', href: '/airlines/southwest-airlines', meta: 'United States · Independent' },
+    { type: 'airline', label: 'JetBlue Airways', href: '/airlines/jetblue-airways', meta: 'United States · Independent' },
+    { type: 'airline', label: 'Alaska Airlines', href: '/airlines/alaska-airlines', meta: 'United States · Oneworld' },
+    { type: 'airline', label: 'Emirates', href: '/airlines/emirates', meta: 'United Arab Emirates · Independent' },
+    { type: 'airline', label: 'Qatar Airways', href: '/airlines/qatar-airways', meta: 'Qatar · Oneworld' },
+    { type: 'airline', label: 'Lufthansa', href: '/airlines/lufthansa', meta: 'Germany · Star Alliance' },
+    { type: 'airline', label: 'British Airways', href: '/airlines/british-airways', meta: 'United Kingdom · Oneworld' },
+    { type: 'airline', label: 'Air Canada', href: '/airlines/air-canada', meta: 'Canada · Star Alliance' },
+    { type: 'airline', label: 'Singapore Airlines', href: '/airlines/singapore-airlines', meta: 'Singapore · Star Alliance' },
+    // Items
+    { type: 'item', label: 'Power Bank', href: '/items/power-bank', meta: 'Electronics · Carry-On: Conditional' },
+    { type: 'item', label: 'Drone', href: '/items/drone', meta: 'Electronics · Carry-On: Conditional' },
+    { type: 'item', label: 'Laptop', href: '/items/laptop', meta: 'Electronics · Carry-On: Allowed' },
+    { type: 'item', label: 'Vape / E-Cigarette', href: '/items/vape', meta: 'Misc · Carry-On: Allowed' },
+    { type: 'item', label: 'Lithium Battery', href: '/items/lithium-battery', meta: 'Batteries · Carry-On: Conditional' },
+    { type: 'item', label: 'Camera', href: '/items/camera', meta: 'Electronics · Carry-On: Allowed' },
+    { type: 'item', label: 'Protein Powder', href: '/items/protein-powder', meta: 'Food · Carry-On: Allowed' },
+    { type: 'item', label: 'Perfume', href: '/items/perfume', meta: 'Liquids · Carry-On: Conditional' },
+    { type: 'item', label: 'Nail Clippers', href: '/items/nail-clippers', meta: 'Sharp Objects · Carry-On: Allowed' },
+    // Pages
+    { type: 'page', label: 'Check Baggage Rules', href: '/check', meta: 'Tool' },
+    { type: 'page', label: 'Compare Airlines', href: '/compare', meta: 'Tool' },
+    { type: 'page', label: 'Travel Blog', href: '/blog', meta: 'Resource' },
+  ];
+
+  const typeIcons: Record<string, string> = {
+    airline: '✈️',
+    item: '🎒',
+    page: '📄',
+  };
+
+  function initCommandPalette() {
+    const overlay = document.getElementById('command-palette-overlay');
+    const backdrop = document.getElementById('command-palette-backdrop');
+    const input = document.getElementById('command-palette-input') as HTMLInputElement | null;
+    const defaultView = document.getElementById('command-palette-default');
+    const searchResults = document.getElementById('command-palette-search-results');
+    const noResults = document.getElementById('command-palette-no-results');
+    if (!overlay || !input || !defaultView || !searchResults || !noResults) return;
+
+    let isOpen = false;
+    let selectedIndex = -1;
+
+    function open() {
+      isOpen = true;
+      overlay.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => input?.focus(), 10);
+      selectedIndex = -1;
+    }
+
+    function close() {
+      isOpen = false;
+      overlay.classList.add('hidden');
+      document.body.style.overflow = '';
+      if (input) { input.value = ''; }
+      showDefault();
+    }
+
+    function showDefault() {
+      defaultView.classList.remove('hidden');
+      searchResults.classList.add('hidden');
+      noResults.classList.add('hidden');
+    }
+
+    function renderResults(results: typeof searchData) {
+      defaultView.classList.add('hidden');
+      if (results.length === 0) {
+        searchResults.classList.add('hidden');
+        noResults.classList.remove('hidden');
+        return;
+      }
+
+      noResults.classList.add('hidden');
+      searchResults.classList.remove('hidden');
+
+      // Group by type
+      const grouped: Record<string, typeof searchData> = {};
+      results.forEach((r) => {
+        if (!grouped[r.type]) grouped[r.type] = [];
+        grouped[r.type].push(r);
+      });
+
+      const typeLabels: Record<string, string> = { airline: 'Airlines', item: 'Items', page: 'Pages' };
+
+      searchResults.innerHTML = Object.entries(grouped).map(([type, items]) => `
+        <div class="mb-2">
+          <p class="px-3 py-1 text-xs uppercase tracking-wider" style="color:var(--color-mute);font-family:var(--font-mono);letter-spacing:0.08em">${typeLabels[type] || type}</p>
+          ${items.map((item) => `
+            <a href="${item.href}" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm no-underline transition-colors duration-100 cp-result" style="color:var(--color-body)" role="option" tabindex="-1">
+              <span class="text-sm" aria-hidden="true">${typeIcons[item.type] || '•'}</span>
+              <span class="flex-1 min-w-0">
+                <span class="block" style="color:var(--color-ink)">${item.label}</span>
+                <span class="block text-xs truncate" style="color:var(--color-mute)">${item.meta}</span>
+              </span>
+            </a>
+          `).join('')}
+        </div>
+      `).join('');
+
+      // Close on result click
+      searchResults.querySelectorAll('.cp-result').forEach((link) => {
+        link.addEventListener('click', close);
+      });
+    }
+
+    function updateSelection(delta: number) {
+      const results = document.querySelectorAll<HTMLElement>('.cp-result, [data-quick-link]');
+      if (results.length === 0) return;
+
+      results[selectedIndex]?.style.removeProperty('background');
+      selectedIndex = Math.max(0, Math.min(results.length - 1, selectedIndex + delta));
+      const selected = results[selectedIndex];
+      if (selected) {
+        selected.style.background = 'var(--color-canvas-soft-2)';
+        selected.scrollIntoView({ block: 'nearest' });
+      }
+    }
+
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      if (!q) { showDefault(); return; }
+      const results = searchData.filter((d) =>
+        d.label.toLowerCase().includes(q) || d.meta.toLowerCase().includes(q)
+      );
+      renderResults(results);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); isOpen ? close() : open(); }
+      if (!isOpen) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowDown') { e.preventDefault(); updateSelection(1); }
+      if (e.key === 'ArrowUp') { e.preventDefault(); updateSelection(-1); }
+      if (e.key === 'Enter') {
+        const selected = document.querySelectorAll<HTMLAnchorElement>('.cp-result, [data-quick-link]')[selectedIndex];
+        if (selected?.href) { window.location.href = selected.href; close(); }
+      }
+    });
+
+    document.addEventListener('open-command-palette', () => { if (!isOpen) open(); });
+    backdrop?.addEventListener('click', close);
+
+    document.querySelectorAll('[data-quick-link]').forEach((link) => {
+      link.addEventListener('click', close);
+    });
+  }
+
+  initCommandPalette();
+  document.addEventListener('astro:page-load', initCommandPalette);
+</script>

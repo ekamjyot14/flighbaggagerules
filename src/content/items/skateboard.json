@@ -1,0 +1,32 @@
+{
+  "name": "Skateboard",
+  "slug": "skateboard",
+  "category": "sports",
+  "description": "Skateboards are allowed as carry-on baggage if they fit in the overhead compartment. They are also permitted in checked luggage. Airline policies vary, so checking with your specific carrier is recommended.",
+  "carryOnAllowed": "conditional",
+  "checkedAllowed": true,
+  "tsaGuideline": "Skateboards are allowed through the TSA security checkpoint as carry-on items. The final decision on whether the skateboard can be brought into the cabin rests with the airline, as it must fit in the overhead bin or under the seat.",
+  "iataGuideline": "IATA classifies skateboards as sporting equipment. Airlines set individual policies on acceptance as cabin or checked baggage. Size and weight restrictions for carry-on baggage apply.",
+  "restrictions": [
+    "Must fit in overhead bin or under seat for carry-on (airline-dependent)",
+    "Some airlines may not allow skateboards as carry-on regardless of size",
+    "Longboards typically exceed carry-on dimensions and must be checked",
+    "No additional fees beyond standard baggage fees at most airlines",
+    "Wheels and trucks are not considered a security threat by TSA"
+  ],
+  "faqs": [
+    {
+      "question": "Can I bring a skateboard as a carry-on?",
+      "answer": "TSA allows skateboards through security, but the airline determines if it can be brought into the cabin. Standard skateboards (31 inches) may fit in overhead bins on some aircraft. Check with your airline, as policies vary significantly between carriers."
+    },
+    {
+      "question": "Do I need a bag for my skateboard when flying?",
+      "answer": "A skateboard bag isn't required but is recommended, especially for checked baggage. For carry-on, a bag makes it easier to stow in the overhead bin. For checked baggage, a padded bag protects against damage during handling."
+    },
+    {
+      "question": "Are longboards allowed on planes?",
+      "answer": "Longboards (typically 33-46 inches) usually exceed carry-on size limits and must be checked. They are allowed in checked baggage. Use a padded bag to prevent damage. Some airlines may charge a sports equipment or oversized baggage fee."
+    }
+  ],
+  "lastUpdated": "2025-01-15"
+}

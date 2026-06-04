@@ -1,0 +1,37 @@
+{
+  "name": "Camera",
+  "slug": "camera",
+  "category": "electronics",
+  "description": "DSLR cameras, mirrorless cameras, action cameras (GoPro), film cameras, and their accessories. Camera equipment is generally permitted on flights with some considerations.",
+  "carryOnAllowed": true,
+  "checkedAllowed": "conditional",
+  "tsaGuideline": "Camera equipment including DSLRs, mirrorless, and action cameras are allowed through TSA security. Camera lenses and bodies may be subject to additional screening. X-ray machines are generally safe for digital cameras but film should be kept in carry-on.",
+  "iataGuideline": "Camera equipment is permitted in both cabin and hold baggage. Film and spare lithium batteries must be in the cabin.",
+  "capacityLimit": "No specific capacity limit, subject to carry-on bag size limits",
+  "restrictions": [
+    "Camera batteries (lithium) must be in carry-on if spare/external",
+    "Undeveloped film: request hand inspection — X-ray may damage film above 800 ISO",
+    "Camera equipment counts toward your carry-on allowance",
+    "Very large professional camera setups may require special handling"
+  ],
+  "airlineRules": [
+    { "airlineSlug": "delta-air-lines", "airlineName": "Delta Air Lines", "carryOn": true, "checked": "conditional", "notes": "Camera equipment allowed. Spare batteries must be in carry-on." },
+    { "airlineSlug": "emirates", "airlineName": "Emirates", "carryOn": true, "checked": "conditional", "notes": "Cameras and spare batteries in cabin baggage only for spare batteries." }
+  ],
+  "relatedItems": ["drone", "laptop", "power-bank"],
+  "faqs": [
+    {
+      "question": "Can I bring a camera on a plane?",
+      "answer": "Yes, cameras are allowed on planes in both carry-on and checked baggage. However, carrying your camera in your carry-on is strongly recommended to avoid damage or theft from the cargo hold."
+    },
+    {
+      "question": "Will airport X-ray machines damage my camera?",
+      "answer": "Modern digital camera sensors are not affected by airport X-ray machines. However, undeveloped photographic film can be damaged, especially film above ISO 800. Request a hand inspection for film to be safe."
+    },
+    {
+      "question": "Can I bring extra camera batteries on a plane?",
+      "answer": "Spare (loose) lithium batteries including camera batteries must be in your carry-on bag — they cannot be in checked luggage. Each spare battery must be individually protected to prevent short circuits."
+    }
+  ],
+  "lastUpdated": "2025-01-01"
+}

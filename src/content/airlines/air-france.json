@@ -1,0 +1,40 @@
+{
+  "name": "Air France",
+  "slug": "air-france",
+  "iata": "AF",
+  "country": "France",
+  "region": "Europe",
+  "alliance": "SkyTeam",
+  "logo": "https://images.kiwi.com/airlines/64/AF.png",
+  "carryOn": {
+    "size": "22 x 14 x 9 in (55 x 35 x 25 cm)",
+    "weight": "26 lbs (12 kg)",
+    "personalItem": "16 x 12 x 6 in (40 x 30 x 15 cm)",
+    "notes": "Economy/Premium Economy: 1 bag + 1 accessory (12 kg total). Business/La Première: 2 bags + 1 accessory (18 kg total)."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (158 cm) linear", "notes": "Included on most routes. Light fares may exclude checked bag." },
+    "premiumEconomy": { "pieces": 2, "weight": "50 lbs (23 kg)", "size": "62 in (158 cm) linear", "notes": "Included." },
+    "business": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (158 cm) linear", "notes": "Included." },
+    "firstClass": { "pieces": 3, "weight": "70 lbs (32 kg)", "size": "62 in (158 cm) linear", "notes": "Included." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Carry-on only for spare lithium batteries",
+    "spareBatteries": "Max 100Wh per battery. 101–160Wh with airline approval.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on."
+  },
+  "restrictedItems": [
+    "Hoverboards",
+    "Smart bags with non-removable lithium batteries",
+    "Samsung Galaxy Note 7"
+  ],
+  "faqs": [
+    {
+      "question": "Does Air France include free checked bags?",
+      "answer": "Yes, most Air France fares include at least one checked bag (23 kg). Light fares on short-haul European flights may not include checked bags."
+    }
+  ],
+  "sourceUrl": "https://www.airfrance.us/travel-guide",
+  "lastUpdated": "2025-01-01"
+}

@@ -1,0 +1,53 @@
+{
+  "name": "Alaska Airlines",
+  "slug": "alaska-airlines",
+  "iata": "AS",
+  "country": "United States",
+  "region": "North America",
+  "alliance": "Oneworld",
+  "website": "https://www.alaskaair.com",
+  "logo": "https://images.kiwi.com/airlines/64/AS.png",
+  "carryOn": {
+    "size": "22 x 14 x 9 in (56 x 36 x 23 cm)",
+    "weight": "No weight limit",
+    "personalItem": "17 x 13 x 6 in (43 x 33 x 15 cm)",
+    "notes": "Saver fare allows one personal item only. Main Cabin and above include one carry-on and one personal item."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "$30 for first bag. Free for MVP Gold and Gold 75K members." },
+    "premiumEconomy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "First bag included." },
+    "business": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (157 cm) linear", "notes": "Included." },
+    "firstClass": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (157 cm) linear", "notes": "Included." }
+  },
+  "fees": {
+    "firstBag": "$30",
+    "secondBag": "$40",
+    "overweight": "$100 for 51–100 lbs"
+  },
+  "batteryRules": {
+    "lithiumIon": "Spare batteries and power banks must be in carry-on only",
+    "spareBatteries": "Carry-on only. Up to 100Wh unrestricted. 101–160Wh with airline approval. Over 160Wh prohibited.",
+    "powerBankLimit": "100Wh unrestricted; up to 160Wh with approval",
+    "laptops": "Allowed in carry-on. Follow TSA guidelines."
+  },
+  "restrictedItems": [
+    "Hoverboards (self-balancing personal transportation devices)",
+    "Smart bags with non-removable lithium batteries exceeding 160Wh"
+  ],
+  "faqs": [
+    {
+      "question": "Does Alaska Airlines Saver fare include a carry-on?",
+      "answer": "No. Alaska Airlines Saver fare passengers are limited to one personal item under the seat. A carry-on bag in the overhead bin is not included in the Saver fare price."
+    },
+    {
+      "question": "How much are Alaska Airlines checked baggage fees?",
+      "answer": "The first checked bag is $30 and the second is $40 on most routes. Alaska Airlines MVP, MVP Gold, and Gold 75K members receive complimentary checked bags."
+    },
+    {
+      "question": "Can I bring a power bank on Alaska Airlines?",
+      "answer": "Power banks must be carried in your carry-on bag — never in checked luggage. Up to 100Wh is unrestricted. Banks between 101–160Wh require airline approval before your flight."
+    }
+  ],
+  "sourceUrl": "https://www.alaskaair.com/content/travel-info/baggage",
+  "lastUpdated": "2025-01-01"
+}

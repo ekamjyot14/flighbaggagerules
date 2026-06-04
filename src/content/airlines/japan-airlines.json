@@ -1,0 +1,39 @@
+{
+  "name": "Japan Airlines",
+  "slug": "japan-airlines",
+  "iata": "JL",
+  "country": "Japan",
+  "region": "Asia",
+  "alliance": "Oneworld",
+  "logo": "https://images.kiwi.com/airlines/64/JL.png",
+  "carryOn": {
+    "size": "22 x 14 x 10 in (55 x 36 x 25 cm)",
+    "weight": "22 lbs (10 kg)",
+    "personalItem": "Included in total",
+    "notes": "Total carry-on weight including personal item must be under 10 kg."
+  },
+  "checked": {
+    "economy": { "pieces": 2, "weight": "50 lbs (23 kg)", "size": "80 in (203 cm) linear", "notes": "2 free bags on Americas routes." },
+    "premiumEconomy": { "pieces": 2, "weight": "50 lbs (23 kg)", "size": "80 in (203 cm) linear", "notes": "Included." },
+    "business": { "pieces": 3, "weight": "70 lbs (32 kg)", "size": "80 in (203 cm) linear", "notes": "Included." },
+    "firstClass": { "pieces": 3, "weight": "70 lbs (32 kg)", "size": "80 in (203 cm) linear", "notes": "Included." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Carry-on only for spare lithium batteries",
+    "spareBatteries": "Max 100Wh per battery. 101–160Wh with airline approval.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on."
+  },
+  "restrictedItems": [
+    "Hoverboards",
+    "Smart bags with non-removable lithium batteries"
+  ],
+  "faqs": [
+    {
+      "question": "Does Japan Airlines include free checked bags?",
+      "answer": "Yes, JAL includes 2 free checked bags (23 kg each) on flights between Japan and the Americas for economy passengers."
+    }
+  ],
+  "sourceUrl": "https://www.jal.co.jp/en/inter/baggage/",
+  "lastUpdated": "2025-01-01"
+}

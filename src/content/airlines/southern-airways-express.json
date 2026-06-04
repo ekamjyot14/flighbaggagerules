@@ -1,0 +1,39 @@
+{
+  "name": "Southern Airways Express",
+  "slug": "southern-airways-express",
+  "iata": "9X",
+  "country": "United States",
+  "region": "North America",
+  "alliance": "Independent",
+  "logo": "https://images.kiwi.com/airlines/64/9X.png",
+  "carryOn": {
+    "size": "Limited by aircraft",
+    "weight": "15 lbs (7 kg)",
+    "personalItem": "Small item only",
+    "notes": "Operates Cessna Caravans and other small aircraft. Limited overhead space."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "40 lbs (18 kg)", "size": "50 in (127 cm) linear", "notes": "One bag included. Strict weight limits due to small aircraft." },
+    "premiumEconomy": { "pieces": 1, "weight": "40 lbs (18 kg)", "size": "50 in (127 cm) linear", "notes": "Same." },
+    "business": { "pieces": 1, "weight": "40 lbs (18 kg)", "size": "50 in (127 cm) linear", "notes": "N/A." },
+    "firstClass": { "pieces": 1, "weight": "40 lbs (18 kg)", "size": "50 in (127 cm) linear", "notes": "N/A." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Carry-on only for spare lithium batteries",
+    "spareBatteries": "Max 100Wh per battery.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on."
+  },
+  "restrictedItems": [
+    "Oversized items",
+    "Hoverboards"
+  ],
+  "faqs": [
+    {
+      "question": "What are the baggage limits on Southern Airways Express?",
+      "answer": "Due to small aircraft, total baggage weight is limited. One checked bag up to 40 lbs is typically included."
+    }
+  ],
+  "sourceUrl": "https://www.iflysouthern.com/baggage",
+  "lastUpdated": "2025-01-01"
+}

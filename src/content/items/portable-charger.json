@@ -1,0 +1,34 @@
+{
+  "name": "Portable Charger",
+  "slug": "portable-charger",
+  "category": "batteries",
+  "description": "Portable chargers (power banks/external batteries) must be carried in carry-on baggage only. They are strictly prohibited in checked luggage. Most consumer power banks under 100Wh are allowed without airline approval. Those between 100-160Wh require airline approval.",
+  "carryOnAllowed": "conditional",
+  "checkedAllowed": false,
+  "tsaGuideline": "Portable chargers and spare lithium-ion batteries are only allowed in carry-on baggage. They are banned from checked bags. Batteries must be under 100Wh (approximately 27,000mAh at 3.7V) without airline approval. Batteries between 100-160Wh require airline approval, limited to two per passenger. Over 160Wh is prohibited.",
+  "iataGuideline": "IATA Dangerous Goods Regulations classify portable chargers as spare lithium-ion batteries. They must be carried in cabin baggage, individually protected to prevent short circuits. Maximum 100Wh without approval; 100-160Wh with operator approval (max 2); over 160Wh prohibited on passenger aircraft.",
+  "capacityLimit": "Under 100Wh: allowed without approval. 100-160Wh: airline approval required, max 2. Over 160Wh: prohibited.",
+  "restrictions": [
+    "MUST be in carry-on baggage only — never in checked bags",
+    "Under 100Wh (approx. 27,000mAh) allowed without airline approval",
+    "100-160Wh requires airline approval, maximum 2 per passenger",
+    "Over 160Wh prohibited on passenger aircraft",
+    "Terminals must be protected from short circuit (tape over contacts or in protective case)",
+    "Damaged, defective, or recalled batteries are prohibited"
+  ],
+  "faqs": [
+    {
+      "question": "Why can't portable chargers go in checked baggage?",
+      "answer": "Lithium-ion batteries can overheat and catch fire. In the cabin, a fire can be detected and extinguished quickly. In the cargo hold, a lithium battery fire could go undetected and overwhelm fire suppression systems, posing a catastrophic risk."
+    },
+    {
+      "question": "How do I calculate if my power bank is under 100Wh?",
+      "answer": "Use the formula: Wh = mAh × V ÷ 1000. Most power banks operate at 3.7V internally. So a 20,000mAh power bank = 20,000 × 3.7 ÷ 1000 = 74Wh, which is under the 100Wh limit. Some power banks list Wh directly on the label."
+    },
+    {
+      "question": "What happens if TSA finds a power bank in my checked bag?",
+      "answer": "Your bag may be opened and the power bank removed. It could be confiscated or your bag may be held, potentially causing you to miss your flight. Always pack portable chargers in your carry-on to avoid delays."
+    }
+  ],
+  "lastUpdated": "2025-01-15"
+}

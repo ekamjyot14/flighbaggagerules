@@ -1,0 +1,335 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getLocaleFromUrl, createTranslator, loadTranslations, getSegmentPath, getHreflangs } from '../i18n/utils';
+import { buildWebsiteSchema, buildOrganizationSchema, buildFAQSchema, buildTitle } from '../utils/seo';
+import type { Locale } from '../i18n/config';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const translations = await loadTranslations(locale);
+const t = createTranslator(translations);
+
+const site = 'https://flightbaggagerules.com';
+const hreflangAlternates = getHreflangs(site, '/', locale);
+
+const faqs = [
+  {
+    question: 'What are the new rules for carry-on luggage in 2026?',
+    answer: "In 2026, most airlines enforce carry-on dimensions of approximately 22 x 14 x 9 inches (56 x 36 x 23 cm) including handles and wheels. Lithium batteries over 100Wh require airline approval, and smart bags with non-removable batteries are banned from the cabin on many carriers. Liquids still follow the 3-1-1 rule (3.4 oz containers in a 1-quart bag). Check your specific airline's updated carry-on policy on FlightBaggageRules.com for the latest restrictions.",
+  },
+  {
+    question: 'What is not allowed in a luggage bag?',
+    answer: 'Prohibited items in both carry-on and checked luggage include explosives, flammable liquids, compressed gases, and toxic substances. Carry-on bags cannot contain sharp objects (knives, box cutters), sporting goods (baseball bats, golf clubs), or tools over 7 inches. Checked luggage prohibits spare lithium batteries, e-cigarettes/vapes, and fireworks. Always verify airline-specific restrictions, as rules may vary between carriers.',
+  },
+  {
+    question: 'What are the baggage rules for Southwest Airlines?',
+    answer: 'Southwest Airlines allows 2 free checked bags (up to 50 lbs and 62 linear inches each), plus 1 carry-on bag and 1 personal item at no extra charge. Overweight bags (51-100 lbs) cost $75 each. Oversized bags (63-80 linear inches) also incur a $75 fee. Southwest is the only major U.S. airline offering two free checked bags on all fares.',
+  },
+  {
+    question: "What are Delta's baggage rules?",
+    answer: "Delta Air Lines allows 1 carry-on bag and 1 personal item for free on all fares. For checked baggage, the first bag costs $35 and the second costs $45 on domestic flights. On most international routes, the first checked bag is free. Each checked bag must weigh under 50 lbs (23 kg) and not exceed 62 linear inches. Delta One and premium cabin passengers receive complimentary checked bags.",
+  },
+  {
+    question: 'What are United Airlines baggage rules?',
+    answer: 'United Airlines includes 1 carry-on bag and 1 personal item on all tickets. Checked bag fees are $35 for the first bag and $45 for the second on domestic flights. International flights typically include 1-2 free checked bags depending on route and fare class. Weight limit is 50 lbs (23 kg) per bag for Economy and 70 lbs (32 kg) for premium cabins. United Polaris and premium fare passengers enjoy free checked baggage.',
+  },
+  {
+    question: 'What are American Airlines baggage rules?',
+    answer: 'American Airlines provides 1 free carry-on bag and 1 personal item on all fares except Basic Economy (personal item only). Checked bags cost $35 for the first and $45 for the second on domestic routes. International flights often include 1 free checked bag. Maximum weight is 50 lbs (23 kg) and 62 linear inches per checked bag. AAdvantage elite members and premium cabin passengers get free checked bags.',
+  },
+  {
+    question: 'What are Spirit Airlines baggage rules?',
+    answer: 'Spirit Airlines charges for all bags except 1 personal item (18 x 14 x 8 inches) which is free. Carry-on bags cost $35-$65+ depending on when you pay (cheapest during booking). First checked bag costs $30-$55+. Weight limit is 40 lbs for carry-on and 40 lbs for checked bags. Paying for bags during initial booking is significantly cheaper than at the airport gate.',
+  },
+  {
+    question: 'What is baggage rules?',
+    answer: 'Baggage rules are airline-specific policies that define what passengers can bring on a flight, including carry-on size limits, checked bag weight restrictions, number of bags allowed, prohibited items, and associated fees. These rules vary by airline, route (domestic vs. international), and fare class. FlightBaggageRules.com helps you check the exact baggage rules for any airline before your trip.',
+  },
+  {
+    question: 'What is checked baggage in flight?',
+    answer: 'Checked baggage refers to luggage that is handed over to the airline at check-in and stored in the aircraft cargo hold during the flight. Unlike carry-on bags that stay with you in the cabin, checked bags are retrieved at the baggage carousel after landing. Most airlines allow checked bags up to 50 lbs (23 kg) and 62 linear inches (158 cm) in total dimensions. Fees and free allowances vary by airline and ticket type.',
+  },
+  {
+    question: 'How to add baggage to Southwest flight?',
+    answer: "Southwest Airlines includes 2 free checked bags with every ticket, so you typically don't need to add baggage separately. Simply bring your bags to the check-in counter or use curbside check-in at the airport. If you need to check more than 2 bags or have oversize/overweight items, additional fees apply and can be paid at the airport. There is no option to pre-purchase extra bags online as the 2-bag allowance covers most travelers.",
+  },
+];
+
+const schema = [
+  buildWebsiteSchema(site),
+  buildOrganizationSchema('FlightBaggageRules.com', site),
+  buildFAQSchema(faqs),
+];
+
+const popularAirlines = [
+  { name: 'Delta', slug: 'delta-air-lines' },
+  { name: 'United', slug: 'united-airlines' },
+  { name: 'American', slug: 'american-airlines' },
+  { name: 'Southwest', slug: 'southwest-airlines' },
+  { name: 'JetBlue', slug: 'jetblue-airways' },
+  { name: 'Alaska', slug: 'alaska-airlines' },
+  { name: 'Emirates', slug: 'emirates' },
+  { name: 'Qatar', slug: 'qatar-airways' },
+  { name: 'Lufthansa', slug: 'lufthansa' },
+  { name: 'British Airways', slug: 'british-airways' },
+  { name: 'Air Canada', slug: 'air-canada' },
+  { name: 'Singapore Air', slug: 'singapore-airlines' },
+];
+
+const popularItems = [
+  { name: 'Power Bank', slug: 'power-bank', icon: '🔋' },
+  { name: 'Drone', slug: 'drone', icon: '🚁' },
+  { name: 'Laptop', slug: 'laptop', icon: '💻' },
+  { name: 'Vape', slug: 'vape', icon: '💨' },
+  { name: 'Camera', slug: 'camera', icon: '📷' },
+  { name: 'Perfume', slug: 'perfume', icon: '🧴' },
+  { name: 'Protein Powder', slug: 'protein-powder', icon: '🥛' },
+  { name: 'Nail Clippers', slug: 'nail-clippers', icon: '✂️' },
+  { name: 'Lithium Battery', slug: 'lithium-battery', icon: '🪫' },
+  { name: 'Medications', slug: 'medications', icon: '💊' },
+  { name: 'Lighter', slug: 'lighter', icon: '🔥' },
+  { name: 'Scissors', slug: 'scissors', icon: '✂️' },
+  { name: 'Alcohol', slug: 'alcohol', icon: '🍷' },
+  { name: 'Aerosol Spray', slug: 'aerosol-spray', icon: '🧴' },
+  { name: 'Portable Charger', slug: 'portable-charger', icon: '🔌' },
+  { name: 'Food & Snacks', slug: 'food-snacks', icon: '🍎' },
+  { name: 'Musical Instrument', slug: 'musical-instrument', icon: '🎸' },
+  { name: 'Golf Clubs', slug: 'golf-clubs', icon: '⛳' },
+  { name: 'Skateboard', slug: 'skateboard', icon: '🛹' },
+  { name: 'Umbrella', slug: 'umbrella', icon: '☂️' },
+  { name: 'Hair Straightener', slug: 'hair-straightener', icon: '💇' },
+  { name: 'Electric Razor', slug: 'electric-razor', icon: '🪒' },
+  { name: 'Knitting Needles', slug: 'knitting-needles', icon: '🧶' },
+  { name: 'Pepper Spray', slug: 'self-defense-spray', icon: '🌶️' },
+];
+
+const features = [
+  {
+    icon: '✈️',
+    title: t('features.search.title'),
+    description: t('features.search.description'),
+    href: getSegmentPath(locale, 'airlines'),
+  },
+  {
+    icon: '⚖️',
+    title: t('features.compare.title'),
+    description: t('features.compare.description'),
+    href: getSegmentPath(locale, 'compare'),
+  },
+  {
+    icon: '📦',
+    title: 'Search Any Item',
+    description: 'Check if your item is allowed in carry-on or checked luggage on any airline.',
+    href: getSegmentPath(locale, 'items'),
+  },
+];
+---
+
+<Layout
+  title={buildTitle(t('seo.home.title'))}
+  description={t('seo.home.description')}
+  locale={locale}
+  hreflangAlternates={hreflangAlternates}
+  schema={schema}
+>
+  <!-- Hero Section -->
+  <section
+    class="relative overflow-visible"
+    style="background:var(--color-canvas);padding-top:clamp(64px,10vw,128px);padding-bottom:clamp(48px,8vw,96px)"
+    aria-labelledby="hero-heading"
+  >
+    <div class="mesh-gradient absolute inset-0 opacity-40 pointer-events-none" aria-hidden="true"></div>
+    <div class="container-page relative" style="z-index:10">
+      <!-- Eyebrow -->
+      <div class="flex justify-center mb-6">
+        <span
+          class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-medium"
+          style="border-color:var(--color-hairline);background:var(--color-canvas-soft);color:var(--color-body)"
+        >
+          <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" aria-hidden="true"></span>
+          {t('hero.eyebrow')}
+        </span>
+      </div>
+      <!-- Heading -->
+      <h1
+        id="hero-heading"
+        class="text-display-xl text-center mx-auto mb-4 animate-fade-in-up"
+        style="color:var(--color-ink);max-width:32ch"
+      >
+        {t('hero.title')}
+      </h1>
+      <p
+        class="text-body-lg text-center mx-auto mb-10 animate-fade-in"
+        style="color:var(--color-body);max-width:52ch;animation-delay:0.1s"
+      >
+        {t('hero.subtitle')}
+      </p>
+      <!-- Search Bar with Suggestions -->
+      <div
+        class="relative mx-auto mb-8 animate-fade-in"
+        style="max-width:560px;animation-delay:0.2s;z-index:20"
+        id="hero-search-container"
+      >
+        <div
+          class="flex items-center gap-3 rounded-xl border px-4"
+          style="background:var(--color-canvas);border-color:var(--color-hairline);box-shadow:var(--shadow-elevated);height:56px"
+        >
+          <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--color-mute)" aria-hidden="true">
+            <circle cx="6.5" cy="6.5" r="4.5"/><path d="M10.5 10.5L14 14"/>
+          </svg>
+          <input
+            type="text"
+            id="hero-search"
+            placeholder={t('search.placeholder')}
+            aria-label={t('search.label')}
+            autocomplete="off"
+            class="flex-1 text-sm bg-transparent"
+            style="color:var(--color-ink);outline:none;box-shadow:none;border:none"
+          />
+        </div>
+        <!-- Suggestions dropdown -->
+        <div
+          id="hero-search-results"
+          class="absolute left-0 right-0 top-full mt-2 rounded-xl border overflow-hidden hidden"
+          style="background:var(--color-canvas);border-color:var(--color-hairline);box-shadow:var(--shadow-elevated);max-height:320px;overflow-y:auto;z-index:100"
+        >
+          <!-- Results populated by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="border-t" style="border-color:var(--color-hairline);background:var(--color-canvas-soft)" aria-labelledby="features-heading">
+    <div class="container-page py-16">
+      <h2 id="features-heading" class="text-display-md text-center mb-3" style="color:var(--color-ink)">{t('features.heading')}</h2>
+      <p class="text-body-sm text-center mb-10" style="color:var(--color-mute)">{t('features.subheading')}</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        {features.map((feature) => (
+          <a
+            href={feature.href}
+            class="group p-6 rounded-xl border no-underline transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+            style="background:var(--color-canvas);border-color:var(--color-hairline);box-shadow:var(--shadow-card)"
+          >
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center text-xl mb-4" style="background:var(--color-canvas-soft)">{feature.icon}</div>
+            <h3 class="text-sm font-semibold mb-2 transition-colors duration-150 group-hover:opacity-80" style="color:var(--color-ink)">{feature.title}</h3>
+            <p class="text-sm leading-relaxed" style="color:var(--color-mute)">{feature.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO Content Section -->
+  <section class="border-t" style="border-color:var(--color-hairline);background:var(--color-canvas)" aria-labelledby="about-heading">
+    <div class="container-page py-16">
+      <div class="mx-auto" style="max-width:72ch">
+        <h2 id="about-heading" class="text-display-md mb-6" style="color:var(--color-ink)">Your Complete Guide to Flight Baggage Rules & Allowances</h2>
+        
+        <div class="prose" style="color:var(--color-body);line-height:1.8">
+          <p class="text-body-md mb-4">
+            Navigating <strong>flight baggage rules</strong> can be confusing, especially when every airline has different policies for carry-on dimensions, checked baggage weight, and restricted items. FlightBaggageRules.com is the most comprehensive free tool designed to help travelers instantly check baggage allowances for over 50 airlines worldwide — eliminating surprise fees and gate-check headaches before you even leave home.
+          </p>
+
+          <h3 class="text-lg font-semibold mt-8 mb-3" style="color:var(--color-ink)">International Flight Baggage Weight Limits</h3>
+          <p class="text-body-md mb-4">
+            Understanding <strong>international flight baggage weight</strong> limits is critical for avoiding overweight fees that can cost $100 or more per bag. Most international carriers allow between 23 kg (50 lbs) and 32 kg (70 lbs) per checked bag, but the exact <strong>international flight baggage weight limit</strong> varies significantly by airline, route, and fare class. Our database covers detailed <strong>international flight baggage rules</strong> for airlines including Emirates, Qatar Airways, Singapore Airlines, British Airways, and dozens more — giving you precise weight limits, piece allowances, and size restrictions for every cabin class.
+          </p>
+
+          <h3 class="text-lg font-semibold mt-8 mb-3" style="color:var(--color-ink)">Delta, United & American Flight Baggage Policies</h3>
+          <p class="text-body-md mb-4">
+            The three largest U.S. carriers each have unique baggage policies that vary between domestic and international routes. <strong>Delta flight baggage rules</strong> allow one personal item and one carry-on for all passengers, with the <strong>Delta international flight baggage allowance</strong> typically including one or two free checked bags depending on fare class. The <strong>Delta international flight baggage weight</strong> limit is 50 lbs (23 kg) per bag for Economy and 70 lbs (32 kg) for premium cabins. Similarly, <strong>United flight baggage rules</strong> offer generous international allowances, with <strong>UA international flight baggage</strong> policies including complimentary checked bags on most transatlantic and transpacific routes. For domestic travel, the <strong>united airlines international flight baggage allowance</strong> and pricing structure differs — our comparison tool makes it easy to see these differences side by side.
+          </p>
+
+          <h3 class="text-lg font-semibold mt-8 mb-3" style="color:var(--color-ink)">Domestic Flight Baggage Rules</h3>
+          <p class="text-body-md mb-4">
+            <strong>Domestic flight baggage rules</strong> in the United States have changed dramatically in recent years. While most carriers now charge for checked bags on domestic routes, the <strong>domestic flight baggage weight</strong> limit remains standard at 50 lbs (23 kg) for the first checked bag. <strong>American Airlines domestic flight baggage</strong> policies, like most legacy carriers, include a free carry-on and personal item regardless of fare class. Budget carriers like Spirit and Frontier have stricter limits, making it essential to verify your specific airline's policy before packing.
+          </p>
+
+          <h3 class="text-lg font-semibold mt-8 mb-3" style="color:var(--color-ink)">International Baggage Size & Allowances</h3>
+          <p class="text-body-md mb-4">
+            Beyond weight, <strong>international flight baggage size</strong> restrictions determine whether your bag fits within airline limits. Most airlines enforce a combined linear dimension (length + width + height) of 62 inches (158 cm) for checked bags, but carry-on sizes vary widely. The <strong>Lufthansa international flight baggage allowance</strong> permits carry-on bags up to 55 × 40 × 23 cm, while other carriers may allow slightly different dimensions. Our tool provides exact measurements for every airline so you can verify your luggage fits before arriving at the airport.
+          </p>
+
+          <h3 class="text-lg font-semibold mt-8 mb-3" style="color:var(--color-ink)">How Our Flight Baggage Tool Works</h3>
+          <p class="text-body-md mb-4">
+            Simply search for any airline or item using the search bar above. You'll get instant results showing carry-on limits, checked <strong>international flight baggage allowance</strong> details, weight restrictions, prohibited items, and battery rules — all sourced directly from official airline websites and updated regularly. You can also compare <strong>flight baggage</strong> policies across multiple airlines side by side, helping you choose the best carrier for your travel needs. Whether you're checking <strong>Delta flight baggage policy</strong> specifics or verifying <strong>united flight baggage</strong> fees, our tool delivers accurate, up-to-date information in seconds.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="border-t" style="border-color:var(--color-hairline);background:var(--color-canvas-soft)" aria-labelledby="faq-heading">
+    <div class="container-page py-16">
+      <div class="mx-auto" style="max-width:72ch">
+        <h2 id="faq-heading" class="text-display-md text-center mb-3" style="color:var(--color-ink)">Frequently Asked Questions About Flight Baggage</h2>
+        <p class="text-body-sm text-center mb-10" style="color:var(--color-mute)">Quick answers to the most common flight baggage questions travelers ask.</p>
+        
+        <div class="space-y-4">
+          {faqs.map((faq, index) => (
+            <details class="group rounded-xl border overflow-hidden" style="background:var(--color-canvas);border-color:var(--color-hairline)">
+              <summary class="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer list-none font-medium text-sm" style="color:var(--color-ink)">
+                <span>{faq.question}</span>
+                <svg class="w-4 h-4 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--color-mute)" aria-hidden="true">
+                  <path d="M4 6l4 4 4-4"/>
+                </svg>
+              </summary>
+              <div class="px-6 pb-4">
+                <p class="text-sm leading-relaxed" style="color:var(--color-body)">{faq.answer}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script define:vars={{ popularAirlines, popularItems }}>
+  // Hero search with live suggestions
+  (function() {
+    const input = document.getElementById('hero-search');
+    const results = document.getElementById('hero-search-results');
+    if (!input || !results) return;
+
+    const allItems = [
+      ...popularAirlines.map(a => ({ type: 'airline', name: a.name, slug: a.slug, href: `/airlines/${a.slug}` })),
+      ...popularItems.map(i => ({ type: 'item', name: i.name, slug: i.slug, icon: i.icon, href: `/items/${i.slug}` })),
+    ];
+
+    function render(matches) {
+      if (matches.length === 0) {
+        results.classList.add('hidden');
+        return;
+      }
+      results.innerHTML = matches.map(m => `
+        <a href="${m.href}" class="flex items-center gap-3 px-4 py-3 no-underline transition-colors duration-100 hover:bg-[var(--color-canvas-soft)]" style="color:var(--color-ink)">
+          <span class="text-sm flex-shrink-0 w-6 text-center" aria-hidden="true">${m.type === 'airline' ? '✈️' : (m.icon || '📦')}</span>
+          <span class="text-sm">${m.name}</span>
+          <span class="text-xs ms-auto" style="color:var(--color-mute)">${m.type === 'airline' ? 'Airline' : 'Item'}</span>
+        </a>
+      `).join('');
+      results.classList.remove('hidden');
+    }
+
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      if (!q) { results.classList.add('hidden'); return; }
+      const matches = allItems.filter(i => i.name.toLowerCase().includes(q)).slice(0, 8);
+      render(matches);
+    });
+
+    input.addEventListener('focus', () => {
+      if (input.value.trim()) {
+        input.dispatchEvent(new Event('input'));
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!document.getElementById('hero-search-container')?.contains(e.target)) {
+        results.classList.add('hidden');
+      }
+    });
+  })();
+</script>

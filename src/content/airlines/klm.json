@@ -1,0 +1,39 @@
+{
+  "name": "KLM Royal Dutch Airlines",
+  "slug": "klm",
+  "iata": "KL",
+  "country": "Netherlands",
+  "region": "Europe",
+  "alliance": "SkyTeam",
+  "logo": "https://images.kiwi.com/airlines/64/KL.png",
+  "carryOn": {
+    "size": "22 x 14 x 10 in (55 x 35 x 25 cm)",
+    "weight": "26 lbs (12 kg)",
+    "personalItem": "16 x 12 x 6 in (40 x 30 x 15 cm)",
+    "notes": "Economy: 1 bag + 1 accessory (total 12 kg). Business: 2 bags + 1 accessory (total 18 kg)."
+  },
+  "checked": {
+    "economy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (158 cm) linear", "notes": "Included on most intercontinental routes." },
+    "premiumEconomy": { "pieces": 2, "weight": "50 lbs (23 kg)", "size": "62 in (158 cm) linear", "notes": "Included." },
+    "business": { "pieces": 2, "weight": "70 lbs (32 kg)", "size": "62 in (158 cm) linear", "notes": "Included." },
+    "firstClass": { "pieces": 3, "weight": "70 lbs (32 kg)", "size": "62 in (158 cm) linear", "notes": "Included." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Carry-on only for spare lithium batteries",
+    "spareBatteries": "Max 100Wh per battery. 101–160Wh with airline approval.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on."
+  },
+  "restrictedItems": [
+    "Hoverboards",
+    "Smart bags with non-removable lithium batteries"
+  ],
+  "faqs": [
+    {
+      "question": "Does KLM include free checked bags?",
+      "answer": "Yes, KLM includes checked baggage on most intercontinental routes. European Light fares may not include checked bags."
+    }
+  ],
+  "sourceUrl": "https://www.klm.us/information/baggage",
+  "lastUpdated": "2025-01-01"
+}

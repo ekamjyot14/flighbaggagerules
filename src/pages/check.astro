@@ -1,0 +1,280 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { getLocaleFromUrl, createTranslator, loadTranslations, getSegmentPath, getHreflangs } from '../i18n/utils';
+import { buildTitle } from '../utils/seo';
+import type { Locale } from '../i18n/config';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const translations = await loadTranslations(locale);
+const t = createTranslator(translations);
+
+const airlines = await getCollection('airlines');
+const items = await getCollection('items');
+
+const sortedAirlines = airlines.sort((a, b) => a.data.name.localeCompare(b.data.name));
+const sortedItems = items.sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+const site = 'https://flightbaggagerules.com';
+const hreflangAlternates = getHreflangs(site, '/check', locale);
+---
+
+<Layout
+  title={buildTitle(t('seo.check.title'))}
+  description={t('seo.check.description')}
+  locale={locale}
+  hreflangAlternates={hreflangAlternates}
+>
+  <div class="container-page py-12">
+    <!-- Page header -->
+    <div class="mb-10 text-center" style="max-width:52ch;margin-left:auto;margin-right:auto">
+      <h1 class="text-display-md mb-3" style="color:var(--color-ink)">{t('check.title')}</h1>
+      <p class="text-body-sm" style="color:var(--color-mute)">{t('check.subtitle')}</p>
+    </div>
+
+    <!-- Two-column selector -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto mb-12"
+      style="max-width:800px"
+      id="check-form"
+    >
+      <!-- Airline selector -->
+      <div>
+        <label
+          for="airline-search"
+          class="block text-body-sm font-medium mb-2"
+          style="color:var(--color-ink)"
+        >
+          {t('check.selectAirline')}
+        </label>
+        <div class="relative" id="airline-combo">
+          <input
+            type="text"
+            id="airline-search"
+            autocomplete="off"
+            placeholder={t('check.airlinePlaceholder')}
+            class="w-full rounded-xl border px-4 py-3 text-sm outline-none transition-colors"
+            style="background:var(--color-canvas-soft);border-color:var(--color-hairline);color:var(--color-ink)"
+          />
+          <input type="hidden" id="airline-select" />
+          <div
+            id="airline-dropdown"
+            class="absolute top-full left-0 right-0 mt-1 rounded-xl border shadow-lg overflow-y-auto hidden z-50"
+            style="max-height:240px;background:var(--color-canvas);border-color:var(--color-hairline)"
+          >
+            {sortedAirlines.map((airline) => (
+              <div
+                class="combo-option px-4 py-2.5 text-sm cursor-pointer transition-colors hover:bg-[var(--color-canvas-soft)]"
+                style="color:var(--color-ink)"
+                data-value={airline.data.slug}
+                data-label={airline.data.name}
+              >
+                {airline.data.name}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Item selector -->
+      <div>
+        <label
+          for="item-search"
+          class="block text-body-sm font-medium mb-2"
+          style="color:var(--color-ink)"
+        >
+          {t('check.selectItem')}
+        </label>
+        <div class="relative" id="item-combo">
+          <input
+            type="text"
+            id="item-search"
+            autocomplete="off"
+            placeholder={t('check.itemPlaceholder')}
+            class="w-full rounded-xl border px-4 py-3 text-sm outline-none transition-colors"
+            style="background:var(--color-canvas-soft);border-color:var(--color-hairline);color:var(--color-ink)"
+          />
+          <input type="hidden" id="item-select" />
+          <div
+            id="item-dropdown"
+            class="absolute top-full left-0 right-0 mt-1 rounded-xl border shadow-lg overflow-y-auto hidden z-50"
+            style="max-height:240px;background:var(--color-canvas);border-color:var(--color-hairline)"
+          >
+            {sortedItems.map((item) => (
+              <div
+                class="combo-option px-4 py-2.5 text-sm cursor-pointer transition-colors hover:bg-[var(--color-canvas-soft)]"
+                style="color:var(--color-ink)"
+                data-value={item.data.slug}
+                data-label={item.data.name}
+              >
+                {item.data.name}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result panel -->
+    <div
+      id="check-result"
+      class="mx-auto rounded-xl border p-8 hidden"
+      style="max-width:800px;border-color:var(--color-hairline);background:var(--color-canvas-soft)"
+      aria-live="polite"
+    >
+      <p class="text-body-sm text-center" style="color:var(--color-mute)">Select an airline and item to see the rules.</p>
+    </div>
+
+    <!-- Prompt when nothing selected -->
+    <div id="check-prompt" class="py-16 text-center" style="color:var(--color-mute)">
+      <div class="text-4xl mb-4" aria-hidden="true">✈️ 🔋</div>
+      <p class="text-body-sm">{t('check.prompt')}</p>
+    </div>
+  </div>
+</Layout>
+
+<script define:vars={{ airlinesData: sortedAirlines.map(a => a.data), itemsData: sortedItems.map(i => i.data) }}>
+  // Searchable combo-box setup
+  function initCombo(inputId, hiddenId, dropdownId) {
+    const input = document.getElementById(inputId);
+    const hidden = document.getElementById(hiddenId);
+    const dropdown = document.getElementById(dropdownId);
+    if (!input || !hidden || !dropdown) return;
+
+    const options = dropdown.querySelectorAll('.combo-option');
+
+    function showDropdown() {
+      dropdown.classList.remove('hidden');
+    }
+    function hideDropdown() {
+      dropdown.classList.add('hidden');
+    }
+
+    function filterOptions() {
+      const query = input.value.toLowerCase().trim();
+      let visibleCount = 0;
+      options.forEach(opt => {
+        const label = opt.getAttribute('data-label').toLowerCase();
+        if (label.includes(query)) {
+          opt.style.display = '';
+          visibleCount++;
+        } else {
+          opt.style.display = 'none';
+        }
+      });
+      if (visibleCount > 0) showDropdown();
+      else hideDropdown();
+    }
+
+    input.addEventListener('focus', () => {
+      filterOptions();
+    });
+
+    input.addEventListener('input', () => {
+      hidden.value = '';
+      filterOptions();
+      checkRules();
+    });
+
+    options.forEach(opt => {
+      opt.addEventListener('mousedown', (e) => {
+        e.preventDefault(); // prevent blur before click
+        const value = opt.getAttribute('data-value');
+        const label = opt.getAttribute('data-label');
+        input.value = label;
+        hidden.value = value;
+        hideDropdown();
+        checkRules();
+      });
+    });
+
+    input.addEventListener('blur', () => {
+      // Small delay to allow option click
+      setTimeout(hideDropdown, 150);
+    });
+  }
+
+  initCombo('airline-search', 'airline-select', 'airline-dropdown');
+  initCombo('item-search', 'item-select', 'item-dropdown');
+
+  const airlineSelect = document.getElementById('airline-select');
+  const itemSelect = document.getElementById('item-select');
+  const result = document.getElementById('check-result');
+  const prompt = document.getElementById('check-prompt');
+
+  function getAllowanceIcon(allowed) {
+    if (allowed === true) return '✅';
+    if (allowed === false) return '❌';
+    return '⚠️';
+  }
+
+  function getAllowanceLabel(allowed) {
+    if (allowed === true) return 'Allowed';
+    if (allowed === false) return 'Not Allowed';
+    return 'Conditional';
+  }
+
+  function getAllowanceColor(allowed) {
+    if (allowed === true) return 'var(--color-success, #22c55e)';
+    if (allowed === false) return 'var(--color-error, #ef4444)';
+    return 'var(--color-warning, #f59e0b)';
+  }
+
+  function checkRules() {
+    const airlineSlug = airlineSelect.value;
+    const itemSlug = itemSelect.value;
+
+    if (!airlineSlug || !itemSlug) {
+      result.classList.add('hidden');
+      prompt.classList.remove('hidden');
+      return;
+    }
+
+    const airline = airlinesData.find(a => a.slug === airlineSlug);
+    const item = itemsData.find(i => i.slug === itemSlug);
+
+    if (!airline || !item) return;
+
+    // Check for specific airline rule override
+    const specificRule = item.airlineRules?.find(r => r.airlineSlug === airlineSlug);
+    const carryOnAllowed = specificRule ? specificRule.carryOn : item.carryOnAllowed;
+    const checkedAllowed = specificRule ? specificRule.checked : item.checkedAllowed;
+    const notes = specificRule?.notes;
+
+    prompt.classList.add('hidden');
+    result.classList.remove('hidden');
+
+    result.innerHTML = `
+      <div class="mb-6">
+        <h2 style="color:var(--color-ink);font-size:1.125rem;font-weight:600;margin-bottom:0.25rem">
+          ${item.name} on ${airline.name}
+        </h2>
+        <p style="color:var(--color-mute);font-size:0.875rem">Based on general TSA/IATA guidelines${specificRule ? ' with airline-specific notes' : ''}</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <div class="rounded-xl border p-5" style="border-color:var(--color-hairline);background:var(--color-canvas)">
+          <div style="font-size:1.5rem;margin-bottom:0.5rem">${getAllowanceIcon(carryOnAllowed)}</div>
+          <div style="font-size:0.75rem;color:var(--color-mute);margin-bottom:0.25rem;text-transform:uppercase;letter-spacing:0.05em">Carry-On</div>
+          <div style="font-size:1rem;font-weight:600;color:${getAllowanceColor(carryOnAllowed)}">${getAllowanceLabel(carryOnAllowed)}</div>
+        </div>
+        <div class="rounded-xl border p-5" style="border-color:var(--color-hairline);background:var(--color-canvas)">
+          <div style="font-size:1.5rem;margin-bottom:0.5rem">${getAllowanceIcon(checkedAllowed)}</div>
+          <div style="font-size:0.75rem;color:var(--color-mute);margin-bottom:0.25rem;text-transform:uppercase;letter-spacing:0.05em">Checked</div>
+          <div style="font-size:1rem;font-weight:600;color:${getAllowanceColor(checkedAllowed)}">${getAllowanceLabel(checkedAllowed)}</div>
+        </div>
+      </div>
+      ${notes ? `<div class="rounded-lg p-4 mb-4" style="background:var(--color-canvas);border:1px solid var(--color-hairline)"><p style="font-size:0.875rem;color:var(--color-body)"><strong style="color:var(--color-ink)">Airline Note:</strong> ${notes}</p></div>` : ''}
+      <div class="rounded-lg p-4" style="background:var(--color-canvas);border:1px solid var(--color-hairline)">
+        <p style="font-size:0.875rem;color:var(--color-body)"><strong style="color:var(--color-ink)">TSA Guideline:</strong> ${item.tsaGuideline}</p>
+      </div>
+      ${item.restrictions?.length ? `
+        <div class="mt-4">
+          <p style="font-size:0.875rem;font-weight:600;color:var(--color-ink);margin-bottom:0.5rem">Key Restrictions:</p>
+          <ul style="font-size:0.875rem;color:var(--color-body);padding-left:1rem;list-style:disc">
+            ${item.restrictions.map(r => `<li style="margin-bottom:0.25rem">${r}</li>`).join('')}
+          </ul>
+        </div>
+      ` : ''}
+    `;
+  }
+</script>

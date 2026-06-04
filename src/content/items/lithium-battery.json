@@ -1,0 +1,40 @@
+{
+  "name": "Lithium Battery",
+  "slug": "lithium-battery",
+  "category": "batteries",
+  "description": "Spare and standalone lithium-ion (Li-ion) and lithium metal batteries used in cameras, drones, laptops, and other devices. Batteries installed in devices follow different rules than spare batteries.",
+  "carryOnAllowed": true,
+  "checkedAllowed": false,
+  "tsaGuideline": "Spare lithium-ion batteries (those NOT installed in a device) must be in carry-on baggage only. They cannot be packed in checked luggage. Batteries must not exceed 100Wh without airline approval, or 160Wh maximum with approval. Lithium metal batteries are limited to 2 grams of lithium content.",
+  "iataGuideline": "Spare lithium batteries (both lithium-ion and lithium metal) are prohibited in checked baggage. They must be carried in the cabin. Watt-hour limits: up to 100Wh permitted; 101–160Wh requires airline approval.",
+  "capacityLimit": "100Wh without approval; up to 160Wh with airline approval; over 160Wh prohibited",
+  "restrictions": [
+    "Spare batteries MUST be in carry-on — absolutely prohibited in checked baggage",
+    "Each spare battery must be individually protected (in original packaging, tape terminals, or protective case)",
+    "Cannot exceed 100Wh without airline approval (101–160Wh needs approval)",
+    "Batteries over 160Wh (approx. 43,000 mAh at 3.7V) are prohibited on all commercial flights",
+    "Batteries installed in devices follow different rules — usually allowed in both carry-on and checked"
+  ],
+  "airlineRules": [
+    { "airlineSlug": "delta-air-lines", "airlineName": "Delta Air Lines", "carryOn": true, "checked": false, "notes": "Spare batteries: carry-on only. Max 100Wh without approval; up to 160Wh with approval." },
+    { "airlineSlug": "emirates", "airlineName": "Emirates", "carryOn": true, "checked": false, "notes": "Carry-on only. Must be individually protected. 100Wh limit without approval." },
+    { "airlineSlug": "lufthansa", "airlineName": "Lufthansa", "carryOn": true, "checked": false, "notes": "Hand baggage only. Max 100Wh unrestricted; 101–160Wh with approval." },
+    { "airlineSlug": "singapore-airlines", "airlineName": "Singapore Airlines", "carryOn": true, "checked": false, "notes": "Cabin baggage only. Max 100Wh unrestricted; 101–160Wh with SQ approval." }
+  ],
+  "relatedItems": ["power-bank", "drone", "camera", "laptop"],
+  "faqs": [
+    {
+      "question": "Can I put spare lithium batteries in checked luggage?",
+      "answer": "No. Spare lithium batteries (those not installed in a device) are strictly prohibited in checked baggage on all airlines worldwide. They must be in your carry-on bag. This rule is enforced by IATA, ICAO, and national aviation authorities."
+    },
+    {
+      "question": "How do I calculate the watt-hours of my battery?",
+      "answer": "Watt-hours (Wh) = Voltage (V) × Capacity (Ah). For example, a 10,000 mAh battery at 3.7V = 3.7V × 10Ah = 37Wh. Most standard power banks and laptop batteries are under 100Wh. The 100Wh limit roughly equates to a 27,000 mAh battery at 3.7V."
+    },
+    {
+      "question": "How many spare batteries can I bring?",
+      "answer": "TSA and IATA do not specify an exact number limit for spare batteries under 100Wh, but you should only bring what you reasonably need. For batteries between 101–160Wh, most airlines limit you to a maximum of 2 spare batteries with approval."
+    }
+  ],
+  "lastUpdated": "2025-01-01"
+}

@@ -1,0 +1,38 @@
+{
+  "name": "Power Bank",
+  "slug": "power-bank",
+  "category": "batteries",
+  "description": "Portable battery chargers used to charge devices on the go. TSA and IATA rules are based on watt-hour (Wh) rating.",
+  "carryOnAllowed": "conditional",
+  "checkedAllowed": false,
+  "tsaGuideline": "Power banks are allowed in carry-on bags only. They are prohibited in checked baggage. Must not exceed 100Wh without airline approval.",
+  "iataGuideline": "Portable electronic devices containing lithium batteries should be transported in carry-on baggage. Spare batteries must be in carry-on.",
+  "capacityLimit": "100Wh without approval; 101–160Wh with airline approval; >160Wh prohibited",
+  "restrictions": [
+    "Not allowed in checked baggage",
+    "Must be kept in carry-on",
+    "Power banks over 160Wh are prohibited on all passenger aircraft",
+    "Some airlines require approval for 101–160Wh power banks"
+  ],
+  "airlineRules": [
+    { "airlineSlug": "delta-air-lines", "airlineName": "Delta Air Lines", "carryOn": "conditional", "checked": false, "notes": "≤100Wh OK. 101–160Wh needs approval." },
+    { "airlineSlug": "united-airlines", "airlineName": "United Airlines", "carryOn": "conditional", "checked": false, "notes": "≤100Wh OK. 101–160Wh needs approval." },
+    { "airlineSlug": "emirates", "airlineName": "Emirates", "carryOn": "conditional", "checked": false, "notes": "≤100Wh OK. Up to 2 batteries at 101–160Wh with approval." }
+  ],
+  "relatedItems": ["lithium-battery", "laptop", "camera-batteries"],
+  "faqs": [
+    {
+      "question": "Can I bring a power bank on a plane?",
+      "answer": "Yes, but only in your carry-on bag. Power banks are prohibited in checked baggage by TSA and most airlines worldwide. This is because lithium batteries can catch fire, and fires in the cabin are more manageable than in the cargo hold."
+    },
+    {
+      "question": "How do I know if my power bank is allowed?",
+      "answer": "Check the watt-hour (Wh) rating printed on your power bank. Most consumer power banks are under 100Wh. You can calculate Wh from mAh: Wh = mAh × voltage ÷ 1000. A 20,000mAh/3.7V power bank is about 74Wh — well within the limit."
+    },
+    {
+      "question": "What happens if my power bank is in checked luggage?",
+      "answer": "TSA and airline staff will remove it from your bag. You may be asked to retrieve it and place it in your carry-on, or it may be confiscated."
+    }
+  ],
+  "lastUpdated": "2025-01-01"
+}

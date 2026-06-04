@@ -1,0 +1,34 @@
+{
+  "name": "Perfume / Cologne",
+  "slug": "perfume",
+  "category": "liquids",
+  "description": "Perfume, cologne, aftershave, and other fragrance sprays. These are considered liquids under TSA and IATA rules and must comply with the 3-1-1 liquids rule in carry-on baggage.",
+  "carryOnAllowed": "conditional",
+  "checkedAllowed": true,
+  "tsaGuideline": "Perfume in carry-on must follow the 3-1-1 rule: containers must be 3.4 oz (100 ml) or less and must fit in one quart-sized clear plastic bag. Larger bottles of perfume must be packed in checked luggage. Perfume is also considered a flammable liquid, so quantities in checked luggage are limited.",
+  "iataGuideline": "Perfume is classified as a flammable liquid (Class 3 dangerous good) in large quantities. In passenger aircraft, up to 2 kg or 2 liters total of toiletries including perfume are permitted in checked baggage per passenger, with individual containers not exceeding 0.5 kg or 500 ml.",
+  "capacityLimit": "Carry-on: 100 ml per container. Checked: up to 2 liters total toiletries; individual containers max 500 ml",
+  "restrictions": [
+    "Carry-on: containers must be 100 ml (3.4 oz) or less",
+    "Carry-on: all liquids must fit in one quart/liter-sized clear bag",
+    "Checked: max 500 ml per individual container",
+    "Checked: total limit of 2 liters for all toiletries combined (per IATA)",
+    "Extremely large quantities may be classified as dangerous goods"
+  ],
+  "relatedItems": ["vape", "lighter"],
+  "faqs": [
+    {
+      "question": "Can I bring a full-size perfume bottle on a plane?",
+      "answer": "Full-size perfume bottles (typically 50–100+ ml) can be brought in your carry-on only if each container is 100 ml or less. Bottles larger than 100 ml must go in checked luggage. If you have a 200 ml bottle, it must be checked."
+    },
+    {
+      "question": "How many perfume bottles can I bring in checked luggage?",
+      "answer": "Under IATA rules, you can bring up to 2 liters total of toiletries (including perfume, hairspray, etc.) in checked luggage, with no single container exceeding 500 ml. Individual airlines may have slightly different rules."
+    },
+    {
+      "question": "Can I bring perfume as a gift on a plane?",
+      "answer": "Yes, as long as it follows the rules. In carry-on, perfume must be in 100 ml or smaller containers. In checked luggage, standard retail-sized perfume bottles are fine. Gift-wrapped items may need to be unwrapped at security."
+    }
+  ],
+  "lastUpdated": "2025-01-01"
+}

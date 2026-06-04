@@ -1,0 +1,271 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Badge from '../../components/ui/Badge.astro';
+import FAQAccordion from '../../components/ui/FAQAccordion.astro';
+import Breadcrumbs from '../../components/common/Breadcrumbs.astro';
+import { getCollection, getEntry } from 'astro:content';
+import { getLocaleFromUrl, createTranslator, loadTranslations, getSegmentPath, getHreflangs } from '../../i18n/utils';
+import { buildTitle, buildBreadcrumbSchema, buildFAQSchema } from '../../utils/seo';
+import type { Locale } from '../../i18n/config';
+
+export async function getStaticPaths() {
+  const airlines = await getCollection('airlines');
+  return airlines.map((airline) => ({
+    params: { slug: airline.data.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const airlines = await getCollection('airlines');
+const airline = airlines.find((a) => a.data.slug === slug);
+
+if (!airline) {
+  return Astro.redirect('/404');
+}
+
+const data = airline.data;
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const translations = await loadTranslations(locale);
+const t = createTranslator(translations);
+const site = 'https://flightbaggagerules.com';
+
+const breadcrumbItems = [
+  { label: t('nav.airlines'), href: getSegmentPath(locale, 'airlines') },
+  { label: data.name },
+];
+
+const schema = [
+  buildBreadcrumbSchema([
+    { name: t('nav.airlines'), url: `${site}/airlines` },
+    { name: data.name, url: `${site}/airlines/${data.slug}` },
+  ]),
+  ...(data.faqs?.length ? [buildFAQSchema(data.faqs)] : []),
+];
+
+const hreflangAlternates = getHreflangs(site, `/airlines/${data.slug}`, locale);
+---
+
+<Layout
+  title={buildTitle(`${data.name} Baggage Rules & Fees`)}
+  description={`${data.name} carry-on and checked baggage rules, size limits, fees, and battery policies. Everything you need to know before you fly.`}
+  locale={locale}
+  hreflangAlternates={hreflangAlternates}
+  schema={schema}
+>
+  <div class="container-page py-12">
+    <!-- Breadcrumbs -->
+    <div class="mb-6">
+      <Breadcrumbs items={breadcrumbItems} />
+    </div>
+
+    <!-- Airline header -->
+    <div class="flex items-start gap-5 mb-10">
+      <div
+        class="w-16 h-16 rounded-xl border flex items-center justify-center flex-shrink-0 overflow-hidden"
+        style="background:white;border-color:var(--color-hairline)"
+        aria-hidden="true"
+      >
+        {data.logo ? (
+          <img
+            src={data.logo}
+            alt={`${data.name} logo`}
+            width="64"
+            height="64"
+            class="w-full h-full object-contain p-1.5"
+            loading="eager"
+          />
+        ) : (
+          <span class="text-2xl font-bold" style="color:var(--color-body);font-family:var(--font-mono)">
+            {data.iata || data.name.slice(0, 2).toUpperCase()}
+          </span>
+        )}
+      </div>
+      <div>
+        <h1 class="text-display-lg mb-1" style="color:var(--color-ink)">{data.name}</h1>
+        <p class="text-body-sm" style="color:var(--color-mute)">
+          {data.country}{data.region ? ` · ${data.region}` : ''}{data.alliance ? ` · ${data.alliance}` : ''}
+        </p>
+        {data.lastUpdated && (
+          <p class="text-xs mt-1" style="color:var(--color-mute)">
+            {t('airline.lastUpdated')}: {new Date(data.lastUpdated).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+          </p>
+        )}
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Main column -->
+      <div class="md:col-span-2 space-y-8">
+
+        <!-- Carry-On Allowance -->
+        <section aria-labelledby="carryon-heading">
+          <h2 id="carryon-heading" class="text-display-sm mb-4" style="color:var(--color-ink)">{t('airline.carryOn')}</h2>
+          <div class="p-6 rounded-xl border" style="background:var(--color-canvas);border-color:var(--color-hairline);box-shadow:var(--shadow-card)">
+            <div class="grid sm:grid-cols-2 gap-4">
+              {data.carryOn?.size && (
+                <div>
+                  <dt class="text-xs font-medium uppercase tracking-wider mb-1" style="color:var(--color-mute);font-family:var(--font-mono)">Max Size</dt>
+                  <dd class="text-sm font-medium" style="color:var(--color-ink)">{data.carryOn.size}</dd>
+                </div>
+              )}
+              {data.carryOn?.weight && (
+                <div>
+                  <dt class="text-xs font-medium uppercase tracking-wider mb-1" style="color:var(--color-mute);font-family:var(--font-mono)">Max Weight</dt>
+                  <dd class="text-sm font-medium" style="color:var(--color-ink)">{data.carryOn.weight}</dd>
+                </div>
+              )}
+              {data.carryOn?.personalItem && (
+                <div class="sm:col-span-2">
+                  <dt class="text-xs font-medium uppercase tracking-wider mb-1" style="color:var(--color-mute);font-family:var(--font-mono)">Personal Item</dt>
+                  <dd class="text-sm font-medium" style="color:var(--color-ink)">{data.carryOn.personalItem}</dd>
+                </div>
+              )}
+            </div>
+            {data.carryOn?.notes && (
+              <p class="text-sm mt-4 pt-4 border-t leading-relaxed" style="border-color:var(--color-hairline);color:var(--color-body)">{data.carryOn.notes}</p>
+            )}
+          </div>
+        </section>
+
+        <!-- Checked Baggage -->
+        <section aria-labelledby="checked-heading">
+          <h2 id="checked-heading" class="text-display-sm mb-4" style="color:var(--color-ink)">{t('airline.checkedBaggage')}</h2>
+          <div class="rounded-xl border overflow-hidden" style="border-color:var(--color-hairline)">
+            <table class="w-full text-sm" role="table" aria-label="Checked baggage by cabin class">
+              <thead>
+                <tr style="background:var(--color-canvas-soft)">
+                  <th class="text-start px-4 py-3 text-xs font-medium uppercase tracking-wider" style="color:var(--color-mute);font-family:var(--font-mono)" scope="col">Class</th>
+                  <th class="text-start px-4 py-3 text-xs font-medium uppercase tracking-wider" style="color:var(--color-mute);font-family:var(--font-mono)" scope="col">Pieces</th>
+                  <th class="text-start px-4 py-3 text-xs font-medium uppercase tracking-wider" style="color:var(--color-mute);font-family:var(--font-mono)" scope="col">Weight</th>
+                  <th class="text-start px-4 py-3 text-xs font-medium uppercase tracking-wider" style="color:var(--color-mute);font-family:var(--font-mono)" scope="col">Fee</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { key: 'Economy', data: data.checked?.economy },
+                  { key: 'Premium Economy', data: data.checked?.premiumEconomy },
+                  { key: 'Business', data: data.checked?.business },
+                  { key: 'First Class', data: data.checked?.firstClass },
+                ].filter((row) => row.data).map((row, i) => (
+                  <tr class={i % 2 === 1 ? '' : ''} style="border-top:1px solid var(--color-hairline)">
+                    <td class="px-4 py-3 font-medium" style="color:var(--color-ink)">{row.key}</td>
+                    <td class="px-4 py-3" style="color:var(--color-body)">{row.data!.pieces}</td>
+                    <td class="px-4 py-3" style="color:var(--color-body)">{row.data!.weight}</td>
+                    <td class="px-4 py-3">
+                      {row.data!.fee === '$0' || row.data!.fee === '€0' ? (
+                        <Badge status="allowed" label="Included" />
+                      ) : (
+                        <span class="font-medium" style="color:var(--color-ink)">{row.data!.fee}</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Battery Rules -->
+        {data.batteryRules && (
+          <section aria-labelledby="battery-heading">
+            <h2 id="battery-heading" class="text-display-sm mb-4" style="color:var(--color-ink)">{t('airline.batteryRules')}</h2>
+            <div class="p-6 rounded-xl border space-y-3" style="background:var(--color-canvas);border-color:var(--color-hairline);box-shadow:var(--shadow-card)">
+              {data.batteryRules.powerBankLimit && (
+                <div class="flex gap-3">
+                  <span class="text-base" aria-hidden="true">🔋</span>
+                  <div>
+                    <p class="text-xs font-medium mb-1" style="color:var(--color-mute)">Power Banks</p>
+                    <p class="text-sm" style="color:var(--color-body)">{data.batteryRules.powerBankLimit}</p>
+                  </div>
+                </div>
+              )}
+              {data.batteryRules.laptops && (
+                <div class="flex gap-3 pt-3 border-t" style="border-color:var(--color-hairline)">
+                  <span class="text-base" aria-hidden="true">💻</span>
+                  <div>
+                    <p class="text-xs font-medium mb-1" style="color:var(--color-mute)">Laptops</p>
+                    <p class="text-sm" style="color:var(--color-body)">{data.batteryRules.laptops}</p>
+                  </div>
+                </div>
+              )}
+              {data.batteryRules.spareBatteries && (
+                <div class="flex gap-3 pt-3 border-t" style="border-color:var(--color-hairline)">
+                  <span class="text-base" aria-hidden="true">⚡</span>
+                  <div>
+                    <p class="text-xs font-medium mb-1" style="color:var(--color-mute)">Spare Batteries</p>
+                    <p class="text-sm" style="color:var(--color-body)">{data.batteryRules.spareBatteries}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
+        <!-- Restricted Items -->
+        {data.restrictedItems?.length > 0 && (
+          <section aria-labelledby="restricted-heading">
+            <h2 id="restricted-heading" class="text-display-sm mb-4" style="color:var(--color-ink)">{t('airline.restrictedItems')}</h2>
+            <div class="p-6 rounded-xl border" style="background:var(--color-canvas);border-color:var(--color-hairline);box-shadow:var(--shadow-card)">
+              <ul class="space-y-2">
+                {data.restrictedItems.map((item) => (
+                  <li class="flex items-start gap-2 text-sm" style="color:var(--color-body)">
+                    <Badge status="not-allowed" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+
+        <!-- FAQs -->
+        {data.faqs?.length > 0 && (
+          <section aria-labelledby="faq-heading">
+            <h2 id="faq-heading" class="text-display-sm mb-4" style="color:var(--color-ink)">{t('airline.faqs')}</h2>
+            <FAQAccordion faqs={data.faqs} />
+          </section>
+        )}
+      </div>
+
+      <!-- Sidebar -->
+      <aside aria-label="Quick reference">
+        <div
+          class="sticky top-20 p-5 rounded-xl border"
+          style="background:var(--color-canvas-soft);border-color:var(--color-hairline)"
+        >
+          <h3 class="text-xs font-medium uppercase tracking-wider mb-4" style="color:var(--color-mute);font-family:var(--font-mono)">{t('airline.quickRef')}</h3>
+          <dl class="space-y-3">
+            <div>
+              <dt class="text-xs" style="color:var(--color-mute)">Carry-On Size</dt>
+              <dd class="text-sm font-medium mt-0.5" style="color:var(--color-ink)">{data.carryOn?.size || '—'}</dd>
+            </div>
+            <div class="pt-3 border-t" style="border-color:var(--color-hairline)">
+              <dt class="text-xs" style="color:var(--color-mute)">Carry-On Weight</dt>
+              <dd class="text-sm font-medium mt-0.5" style="color:var(--color-ink)">{data.carryOn?.weight || 'No limit'}</dd>
+            </div>
+            <div class="pt-3 border-t" style="border-color:var(--color-hairline)">
+              <dt class="text-xs" style="color:var(--color-mute)">Economy Bag Fee</dt>
+              <dd class="text-sm font-medium mt-0.5" style="color:var(--color-ink)">{data.checked?.economy?.fee || '—'}</dd>
+            </div>
+            <div class="pt-3 border-t" style="border-color:var(--color-hairline)">
+              <dt class="text-xs" style="color:var(--color-mute)">Alliance</dt>
+              <dd class="text-sm font-medium mt-0.5" style="color:var(--color-ink)">{data.alliance || 'Independent'}</dd>
+            </div>
+          </dl>
+
+          {data.sourceUrl && (
+            <a
+              href={data.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-5 w-full btn-secondary text-center text-sm no-underline flex justify-center"
+            >
+              {t('airline.officialSource')} ↗
+            </a>
+          )}
+        </div>
+      </aside>
+    </div>
+  </div>
+</Layout>

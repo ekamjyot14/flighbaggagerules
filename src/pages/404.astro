@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { buildTitle } from '../utils/seo';
+---
+
+<Layout
+  title={buildTitle('Page Not Found')}
+  description="The page you're looking for doesn't exist."
+  noindex={true}
+>
+  <div class="container-page py-32 text-center">
+    <p class="text-display-xl mb-4" style="color:var(--color-hairline);font-family:var(--font-mono)">404</p>
+    <h1 class="text-display-lg mb-4" style="color:var(--color-ink)">Page Not Found</h1>
+    <p class="text-body-sm mb-10 mx-auto" style="color:var(--color-mute);max-width:40ch">
+      The page you're looking for doesn't exist or has been moved.
+    </p>
+    <a href="/" class="btn-primary-lg">Go Home</a>
+  </div>
+</Layout>

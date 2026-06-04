@@ -1,0 +1,46 @@
+{
+  "name": "Vape / E-Cigarette",
+  "slug": "vape",
+  "category": "electronics",
+  "description": "Vaping devices, e-cigarettes, electronic hookahs, and similar battery-powered devices. These devices are subject to strict rules due to their lithium batteries and flammable e-liquid.",
+  "carryOnAllowed": true,
+  "checkedAllowed": false,
+  "tsaGuideline": "E-cigarettes and vaping devices are allowed in carry-on baggage and on your person but NOT in checked baggage. This is due to the risk of the battery activating and causing a fire in the cargo hold. E-liquids in carry-on must follow the 3-1-1 liquids rule (containers up to 3.4 oz / 100 ml in a quart-sized bag).",
+  "iataGuideline": "Electronic cigarettes must be in the cabin baggage or on the person. They must not be used or charged on board. E-liquid containers must follow liquids regulations.",
+  "capacityLimit": "E-liquid: 100 ml per container in carry-on (3-1-1 rule)",
+  "restrictions": [
+    "MUST be in carry-on or on your person — strictly prohibited in checked baggage",
+    "Cannot be used on board any aircraft",
+    "Cannot be charged on board the aircraft",
+    "E-liquid in carry-on must follow 3-1-1 liquids rule (max 100 ml containers)",
+    "Battery must be protected against accidental activation",
+    "Some countries have bans on vaping products entirely (e.g., Thailand, Singapore)"
+  ],
+  "airlineRules": [
+    { "airlineSlug": "delta-air-lines", "airlineName": "Delta Air Lines", "carryOn": true, "checked": false, "notes": "Carry-on only. No use or charging on board." },
+    { "airlineSlug": "united-airlines", "airlineName": "United Airlines", "carryOn": true, "checked": false, "notes": "Carry-on or on person only. Prohibited in checked baggage." },
+    { "airlineSlug": "american-airlines", "airlineName": "American Airlines", "carryOn": true, "checked": false, "notes": "Carry-on only. No smoking or vaping on board." },
+    { "airlineSlug": "emirates", "airlineName": "Emirates", "carryOn": true, "checked": false, "notes": "Permitted in carry-on. Cannot be used on board." },
+    { "airlineSlug": "singapore-airlines", "airlineName": "Singapore Airlines", "carryOn": true, "checked": false, "notes": "Carry-on only. Note: Singapore bans sale and use of e-cigarettes — do not bring them into Singapore." }
+  ],
+  "relatedItems": ["power-bank", "lithium-battery"],
+  "faqs": [
+    {
+      "question": "Can I pack a vape in my checked luggage?",
+      "answer": "No. Vaping devices and e-cigarettes are strictly prohibited in checked baggage on all airlines and by TSA regulations. They must be in your carry-on bag or on your person. Violating this rule can result in fines."
+    },
+    {
+      "question": "Can I bring e-liquid on a plane?",
+      "answer": "Yes, e-liquid (vape juice) in your carry-on must follow the TSA 3-1-1 rule: containers must be 3.4 oz (100 ml) or less and must fit in one quart-sized clear plastic bag. You can put larger quantities in checked luggage."
+    },
+    {
+      "question": "Can I vape on a plane?",
+      "answer": "No. Vaping and using e-cigarettes is prohibited on all commercial flights worldwide. Attempting to vape on board is treated the same as smoking and can result in fines and being banned by the airline."
+    },
+    {
+      "question": "Can I bring my vape to countries where vaping is illegal?",
+      "answer": "No. Countries like Thailand, Singapore, India, Brazil, and several others have banned vaping products entirely. Bringing a vape into these countries could result in confiscation, fines, or arrest."
+    }
+  ],
+  "lastUpdated": "2025-01-01"
+}

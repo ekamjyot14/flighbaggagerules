@@ -1,0 +1,256 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ItemCard from '../../components/item/ItemCard.astro';
+import { getCollection } from 'astro:content';
+import { getLocaleFromUrl, createTranslator, loadTranslations, getSegmentPath, getHreflangs } from '../../i18n/utils';
+import { buildTitle } from '../../utils/seo';
+import type { Locale } from '../../i18n/config';
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const translations = await loadTranslations(locale);
+const t = createTranslator(translations);
+
+const items = await getCollection('items');
+const sorted = items.sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+const site = 'https://flightbaggagerules.com';
+const hreflangAlternates = getHreflangs(site, '/items', locale);
+
+// Category info with icons
+const categoryInfo: Record<string, { label: string; icon: string }> = {
+  'electronics': { label: 'Electronics', icon: '💻' },
+  'batteries': { label: 'Batteries', icon: '🔋' },
+  'liquids': { label: 'Liquids', icon: '🧴' },
+  'sharp-objects': { label: 'Sharp Objects', icon: '✂️' },
+  'sports': { label: 'Sports', icon: '⚽' },
+  'medical': { label: 'Medical', icon: '💊' },
+  'food': { label: 'Food & Drinks', icon: '🍕' },
+  'clothing': { label: 'Clothing', icon: '👕' },
+  'tools': { label: 'Tools', icon: '🔧' },
+  'misc': { label: 'Miscellaneous', icon: '📦' },
+};
+
+const categories = [...new Set(sorted.map((i) => i.data.category))].sort();
+---
+
+<Layout
+  title={buildTitle(t('seo.items.title'))}
+  description={t('seo.items.description')}
+  locale={locale}
+  hreflangAlternates={hreflangAlternates}
+>
+  <div class="container-page py-12">
+    <div class="mb-8">
+      <h1 class="text-display-lg mb-3" style="color:var(--color-ink)">{t('items.title')}</h1>
+      <p class="text-body-sm" style="color:var(--color-mute)">{t('items.subtitle')}</p>
+    </div>
+
+    <!-- Category filter pills -->
+    <div class="flex flex-wrap gap-2 mb-6">
+      <button
+        class="category-pill px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-150 cursor-pointer"
+        data-category=""
+        style="background:var(--color-ink);color:var(--color-canvas);border-color:var(--color-ink)"
+      >
+        All Items
+      </button>
+      {categories.map((cat) => {
+        const info = categoryInfo[cat] || { label: cat, icon: '📦' };
+        return (
+          <button
+            class="category-pill px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-150 cursor-pointer"
+            data-category={cat}
+            style="background:var(--color-canvas);color:var(--color-body);border-color:var(--color-hairline)"
+          >
+            <span aria-hidden="true">{info.icon}</span> {info.label}
+          </button>
+        );
+      })}
+    </div>
+
+    <!-- Search & Controls -->
+    <div class="flex flex-wrap items-center gap-3 mb-6">
+      <div class="relative flex-1 min-w-[200px]">
+        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style="color:var(--color-mute)" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="6.5" cy="6.5" r="4.5"/><path d="M10.5 10.5L14 14"/>
+        </svg>
+        <input
+          id="item-search"
+          type="text"
+          placeholder="Search items..."
+          class="w-full pl-9 pr-3 h-9 rounded-lg border text-sm outline-none transition-colors"
+          style="background:var(--color-canvas);border-color:var(--color-hairline);color:var(--color-ink)"
+        />
+      </div>
+
+      <!-- Carry-on filter -->
+      <select id="carryon-filter" class="h-9 px-3 rounded-lg border text-sm cursor-pointer" style="background:var(--color-canvas);border-color:var(--color-hairline);color:var(--color-ink)">
+        <option value="">All Status</option>
+        <option value="allowed">✅ Carry-on Allowed</option>
+        <option value="restricted">⚠️ Restricted</option>
+        <option value="prohibited">❌ Prohibited</option>
+      </select>
+
+      <!-- Per page -->
+      <select id="items-per-page" class="h-9 px-3 rounded-lg border text-sm cursor-pointer" style="background:var(--color-canvas);border-color:var(--color-hairline);color:var(--color-ink)">
+        <option value="12">12 per page</option>
+        <option value="24" selected>24 per page</option>
+        <option value="48">48 per page</option>
+        <option value="all">Show all</option>
+      </select>
+    </div>
+
+    <!-- Results count -->
+    <p id="items-results-count" class="text-xs mb-4 font-medium" style="color:var(--color-mute)"></p>
+
+    <!-- Items grid -->
+    <div id="items-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" role="list">
+      {sorted.map((item) => (
+        <div
+          role="listitem"
+          class="item-card"
+          data-name={item.data.name.toLowerCase()}
+          data-category={item.data.category}
+          data-carryon={item.data.carryOnAllowed === true ? 'allowed' : item.data.carryOnAllowed === false ? 'prohibited' : 'restricted'}
+        >
+          <ItemCard
+            name={item.data.name}
+            slug={item.data.slug}
+            category={item.data.category}
+            description={item.data.description}
+            carryOnAllowed={item.data.carryOnAllowed}
+            checkedAllowed={item.data.checkedAllowed}
+            href={getSegmentPath(locale, 'items', item.data.slug)}
+          />
+        </div>
+      ))}
+    </div>
+
+    <!-- Empty state -->
+    <div id="items-empty" class="hidden py-16 text-center">
+      <p class="text-body-sm" style="color:var(--color-mute)">No items match your filters.</p>
+    </div>
+
+    <!-- Pagination -->
+    <div id="items-pagination" class="flex items-center justify-center gap-2 mt-8 pt-6 border-t" style="border-color:var(--color-hairline)">
+    </div>
+  </div>
+</Layout>
+
+<script>
+  function initItemFilters() {
+    const searchInput = document.getElementById('item-search') as HTMLInputElement;
+    const carryonFilter = document.getElementById('carryon-filter') as HTMLSelectElement;
+    const perPage = document.getElementById('items-per-page') as HTMLSelectElement;
+    const grid = document.getElementById('items-grid')!;
+    const pagination = document.getElementById('items-pagination')!;
+    const resultsCount = document.getElementById('items-results-count')!;
+    const emptyState = document.getElementById('items-empty')!;
+    const cards = Array.from(grid.querySelectorAll('.item-card')) as HTMLElement[];
+    const categoryPills = document.querySelectorAll('.category-pill') as NodeListOf<HTMLElement>;
+
+    let currentPage = 1;
+    let activeCategory = '';
+
+    // Category pill styles
+    const activeStyle = 'background:var(--color-ink);color:var(--color-canvas);border-color:var(--color-ink)';
+    const inactiveStyle = 'background:var(--color-canvas);color:var(--color-body);border-color:var(--color-hairline)';
+
+    categoryPills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        activeCategory = pill.dataset.category || '';
+        categoryPills.forEach((p) => p.setAttribute('style', inactiveStyle));
+        pill.setAttribute('style', activeStyle);
+        currentPage = 1;
+        render();
+      });
+    });
+
+    function getFilteredCards(): HTMLElement[] {
+      const search = searchInput.value.toLowerCase().trim();
+      const carryon = carryonFilter.value;
+
+      return cards.filter((card) => {
+        const name = card.dataset.name || '';
+        const category = card.dataset.category || '';
+        const cardCarryon = card.dataset.carryon || '';
+
+        const matchesSearch = !search || name.includes(search);
+        const matchesCategory = !activeCategory || category === activeCategory;
+        const matchesCarryon = !carryon || cardCarryon === carryon;
+
+        return matchesSearch && matchesCategory && matchesCarryon;
+      });
+    }
+
+    function render() {
+      const filtered = getFilteredCards();
+      const limit = perPage.value === 'all' ? filtered.length : parseInt(perPage.value);
+      const totalPages = Math.ceil(filtered.length / limit);
+
+      if (currentPage > totalPages) currentPage = 1;
+
+      const start = (currentPage - 1) * limit;
+      const end = start + limit;
+
+      cards.forEach((c) => c.style.display = 'none');
+      filtered.forEach((c, i) => {
+        c.style.display = (i >= start && i < end) ? '' : 'none';
+      });
+
+      resultsCount.textContent = `Showing ${Math.min(end, filtered.length)} of ${filtered.length} items`;
+
+      emptyState.classList.toggle('hidden', filtered.length > 0);
+      grid.classList.toggle('hidden', filtered.length === 0);
+
+      renderPagination(totalPages);
+    }
+
+    function renderPagination(totalPages: number) {
+      if (totalPages <= 1) {
+        pagination.innerHTML = '';
+        return;
+      }
+
+      let html = '';
+      const btnClass = 'px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-150 border';
+      const activeBtnStyle = 'background:var(--color-ink);color:var(--color-canvas);border-color:var(--color-ink)';
+      const normalBtnStyle = 'background:var(--color-canvas);color:var(--color-body);border-color:var(--color-hairline)';
+
+      if (currentPage > 1) {
+        html += `<button class="${btnClass}" style="${normalBtnStyle}" data-page="${currentPage - 1}">← Prev</button>`;
+      }
+
+      for (let i = 1; i <= totalPages; i++) {
+        if (totalPages > 7 && i > 2 && i < totalPages - 1 && Math.abs(i - currentPage) > 1) {
+          if (i === 3 || i === totalPages - 2) html += `<span class="px-1 text-sm" style="color:var(--color-mute)">…</span>`;
+          continue;
+        }
+        html += `<button class="${btnClass}" style="${i === currentPage ? activeBtnStyle : normalBtnStyle}" data-page="${i}">${i}</button>`;
+      }
+
+      if (currentPage < totalPages) {
+        html += `<button class="${btnClass}" style="${normalBtnStyle}" data-page="${currentPage + 1}">Next →</button>`;
+      }
+
+      pagination.innerHTML = html;
+
+      pagination.querySelectorAll('[data-page]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          currentPage = parseInt((btn as HTMLElement).dataset.page!);
+          render();
+          grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    }
+
+    searchInput.addEventListener('input', () => { currentPage = 1; render(); });
+    carryonFilter.addEventListener('change', () => { currentPage = 1; render(); });
+    perPage.addEventListener('change', () => { currentPage = 1; render(); });
+
+    render();
+  }
+
+  initItemFilters();
+  document.addEventListener('astro:page-load', initItemFilters);
+</script>

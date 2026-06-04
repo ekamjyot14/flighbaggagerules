@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/common/Breadcrumbs.astro';
+import { getCollection, render } from 'astro:content';
+import { getLocaleFromUrl, createTranslator, loadTranslations, getSegmentPath, getHreflangs } from '../../i18n/utils';
+import { buildTitle, buildArticleSchema, buildBreadcrumbSchema } from '../../utils/seo';
+import type { Locale } from '../../i18n/config';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const locale = getLocaleFromUrl(Astro.url) as Locale;
+const translations = await loadTranslations(locale);
+const t = createTranslator(translations);
+const site = 'https://flightbaggagerules.com';
+
+const breadcrumbItems = [
+  { label: t('nav.blog'), href: getSegmentPath(locale, 'blog') },
+  { label: post.data.title },
+];
+
+const schema = [
+  buildBreadcrumbSchema([
+    { name: t('nav.blog'), url: `${site}/blog` },
+    { name: post.data.title, url: `${site}/blog/${post.id}` },
+  ]),
+  buildArticleSchema({
+    title: post.data.title,
+    description: post.data.description,
+    url: `${site}/blog/${post.id}`,
+    publishDate: post.data.publishDate,
+    author: post.data.author,
+    image: post.data.image,
+  }),
+];
+
+const hreflangAlternates = getHreflangs(site, `/blog/${post.id}`, locale);
+---
+
+<Layout
+  title={buildTitle(post.data.title)}
+  description={post.data.description}
+  locale={locale}
+  hreflangAlternates={hreflangAlternates}
+  schema={schema}
+>
+  <article class="container-page py-12" style="max-width:720px">
+    <!-- Breadcrumbs -->
+    <div class="mb-8">
+      <Breadcrumbs items={breadcrumbItems} />
+    </div>
+
+    <!-- Article header -->
+    <header class="mb-10">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        {post.data.tags.map((tag) => (
+          <span
+            class="text-xs font-medium px-2.5 py-1 rounded-full"
+            style="background:var(--color-canvas-soft);border:1px solid var(--color-hairline);color:var(--color-body)"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+      <h1 class="text-display-md mb-4" style="color:var(--color-ink)">{post.data.title}</h1>
+      <p class="text-body-lg mb-6" style="color:var(--color-body)">{post.data.description}</p>
+      <div class="flex items-center gap-4 text-xs" style="color:var(--color-mute)">
+        <span>By {post.data.author}</span>
+        <span>·</span>
+        <time datetime={post.data.publishDate}>
+          {new Date(post.data.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+        </time>
+        {post.data.minuteRead && (
+          <>
+            <span>·</span>
+            <span>{post.data.minuteRead} min read</span>
+          </>
+        )}
+      </div>
+    </header>
+
+    <!-- Divider -->
+    <hr style="border-color:var(--color-hairline);margin-bottom:2.5rem" />
+
+    <!-- Article content -->
+    <div class="prose">
+      <Content />
+    </div>
+
+    <!-- Back to blog -->
+    <div class="mt-16 pt-8 border-t" style="border-color:var(--color-hairline)">
+      <a
+        href={getSegmentPath(locale, 'blog')}
+        class="inline-flex items-center gap-2 text-body-sm hover:underline"
+        style="color:var(--color-mute)"
+      >
+        <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M13 8H3M7 4L3 8l4 4"/>
+        </svg>
+        {t('blog.backToBlog')}
+      </a>
+    </div>
+  </article>
+</Layout>

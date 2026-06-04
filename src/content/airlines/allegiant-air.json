@@ -1,0 +1,43 @@
+{
+  "name": "Allegiant Air",
+  "slug": "allegiant-air",
+  "iata": "G4",
+  "country": "United States",
+  "region": "North America",
+  "alliance": "Independent",
+  "logo": "https://images.kiwi.com/airlines/64/G4.png",
+  "carryOn": {
+    "size": "22 x 16 x 10 in (56 x 41 x 25 cm)",
+    "weight": "No weight limit",
+    "personalItem": "18 x 14 x 7 in (45 x 35 x 18 cm)",
+    "notes": "Carry-on requires a fee. One personal item included free."
+  },
+  "checked": {
+    "economy": { "pieces": 0, "weight": "40 lbs (18 kg)", "size": "62 in (157 cm) linear", "notes": "$30–$50+ per bag. Overweight fees apply over 40 lbs." },
+    "premiumEconomy": { "pieces": 0, "weight": "40 lbs (18 kg)", "size": "62 in (157 cm) linear", "notes": "Fees apply." },
+    "business": { "pieces": 0, "weight": "40 lbs (18 kg)", "size": "62 in (157 cm) linear", "notes": "N/A." },
+    "firstClass": { "pieces": 0, "weight": "40 lbs (18 kg)", "size": "62 in (157 cm) linear", "notes": "N/A." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Carry-on only for spare lithium batteries",
+    "spareBatteries": "Max 100Wh per battery.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on."
+  },
+  "restrictedItems": [
+    "Hoverboards",
+    "Oversized lithium battery devices"
+  ],
+  "faqs": [
+    {
+      "question": "Does Allegiant charge for carry-on bags?",
+      "answer": "Yes, Allegiant charges for carry-on bags. Only a personal item (18 x 14 x 7 inches) is included free."
+    },
+    {
+      "question": "What is Allegiant's weight limit for checked bags?",
+      "answer": "Allegiant's checked bag weight limit is 40 lbs. Overweight fees apply for bags between 41–70 lbs."
+    }
+  ],
+  "sourceUrl": "https://www.allegiantair.com/baggage-info",
+  "lastUpdated": "2025-01-01"
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Southwest Airlines",
+  "slug": "southwest-airlines",
+  "iata": "WN",
+  "country": "United States",
+  "region": "North America",
+  "alliance": "Independent",
+  "website": "https://www.southwest.com",
+  "logo": "https://images.kiwi.com/airlines/64/WN.png",
+  "carryOn": {
+    "size": "24 x 16 x 10 in (61 x 41 x 25 cm)",
+    "weight": "No weight limit",
+    "personalItem": "18.5 x 8.5 x 13.5 in (47 x 22 x 34 cm)",
+    "notes": "Southwest allows one carry-on bag and one personal item free for all passengers. No carry-on bag fees."
+  },
+  "checked": {
+    "economy": { "pieces": 2, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "Two checked bags FREE for all passengers. This is a signature Southwest benefit." },
+    "business": { "pieces": 2, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "Included — same as economy, 2 bags free." }
+  },
+  "fees": {
+    "firstBag": "Free for all passengers",
+    "secondBag": "Free for all passengers",
+    "overweight": "$75 for 51–100 lbs per bag"
+  },
+  "batteryRules": {
+    "lithiumIon": "Spare lithium-ion batteries and power banks allowed in carry-on only",
+    "spareBatteries": "Must be carried on. Up to 100Wh no approval needed. 101–160Wh requires airline approval.",
+    "powerBankLimit": "100Wh unrestricted; up to 160Wh with airline approval",
+    "laptops": "Allowed in carry-on. Remove from bag at TSA security checkpoint."
+  },
+  "restrictedItems": [
+    "Hoverboards and self-balancing scooters",
+    "Smart bags with non-removable lithium batteries over 160Wh"
+  ],
+  "faqs": [
+    {
+      "question": "Does Southwest charge for checked bags?",
+      "answer": "No. Southwest allows every passenger to check two bags free of charge, up to 50 lbs each. This applies to all fare types including Wanna Get Away."
+    },
+    {
+      "question": "What is Southwest's carry-on bag policy?",
+      "answer": "Southwest allows one carry-on bag (up to 24 x 16 x 10 in) and one personal item per passenger at no charge. All passengers can use overhead bin space."
+    },
+    {
+      "question": "Can I bring a power bank on Southwest?",
+      "answer": "Yes, power banks must be in your carry-on bag — not in checked luggage. Power banks up to 100Wh are permitted without special approval. Between 101–160Wh requires approval."
+    }
+  ],
+  "sourceUrl": "https://www.southwest.com/baggage/",
+  "lastUpdated": "2025-01-01"
+}

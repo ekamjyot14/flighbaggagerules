@@ -1,0 +1,34 @@
+{
+  "name": "Alcohol",
+  "slug": "alcohol",
+  "category": "liquids",
+  "description": "Alcoholic beverages are allowed on flights with specific restrictions based on alcohol content (ABV) and container size. Carry-on follows the standard 3-1-1 liquids rule. Checked baggage rules vary by alcohol percentage.",
+  "carryOnAllowed": "conditional",
+  "checkedAllowed": "conditional",
+  "tsaGuideline": "Alcoholic beverages are allowed in carry-on in containers of 3.4oz (100ml) or less that fit in a quart-sized bag (mini bottles). In checked bags: alcohol under 24% ABV (beer, wine) has no quantity limit; alcohol between 24-70% ABV is limited to 5 liters per passenger in retail packaging; alcohol over 70% ABV (140 proof) is prohibited in both carry-on and checked bags.",
+  "iataGuideline": "IATA permits alcoholic beverages in checked baggage with alcohol content between 24-70% by volume, limited to 5L per person in retail packaging. Beverages with 24% or less alcohol are not subject to dangerous goods restrictions. Over 70% alcohol is forbidden.",
+  "capacityLimit": "Carry-on: 3.4oz (100ml) per container. Checked: 5L total for 24-70% ABV. Over 70% ABV prohibited.",
+  "restrictions": [
+    "Carry-on: containers must be 3.4oz/100ml or less in quart bag (mini bottles only)",
+    "Checked: under 24% ABV (beer, wine) no quantity limit",
+    "Checked: 24-70% ABV limited to 5 liters per passenger in retail packaging",
+    "Over 70% ABV (140 proof) prohibited everywhere",
+    "Must remain in unopened retail packaging for checked bags",
+    "You may not consume your own alcohol on the aircraft without crew permission"
+  ],
+  "faqs": [
+    {
+      "question": "Can I bring mini bottles of liquor in my carry-on?",
+      "answer": "Yes. Mini bottles (typically 1.7oz/50ml) fit within the 3.4oz/100ml limit. They must be placed in your one quart-sized resealable bag along with other liquids. Note: you cannot consume your own alcohol onboard without flight crew permission."
+    },
+    {
+      "question": "How much wine or beer can I pack in checked luggage?",
+      "answer": "Wine and beer (under 24% ABV) have no FAA/TSA quantity limit in checked bags. You can pack as much as your luggage can hold, though airlines may have weight limits for checked bags."
+    },
+    {
+      "question": "Can I bring duty-free alcohol on the plane?",
+      "answer": "Duty-free alcohol purchased after security is allowed in carry-on regardless of size, provided it remains in the sealed, tamper-evident bag with the receipt visible. For connecting flights, re-check with the connecting country's rules as you may need to re-clear security."
+    }
+  ],
+  "lastUpdated": "2025-01-15"
+}

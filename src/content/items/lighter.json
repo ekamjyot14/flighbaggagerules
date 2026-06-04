@@ -1,0 +1,32 @@
+{
+  "name": "Lighter",
+  "slug": "lighter",
+  "category": "misc",
+  "description": "Disposable and Zippo lighters are allowed in carry-on baggage but generally prohibited in checked bags. Only one lighter per passenger is permitted and it must remain on your person (not in carry-on bag).",
+  "carryOnAllowed": "conditional",
+  "checkedAllowed": false,
+  "tsaGuideline": "One common lighter (disposable BIC-type or Zippo) is permitted per passenger, carried on your person or in carry-on. Torch lighters and arc/plasma lighters are prohibited in both carry-on and checked bags. Lighters may not be placed in checked baggage unless they are DOT-approved lighter cases.",
+  "iataGuideline": "IATA Dangerous Goods Regulations allow one small lighter on the person (not in carry-on bag or checked bag) that uses a flammable gas or flammable liquid fuel. Lighter fuel/refills are not permitted.",
+  "restrictions": [
+    "Maximum one lighter per passenger",
+    "Must be kept on your person (pocket), not in carry-on bag",
+    "Torch lighters (jet flame/blue flame) are prohibited everywhere",
+    "Not allowed in checked bags unless in DOT-approved case without fuel",
+    "Lighter fluid and refills are prohibited in both carry-on and checked bags"
+  ],
+  "faqs": [
+    {
+      "question": "Can I pack a lighter in my checked luggage?",
+      "answer": "No. Lighters are prohibited in checked baggage unless they are completely empty of fuel or stored in a DOT-approved protective case. A DOT-approved case must be able to contain a fire if the lighter accidentally ignites."
+    },
+    {
+      "question": "Are Zippo lighters allowed on planes?",
+      "answer": "Yes. One Zippo lighter is allowed per passenger, but it must be carried on your person (in a pocket). You cannot pack it in your carry-on bag or checked bag. Zippo lighter fluid refills are not permitted."
+    },
+    {
+      "question": "What about torch lighters or electric arc lighters?",
+      "answer": "Torch lighters (also called jet lighters or blue flame lighters) are completely prohibited in carry-on, checked bags, and on your person. Standard electric arc/plasma lighters follow the same one-lighter rule but policies vary by airline."
+    }
+  ],
+  "lastUpdated": "2025-01-15"
+}

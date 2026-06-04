@@ -1,0 +1,34 @@
+{
+  "name": "Aerosol Spray",
+  "slug": "aerosol-spray",
+  "category": "liquids",
+  "description": "Aerosol sprays such as deodorant, hairspray, and sunscreen are allowed in carry-on if containers are 3.4oz/100ml or less and fit in a quart-sized bag. In checked baggage, toiletry aerosols up to 18oz/500ml per container are allowed with a total limit of 70oz/2L.",
+  "carryOnAllowed": "conditional",
+  "checkedAllowed": "conditional",
+  "tsaGuideline": "Aerosol toiletries (deodorant, hairspray, shaving cream, etc.) are allowed in carry-on if each container is 3.4oz (100ml) or less and fits in your one quart-sized resealable bag. In checked baggage, each toiletry aerosol container must be 18oz (500ml) or less with a total aggregate of 70oz (2L) per passenger.",
+  "iataGuideline": "IATA permits aerosols classified as toiletry or medicinal articles in checked baggage up to 500ml/500g per container, with a total net quantity not exceeding 2L or 2kg per person. Non-toiletry aerosols (like spray paint) are prohibited.",
+  "capacityLimit": "Carry-on: 3.4oz (100ml) per container in quart bag. Checked: 18oz (500ml) per container, 70oz (2L) total per passenger.",
+  "restrictions": [
+    "Carry-on containers must be 3.4oz/100ml or less",
+    "Must fit in one quart-sized resealable plastic bag for carry-on",
+    "Checked bags limited to 18oz/500ml per container",
+    "Total checked aerosol limit of 70oz/2L per passenger",
+    "Only toiletry/medicinal aerosols allowed; industrial aerosols prohibited",
+    "Release valve must be protected by a cap or other means to prevent accidental discharge"
+  ],
+  "faqs": [
+    {
+      "question": "Can I bring aerosol deodorant in my carry-on?",
+      "answer": "Yes, if the container is 3.4oz (100ml) or smaller and fits in your quart-sized liquids bag. Travel-sized aerosol deodorants are widely available and designed to meet this requirement."
+    },
+    {
+      "question": "Is there a limit on aerosol cans in checked luggage?",
+      "answer": "Yes. Each toiletry aerosol container must be 18oz (500ml) or less, and the total combined quantity of all aerosols and other restricted toiletries cannot exceed 70oz (2L) per passenger."
+    },
+    {
+      "question": "Are all types of aerosol sprays allowed?",
+      "answer": "No. Only personal care/toiletry aerosols (deodorant, hairspray, shaving cream, sunscreen) and medicinal aerosols are permitted. Industrial or flammable aerosols like spray paint, WD-40, or cooking spray are prohibited in both carry-on and checked bags."
+    }
+  ],
+  "lastUpdated": "2025-01-15"
+}

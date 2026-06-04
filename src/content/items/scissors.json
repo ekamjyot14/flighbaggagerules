@@ -1,0 +1,32 @@
+{
+  "name": "Scissors",
+  "slug": "scissors",
+  "category": "sharp-objects",
+  "description": "Scissors with blades shorter than 4 inches from the pivot point are allowed in carry-on baggage. Scissors of any size are permitted in checked luggage. Larger scissors must be placed in checked bags.",
+  "carryOnAllowed": "conditional",
+  "checkedAllowed": true,
+  "tsaGuideline": "Scissors with blades measuring less than 4 inches from the pivot point are allowed in carry-on bags. Scissors with blades longer than 4 inches must be packed in checked baggage. All scissors should be sheathed or wrapped to prevent injury to baggage handlers.",
+  "iataGuideline": "IATA guidelines defer to local security regulations. Most countries follow similar rules allowing small scissors in carry-on, though some regions may have stricter limits on blade length.",
+  "capacityLimit": "Blade length must be under 4 inches (10 cm) from the pivot point for carry-on",
+  "restrictions": [
+    "Blades must be under 4 inches from pivot point for carry-on",
+    "Scissors with pointed tips may receive additional scrutiny",
+    "Final decision rests with TSA officer at checkpoint",
+    "Should be sheathed or wrapped when packed in checked bags"
+  ],
+  "faqs": [
+    {
+      "question": "How do I measure if my scissors are under 4 inches?",
+      "answer": "Measure from the pivot point (the screw/bolt where the blades cross) to the tip of the blade. If this measurement is under 4 inches (approximately 10 cm), the scissors are allowed in carry-on."
+    },
+    {
+      "question": "Are nail scissors and cuticle scissors allowed in carry-on?",
+      "answer": "Yes. Small nail scissors and cuticle scissors easily meet the under-4-inch blade requirement and are permitted in carry-on baggage."
+    },
+    {
+      "question": "Can TSA confiscate scissors that are under 4 inches?",
+      "answer": "The final decision rests with the TSA officer. While scissors under 4 inches are generally allowed, an officer may determine that a specific pair poses a security concern. Consider packing scissors in checked luggage to avoid any issues."
+    }
+  ],
+  "lastUpdated": "2025-01-15"
+}

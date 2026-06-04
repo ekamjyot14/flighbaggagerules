@@ -1,0 +1,43 @@
+{
+  "name": "Sun Country Airlines",
+  "slug": "sun-country-airlines",
+  "iata": "SY",
+  "country": "United States",
+  "region": "North America",
+  "alliance": "Independent",
+  "logo": "https://images.kiwi.com/airlines/64/SY.png",
+  "carryOn": {
+    "size": "24 x 17 x 10 in (61 x 43 x 25 cm)",
+    "weight": "35 lbs (16 kg)",
+    "personalItem": "17 x 13 x 9 in (43 x 33 x 23 cm)",
+    "notes": "Carry-on bag fee applies unless included with fare bundle. Personal item always included."
+  },
+  "checked": {
+    "economy": { "pieces": 0, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "$30 first bag when prepaid online." },
+    "premiumEconomy": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "First bag may be included." },
+    "business": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "N/A." },
+    "firstClass": { "pieces": 1, "weight": "50 lbs (23 kg)", "size": "62 in (157 cm) linear", "notes": "Included." }
+  },
+  "batteryRules": {
+    "lithiumIon": "Carry-on only for spare lithium batteries",
+    "spareBatteries": "Max 100Wh per battery.",
+    "powerBankLimit": "100Wh without approval",
+    "laptops": "Allowed in carry-on."
+  },
+  "restrictedItems": [
+    "Hoverboards",
+    "Smart bags with non-removable lithium batteries"
+  ],
+  "faqs": [
+    {
+      "question": "Does Sun Country charge for carry-on bags?",
+      "answer": "Yes, carry-on bag fees start at $30 when purchased online. Personal items are always free."
+    },
+    {
+      "question": "How many bags can I check on Sun Country?",
+      "answer": "You can check multiple bags for a fee. First bag starts at $30 prepaid online."
+    }
+  ],
+  "sourceUrl": "https://www.suncountry.com/bags",
+  "lastUpdated": "2025-01-01"
+}
