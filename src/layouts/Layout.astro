@@ -76,6 +76,15 @@ const schemaArray = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#171717" />
 
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHSSGRB7TN"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZHSSGRB7TN');
+    </script>
+
     <!-- Preload critical fonts -->
     <link rel="preload" href="/fonts/GeistVariableVF.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/GeistMonoVariableVF.woff2" as="font" type="font/woff2" crossorigin />

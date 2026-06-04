@@ -14,17 +14,49 @@ const year = new Date().getFullYear();
   style="background:var(--color-canvas);border-color:var(--color-hairline)"
   role="contentinfo"
 >
-  <div class="container-page py-6">
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-      <div class="flex items-center gap-4">
-        <div class="flex items-center gap-2">
-          <img src="/favicon-96x96.png" alt="" class="w-5 h-5 rounded" aria-hidden="true" />
-          <span class="text-xs font-medium" style="color:var(--color-mute)">{t('footer.copyright', { year: String(year) })}</span>
-        </div>
+  <div class="container-page py-10">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8">
+      <!-- Company -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider mb-3" style="color:var(--color-ink)">Company</h3>
+        <ul class="space-y-2">
+          <li><a href="/about" class="text-xs no-underline transition-colors duration-150 hover:opacity-80" style="color:var(--color-mute)">About Us</a></li>
+          <li><a href="/contact" class="text-xs no-underline transition-colors duration-150 hover:opacity-80" style="color:var(--color-mute)">Contact Us</a></li>
+        </ul>
       </div>
-      <div class="flex items-center gap-4">
-        <a href="/privacy" class="text-xs no-underline transition-colors duration-150 hover:opacity-80" style="color:var(--color-mute)">{t('footer.privacy')}</a>
-        <a href="/terms" class="text-xs no-underline transition-colors duration-150 hover:opacity-80" style="color:var(--color-mute)">{t('footer.terms')}</a>
+      <!-- Resources -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider mb-3" style="color:var(--color-ink)">Resources</h3>
+        <ul class="space-y-2">
+          <li><a href="/airlines" class="text-xs no-underline transition-colors duration-150 hover:opacity-80" style="color:var(--color-mute)">Airlines</a></li>
+          <li><a href="/items" class="text-xs no-underline transition-colors duration-150 hover:opacity-80" style="color:var(--color-mute)">Items</a></li>
+          <li><a href="/compare" class="text-xs no-underline transition-colors duration-150 hover:opacity-80" style="color:var(--color-mute)">Compare</a></li>
+          <li><a href="/blog" class="text-xs no-underline transition-colors duration-150 hover:opacity-80" style="color:var(--color-mute)">Blog</a></li>
+        </ul>
+      </div>
+      <!-- Popular Airlines -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider mb-3" style="color:var(--color-ink)">Top Airlines</h3>
+        <ul class="space-y-2">
+          <li><a href="/airlines/delta-air-lines" class="text-xs no-underline transition-colors duration-150 hover:opacity-80" style="color:var(--color-mute)">Delta</a></li>
+          <li><a href="/airlines/united-airlines" class="text-xs no-underline transition-colors duration-150 hover:opacity-80" style="color:var(--color-mute)">United</a></li>
+          <li><a href="/airlines/american-airlines" class="text-xs no-underline transition-colors duration-150 hover:opacity-80" style="color:var(--color-mute)">American</a></li>
+          <li><a href="/airlines/southwest-airlines" class="text-xs no-underline transition-colors duration-150 hover:opacity-80" style="color:var(--color-mute)">Southwest</a></li>
+        </ul>
+      </div>
+      <!-- Legal -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wider mb-3" style="color:var(--color-ink)">Legal</h3>
+        <ul class="space-y-2">
+          <li><a href="/privacy" class="text-xs no-underline transition-colors duration-150 hover:opacity-80" style="color:var(--color-mute)">{t('footer.privacy')}</a></li>
+          <li><a href="/terms" class="text-xs no-underline transition-colors duration-150 hover:opacity-80" style="color:var(--color-mute)">{t('footer.terms')}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3" style="border-color:var(--color-hairline)">
+      <div class="flex items-center gap-2">
+        <img src="/favicon-96x96.png" alt="" class="w-5 h-5 rounded" aria-hidden="true" />
+        <span class="text-xs font-medium" style="color:var(--color-mute)">{t('footer.copyright', { year: String(year) })}</span>
       </div>
     </div>
     <p class="mt-3 text-xs leading-relaxed" style="color:var(--color-mute)">{t('footer.disclaimer')}</p>

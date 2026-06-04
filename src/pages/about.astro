@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { buildBreadcrumbSchema } from '../utils/seo';
+
+const site = 'https://flightbaggagerules.com';
+const schema = buildBreadcrumbSchema([
+  { name: 'Home', url: site },
+  { name: 'About Us', url: `${site}/about` },
+]);
+---
+
+<Layout
+  title="About Us — FlightBaggageRules.com"
+  description="Learn about FlightBaggageRules.com — the free tool that helps travelers check flight baggage rules, carry-on limits, and checked baggage allowances for 50+ airlines worldwide."
+  schema={schema}
+>
+  <div class="container-page" style="padding-top:clamp(48px,8vw,80px);padding-bottom:clamp(48px,8vw,80px)">
+    <div class="mx-auto" style="max-width:640px">
+      <h1 class="text-display-lg mb-4" style="color:var(--color-ink)">About FlightBaggageRules.com</h1>
+      <p class="text-body-md mb-8" style="color:var(--color-body)">The most comprehensive free resource for flight baggage rules and airline baggage policies.</p>
+
+      <div class="space-y-8 text-base leading-relaxed" style="color:var(--color-body);line-height:1.75">
+        <section>
+          <h2 class="text-display-sm mb-3" style="color:var(--color-ink)">Our Mission</h2>
+          <p>FlightBaggageRules.com was built to solve a simple but frustrating problem: finding accurate, up-to-date flight baggage rules shouldn't require digging through dozens of airline websites. We created a centralized platform where travelers can instantly check baggage weight limits, carry-on dimensions, restricted items, and checked baggage allowances for over 50 airlines — all in one place, completely free.</p>
+        </section>
+
+        <section>
+          <h2 class="text-display-sm mb-3" style="color:var(--color-ink)">What We Do</h2>
+          <p>We aggregate and organize baggage policies from airlines around the world, including major carriers like Delta Air Lines, United Airlines, American Airlines, Southwest Airlines, Emirates, Lufthansa, British Airways, and many more. Our database covers:</p>
+          <ul class="list-disc pl-5 mt-3 space-y-2">
+            <li><strong>Carry-on baggage rules</strong> — exact dimensions, weight limits, and personal item policies</li>
+            <li><strong>Checked baggage allowances</strong> — fees, weight limits, and size restrictions for domestic and international flights</li>
+            <li><strong>Restricted & prohibited items</strong> — what you can and cannot bring on a plane</li>
+            <li><strong>Battery & electronics rules</strong> — lithium battery limits, power banks, and device policies</li>
+            <li><strong>Airline comparison tools</strong> — side-by-side baggage policy comparisons</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-display-sm mb-3" style="color:var(--color-ink)">Our Data Sources</h2>
+          <p>All information is sourced directly from official airline websites, TSA guidelines, IATA regulations, and government aviation authorities. We regularly review and update our data to reflect the latest policy changes, so you can travel with confidence knowing the information is current.</p>
+        </section>
+
+        <section>
+          <h2 class="text-display-sm mb-3" style="color:var(--color-ink)">Why Trust Us</h2>
+          <ul class="list-disc pl-5 mt-2 space-y-2">
+            <li><strong>No registration required</strong> — access all baggage rules instantly without creating an account</li>
+            <li><strong>Completely free</strong> — no hidden fees, no premium tiers</li>
+            <li><strong>Regularly updated</strong> — we monitor airline policy changes and update our database accordingly</li>
+            <li><strong>Multi-language support</strong> — available in multiple languages for international travelers</li>
+            <li><strong>Source transparency</strong> — we link directly to official airline sources for verification</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-display-sm mb-3" style="color:var(--color-ink)">Important Disclaimer</h2>
+          <p>While we strive for accuracy, airline baggage policies change frequently. FlightBaggageRules.com is an informational resource and should not be considered a substitute for checking directly with your airline before travel. Always confirm current policies with your carrier, especially for international flights where rules may vary by route and fare class.</p>
+        </section>
+
+        <section>
+          <h2 class="text-display-sm mb-3" style="color:var(--color-ink)">Get in Touch</h2>
+          <p>Have a question, suggestion, or spotted outdated information? We'd love to hear from you. Visit our <a href="/contact" style="color:var(--color-ink);font-weight:500;text-decoration:underline">Contact page</a> to get in touch with our team.</p>
+        </section>
+      </div>
+    </div>
+  </div>
+</Layout>

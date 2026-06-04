@@ -1,0 +1,129 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { buildBreadcrumbSchema } from '../utils/seo';
+
+const site = 'https://flightbaggagerules.com';
+const schema = buildBreadcrumbSchema([
+  { name: 'Home', url: site },
+  { name: 'Contact Us', url: `${site}/contact` },
+]);
+---
+
+<Layout
+  title="Contact Us — FlightBaggageRules.com"
+  description="Contact the FlightBaggageRules.com team. Report outdated baggage rules, suggest new airlines, or ask questions about flight baggage policies."
+  schema={schema}
+>
+  <div class="container-page" style="padding-top:clamp(48px,8vw,80px);padding-bottom:clamp(48px,8vw,80px)">
+    <div class="mx-auto" style="max-width:640px">
+      <h1 class="text-display-lg mb-4" style="color:var(--color-ink)">Contact Us</h1>
+      <p class="text-body-md mb-8" style="color:var(--color-body)">Have a question about flight baggage rules or want to report outdated information? We're here to help.</p>
+
+      <div class="space-y-8">
+        <!-- Contact Form -->
+        <form
+          action="https://formsubmit.co/contact@flightbaggagerules.com"
+          method="POST"
+          class="space-y-5"
+        >
+          <!-- Honeypot for spam prevention -->
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+          <!-- Disable captcha page -->
+          <input type="hidden" name="_captcha" value="false" />
+          <!-- Success redirect -->
+          <input type="hidden" name="_next" value="https://flightbaggagerules.com/contact?success=true" />
+
+          <div>
+            <label for="name" class="block text-sm font-medium mb-1.5" style="color:var(--color-ink)">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="John Doe"
+              class="w-full px-4 py-2.5 rounded-lg border text-sm"
+              style="background:var(--color-canvas);border-color:var(--color-hairline);color:var(--color-ink);outline:none"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium mb-1.5" style="color:var(--color-ink)">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="you@example.com"
+              class="w-full px-4 py-2.5 rounded-lg border text-sm"
+              style="background:var(--color-canvas);border-color:var(--color-hairline);color:var(--color-ink);outline:none"
+            />
+          </div>
+
+          <div>
+            <label for="subject" class="block text-sm font-medium mb-1.5" style="color:var(--color-ink)">Subject</label>
+            <select
+              id="subject"
+              name="subject"
+              required
+              class="w-full px-4 py-2.5 rounded-lg border text-sm"
+              style="background:var(--color-canvas);border-color:var(--color-hairline);color:var(--color-ink);outline:none"
+            >
+              <option value="">Select a topic...</option>
+              <option value="outdated-info">Report Outdated Information</option>
+              <option value="new-airline">Suggest a New Airline</option>
+              <option value="bug-report">Report a Bug</option>
+              <option value="general">General Question</option>
+              <option value="partnership">Partnership Inquiry</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium mb-1.5" style="color:var(--color-ink)">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="5"
+              placeholder="Tell us how we can help..."
+              class="w-full px-4 py-2.5 rounded-lg border text-sm resize-y"
+              style="background:var(--color-canvas);border-color:var(--color-hairline);color:var(--color-ink);outline:none;min-height:120px"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-medium transition-opacity duration-150 hover:opacity-90"
+            style="background:var(--color-ink);color:var(--color-canvas)"
+          >
+            Send Message
+            <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M2 8h12M10 4l4 4-4 4"/>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Alternative Contact Info -->
+        <div class="border-t pt-8" style="border-color:var(--color-hairline)">
+          <h2 class="text-display-sm mb-4" style="color:var(--color-ink)">Other Ways to Reach Us</h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl border" style="background:var(--color-canvas-soft);border-color:var(--color-hairline)">
+              <p class="text-xs font-medium mb-1" style="color:var(--color-mute)">General Inquiries</p>
+              <p class="text-sm font-medium" style="color:var(--color-ink)">contact@flightbaggagerules.com</p>
+            </div>
+            <div class="p-4 rounded-xl border" style="background:var(--color-canvas-soft);border-color:var(--color-hairline)">
+              <p class="text-xs font-medium mb-1" style="color:var(--color-mute)">Data Corrections</p>
+              <p class="text-sm font-medium" style="color:var(--color-ink)">updates@flightbaggagerules.com</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Response Time -->
+        <div class="p-4 rounded-xl border" style="background:var(--color-canvas-soft);border-color:var(--color-hairline)">
+          <p class="text-sm" style="color:var(--color-body)">
+            <strong style="color:var(--color-ink)">Response Time:</strong> We typically respond within 24–48 hours on business days. For urgent baggage questions before a flight, we recommend checking your airline's official website directly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
